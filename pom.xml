@@ -40,6 +40,7 @@
 	<modules>
 		<module>modules/jconsole-plugin</module>
 		<module>modules/hibernate-connector</module>
+		<module>modules/hibernate-tester</module>
 	</modules>
 
 	<licenses>

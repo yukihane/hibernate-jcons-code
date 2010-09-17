@@ -2,149 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="2a6aefec-39a4-43ab-98c6-ebbbcaa6df42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\DataSampler.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/DataSampler.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\LegendJLabel.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/LegendJLabel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\CollectionsTab.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsTab.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\MainTab.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/MainTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme.txt" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\resources\META-INF\services\com.sun.tools.jconsole.JConsolePlugin" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/resources/META-INF/services/com.sun.tools.jconsole.JConsolePlugin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/pom.xml" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\TimeboxedDataSampler.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/TimeboxedDataSampler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/main" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\Names.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/Names.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\Methods.java" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/Methods.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\CollectionsTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsTable.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\Refreshable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/Refreshable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\NumberAxis.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/NumberAxis.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\JConsolePlugin.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsolePlugin.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\FilledLineGraph2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/FilledLineGraph2D.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\formatters\ToolTipQueryHighlighter.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/formatters/ToolTipQueryHighlighter.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\HibernateJmxBinding.java" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/HibernateJmxBinding.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\SecondLevelCacheTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/SecondLevelCacheTable.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\Graph2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/Graph2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.iml" afterPath="$PROJECT_DIR$/HibernateJConsole.iml" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\QueryDetails.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/QueryDetails.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\ModificationsTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/ModificationsTableCell.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\MainLoadChart.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/MainLoadChart.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\EntitiesTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/EntitiesTable.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\PerformanceTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/PerformanceTableCell.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/src/main/java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/hibernate-3-1-tester.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.ipr" afterPath="$PROJECT_DIR$/HibernateJConsole.ipr" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\resources\META-INF\license.txt" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/resources/META-INF/license.txt" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java\net\sf\hibernate\jconsole" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/src" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\jconsole-plugin\src\main\java\net\sf\hibernate\jconsole\Methods.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\FixedSizeDataSampler.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/FixedSizeDataSampler.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\stats\QueryStatistics.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/QueryStatistics.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\ExecutionCountTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/ExecutionCountTableCell.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\jconsole-plugin\src\main\java\net\sf\hibernate\jconsole\HibernateContext.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\RefreshableJSplitPane.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assemble" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\jconsole-plugin\src\main\java\net\sf\hibernate\jconsole\util\JpaHibernateJmxBinding.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java\net\sf\hibernate\jconsole\JConsolePluginHibernateFilterTest.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/JConsolePluginHibernateFilterTest.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/main/java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/main/java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\TimeAxis.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/TimeAxis.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\formatters\QueryHighlighter.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/formatters/QueryHighlighter.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\resources\META-INF" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/resources/META-INF" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\HibernateContext.java" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\stats" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java\net\sf\hibernate\jconsole\stats\StraightNameMappingProxyTest.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/stats/StraightNameMappingProxyTest.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\formatters\CollectionHighlighter.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/formatters/CollectionHighlighter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\TableCellJLabel.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/TableCellJLabel.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\resources\HibernateNotFound.html" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/resources/HibernateNotFound.html" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\Chart2DPanel.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/Chart2DPanel.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\stats\SecondLevelCacheStatistics.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/SecondLevelCacheStatistics.java" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\AbstractJTable.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\LineBarTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/LineBarTableCell.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/src/main" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\stats\CollectionStatistics.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/CollectionStatistics.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\resources\META-INF\services" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/resources/META-INF/services" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\AbstractStatisticsContext.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/AbstractStatisticsContext.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\AbstractTableDetails.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractTableDetails.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java\net\sf\hibernate\jconsole\stats" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/stats" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\stats\StraightNameMappingProxy.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/main" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\EntitiesTab.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/EntitiesTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/pom.xml" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\QueryPerformanceTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/QueryPerformanceTableCell.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\HitrateTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/HitrateTableCell.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractRefreshableJTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractRefreshableJTable.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\stats\EntityStatistics.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/EntityStatistics.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\AbstractRefreshableJTable.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\formatters" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/formatters" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\formatters\AbstractHighlighter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\jconsole-plugin\src\main\java\net\sf\hibernate\jconsole\util\HibernateJmxBinding.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\formatters\EntityHighlighter.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/formatters/EntityHighlighter.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java\net\sf" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\QueriesTab.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/QueriesTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assemble/app.xml" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\RefreshableJPanel.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/RefreshableJPanel.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\MainContent.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/MainContent.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\EntityPerformanceTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/EntityPerformanceTableCell.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\EntityDetails.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/EntityDetails.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\resources" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/resources" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/RefreshableJSplitPane.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/RefreshableJSplitPane.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\AbstractChartElement.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/AbstractChartElement.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\HibernateNotFoundContent.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/HibernateNotFoundContent.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\TimingTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/TimingTableCell.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\ClasspathUtil.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/ClasspathUtil.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/src" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.iws" afterPath="$PROJECT_DIR$/HibernateJConsole.iws" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\NotAvailableBarTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/NotAvailableBarTableCell.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/main/java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\SecondLevelCacheTab.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/SecondLevelCacheTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\LineGraph2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/LineGraph2D.java" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\stats\AbstractMethodMappingProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\ChartAxis.java" afterPath="" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\Legend.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/Legend.java" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\JpaHibernateJmxBinding.java" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/JpaHibernateJmxBinding.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/jconsole-plugin.iml" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\DataTable.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java\net" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/main/java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/main" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\widgets\charts\AbstractChart2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/AbstractChart2D.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/main" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\test\java\net\sf\hibernate" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate" />
-      <change type="MOVED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\ui\QueriesTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/QueriesTable.java" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\main\java\net\sf\hibernate\jconsole\util\UIUtils.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/hibernate-generic-tester.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/src/main" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/hibernate-3-5-tester.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/src/main/java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/hibernate-tester.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/hibernate-3-3-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" afterPath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/hibernate-3-2-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.iml" afterPath="$PROJECT_DIR$/HibernateJConsole.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main" />
     </list>
     <ignored path="HibernateJConsole.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -209,42 +90,11 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StraightNameMappingProxyTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/stats/StraightNameMappingProxyTest.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="8" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.0">
+            <state line="41" column="8" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JConsolePluginHibernateFilterTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/JConsolePluginHibernateFilterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="30" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HibernateJmxBinding.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/HibernateJmxBinding.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="69" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1284742029198" expanded="true" signature="1941:2210" placeholder="/**...*/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JpaHibernateJmxBinding.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/JpaHibernateJmxBinding.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="13" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1284742029182" expanded="true" signature="2020:2315" placeholder="/**...*/" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -252,27 +102,52 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="20" selection-start="4422" selection-end="4422" vertical-scroll-proportion="0.36925516">
+            <state line="42" column="40" selection-start="1585" selection-end="1585" vertical-scroll-proportion="0.5236641">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Names.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/Names.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="16" selection-start="2175" selection-end="2175" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="26" column="53" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/pom.xml">
+        <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="4" selection-start="1049" selection-end="1075" vertical-scroll-proportion="-11.75">
+            <state line="38" column="48" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="48" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="48" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="48" selection-start="1456" selection-end="1480" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -281,31 +156,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="29" selection-start="1470" selection-end="1470" vertical-scroll-proportion="-14.25">
+            <state line="36" column="0" selection-start="1223" selection-end="1419" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HibernateContext.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="13" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Methods.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/Methods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="12" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1284742029199" expanded="false" signature="833:1077" placeholder="..." />
-                <marker date="1284742029199" expanded="true" signature="1914:2863" placeholder="/**...*/" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -320,12 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractRefreshableJTable.java" />
-        <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsTable.java" />
-        <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/QueriesTable.java" />
-        <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/EntitiesTable.java" />
-        <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/QueriesTab.java" />
-        <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/EntitiesTab.java" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/SecondLevelCacheTable.java" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/SecondLevelCacheTab.java" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsTab.java" />
@@ -335,6 +181,12 @@
         <option value="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/JpaHibernateJmxBinding.java" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/pom.xml" />
         <option value="$PROJECT_DIR$/modules/hibernate-connector/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-tester/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -834,58 +686,6 @@
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-connector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -971,8 +771,11 @@
       <recent name="net.sf.hibernate.jconsole.ui" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\SF\hibernate-jcons\trunk\modules\jconsole-plugin" />
       <recent name="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-1-tester" />
+      <recent name="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-2-tester" />
+      <recent name="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-3-tester" />
+      <recent name="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-5-tester" />
+      <recent name="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="net.sf.hibernate.jconsole.stats" />
@@ -1277,7 +1080,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="0" width="1410" height="870" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1290,7 +1093,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12546399" sideWeight="0.48535565" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27691165" sideWeight="0.54951185" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27691165" sideWeight="0.54951185" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50488144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1371,58 +1174,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/EntitiesTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="81" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/QueriesTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="49" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/EntitiesTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="49" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/SecondLevelCacheTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="58" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/SecondLevelCacheTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="49" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="49" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/stats/StraightNameMappingProxyTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="8" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.0">
@@ -1437,48 +1188,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/Names.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="16" selection-start="2175" selection-end="2175" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="13" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/Methods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="12" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1284742029199" expanded="false" signature="833:1077" placeholder="..." />
-            <marker date="1284742029199" expanded="true" signature="1914:2863" placeholder="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/HibernateJmxBinding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="69" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1284742029198" expanded="true" signature="1941:2210" placeholder="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/JpaHibernateJmxBinding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="13" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1284742029182" expanded="true" signature="2020:2315" placeholder="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -1490,16 +1204,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/util/JpaHibernateJmxBinding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="13" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.26086956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/Names.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="16" selection-start="2175" selection-end="2175" vertical-scroll-proportion="1.3913044">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="13" selection-start="1114" selection-end="1114" vertical-scroll-proportion="-0.13043478">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/Methods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="12" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.25652173">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="29" selection-start="1470" selection-end="1470" vertical-scroll-proportion="-14.25">
+        <state line="36" column="0" selection-start="1223" selection-end="1419" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="48" selection-start="1456" selection-end="1480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="48" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="48" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="48" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="53" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="8" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="20" selection-start="4422" selection-end="4422" vertical-scroll-proportion="0.36925516">
+        <state line="42" column="40" selection-start="1585" selection-end="1585" vertical-scroll-proportion="0.5236641">
           <folding />
         </state>
       </provider>

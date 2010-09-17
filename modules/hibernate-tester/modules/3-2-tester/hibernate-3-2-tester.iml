@@ -13,6 +13,7 @@
     <orderEntry type="module" module-name="hibernate-generic-tester" exported="" />
     <orderEntry type="module" module-name="hibernate-connector" exported="" />
     <orderEntry type="module" module-name="jconsole-plugin" exported="" />
+    <orderEntry type="library" name="Maven: com.sun:jconsole:1.6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.8.1" level="project" />
   </component>
 </module>

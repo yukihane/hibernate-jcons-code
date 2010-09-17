@@ -20,15 +20,27 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<packaging>pom</packaging>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.sf</groupId>
+
+	<groupId>net.sf.hibernate-jconsole</groupId>
 	<artifactId>hibernate-jconsole</artifactId>
 
 	<name>Hibernate JConsole Plugin (hibernate-jconsole)</name>
 	<url>https://hibernate-jcons.sourceforge.net/</url>
 
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.4-SNAPSHOT</version>
 	<inceptionYear>2009</inceptionYear>
+
+	<properties>
+		<svn.tag>trunk</svn.tag>
+	</properties>
+
+	<modules>
+		<module>modules/jconsole-plugin</module>
+		<module>modules/hibernate-connector</module>
+	</modules>
 
 	<licenses>
 		<license>
@@ -71,8 +83,7 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons</connection>
-		<!--developerConnection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons</developerConnection-->
+		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/${svn.tag}</connection>
 		<tag>HEAD</tag>
 		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons</url>
 	</scm>
@@ -136,40 +147,26 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assemble/app.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.sun</groupId>
-			<artifactId>jconsole</artifactId>
-			<version>1.6</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/jconsole.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.1</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<artifactId>ejb3-persistence</artifactId>
-			<groupId>org.hibernate</groupId>
-			<version>3.3.2.Beta1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<artifactId>hibernate-core</artifactId>
-			<groupId>org.hibernate</groupId>
-			<version>3.3.2.GA</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<artifactId>hibernate-jmx</artifactId>
-			<groupId>org.hibernate</groupId>
-			<version>3.3.2.GA</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

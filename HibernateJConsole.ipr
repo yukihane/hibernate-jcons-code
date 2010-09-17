@@ -41,11 +41,8 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="EclipseCompilerSettings">
-    <option name="DEBUGGING_INFO" value="true" />
     <option name="GENERATE_NO_WARNINGS" value="true" />
     <option name="DEPRECATION" value="false" />
-    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
-    <option name="MAXIMUM_HEAP_SIZE" value="128" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="IdProvider" IDEtalkID="A1968C848EBABD058D5925B7E3F62CD9" />
@@ -82,14 +79,6 @@
     <option name="HEAP_SIZE" />
     <option name="LOCALE" />
     <option name="OPEN_IN_BROWSER" value="true" />
-  </component>
-  <component name="JikesSettings">
-    <option name="JIKES_PATH" value="" />
-    <option name="DEBUGGING_INFO" value="true" />
-    <option name="DEPRECATION" value="true" />
-    <option name="GENERATE_NO_WARNINGS" value="false" />
-    <option name="IS_EMACS_ERRORS_MODE" value="true" />
-    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -228,9 +217,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HibernateJConsole.iml" filepath="$PROJECT_DIR$/HibernateJConsole.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" filepath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/jconsole-plugin/jconsole-plugin.iml" filepath="$PROJECT_DIR$/modules/jconsole-plugin/jconsole-plugin.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6 (32bit)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ResourceManagerContainer">
@@ -246,7 +237,21 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <SvnBranchConfiguration>
-              <option name="trunkUrl" value="https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons" />
+              <option name="branchMap">
+                <map>
+                  <entry key="https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags">
+                    <value>
+                      <list />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/trunk" />
             </SvnBranchConfiguration>
           </value>
         </entry>
@@ -264,109 +269,23 @@
     </Base>
   </component>
   <component name="libraryTable">
-    <library name="Maven: com.sun:jconsole:1.6">
+    <library name="Maven: junit:junit:4.8.1">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.8.1/junit-4.8.1.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.8.1/junit-4.8.1-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/jconsole-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.8.1/junit-4.8.1-sources.jar!/" />
       </SOURCES>
+    </library>
+    <library name="Maven: com.sun:jconsole:1.6">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/modules/jconsole-plugin/../../lib/jconsole.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
     <library name="Maven: org.hibernate:ejb3-persistence:3.3.2.Beta1">
       <CLASSES>
@@ -465,17 +384,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-jmx/3.3.2.GA/hibernate-jmx-3.3.2.GA-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: junit:junit:4.8.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.8.1/junit-4.8.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.8.1/junit-4.8.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.8.1/junit-4.8.1-sources.jar!/" />
       </SOURCES>
     </library>
   </component>

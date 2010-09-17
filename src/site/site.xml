@@ -1,0 +1,70 @@
+<!--
+  ~ Copyright (c) 2010
+  ~
+  ~ This file is part of HibernateJConsole.
+  ~
+  ~     HibernateJConsole is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     HibernateJConsole is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0
+		 	http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+
+	<publishDate position="right"/>
+
+	<body>
+		<head>
+			<meta name="keywords"
+				  content="hibernate, hql, jpa, jconsole, plugin, visualvm, jmx, monitoring, profiling"/>
+		</head>
+
+		<breadcrumbs>
+			<item name="About" href="index.html"/>
+			<item name="Download" href="https://sourceforge.net/projects/hibernate-jcons/files/"/>
+		</breadcrumbs>
+
+		<menu name="Overview">
+			<item name="About" href="index.html"/>
+			<item name="Usage" href="usage.html"/>
+			<item name="Release Notes" href="releaseNotes.html"/>
+			<item name="Download" href="https://sourceforge.net/projects/hibernate-jcons/files/"/>
+		</menu>
+
+		<menu name="Resources">
+			<item name="SF Project Page" href="https://sourceforge.net/projects/hibernate-jcons/"/>
+			<item name="Built with Hudson" href="http://www.tinyjee.org/hudson/view/All/"/>
+			<item name="QA'ed by Sonar" href="http://www.tinyjee.org/sonar/"/>
+		</menu>
+
+		<menu ref="reports"/>
+	</body>
+
+	<bannerLeft>
+		<alt>${project.name}</alt>
+		<src>/images/logo.jpg</src>
+	</bannerLeft>
+
+	<bannerRight>
+		<alt>Support This Project</alt>
+		<href>http://sourceforge.net/donate/index.php?group_id=289306</href>
+		<src>http://images.sourceforge.net/images/project-support.jpg</src>
+	</bannerRight>
+
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-stylus-skin</artifactId>
+		<version>1.1</version>
+	</skin>
+</project>

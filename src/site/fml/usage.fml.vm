@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2009
+  ~
+  ~ This file is part of HibernateJConsole.
+  ~
+  ~     HibernateJConsole is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     HibernateJConsole is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+	  title="Usage" toplink="false">
+
+	<part id="pre-requisites">
+		<title>Prerequisites</title>
+
+		<faq id="hibernate-jmx-01">
+			<question>
+				Enable JMX support inside Hibernate - Solution 1
+			</question>
+			<answer>
+				<p>
+					In case of your monitored application is not yet publishing any hibernate MBeans,
+					use the following helper class (contained inside "${project.build.finalName}.jar") to adjust
+					your application and enable the JMX support in hibernate:
+					<br/>
+					<br/>
+					<b>Plain example</b> (Hibernate only):
+					<source>
+MBeanServer myServer = ...;
+SessionFactory sf = ...;
+HibernateJmxBinding jmxBinding = new HibernateJmxBinding(myServer, sf);
+jmxBinding.registerJmxBinding();
+					</source>
+					<b>Plain example</b> (Hibernate in JPA environment):
+					<source>
+MBeanServer myServer = ...;
+EntityManagerFactory emf = ...;
+JpaHibernateJmxBinding jmxBinding = new JpaHibernateJmxBinding(myServer, emf);
+jmxBinding.registerJmxBinding();
+					</source>
+					<b>Spring example</b> (annotation config enabled):
+					<source><![CDATA[
+<context:annotation-config/>
+<context:mbean-server id="jmxServer"/>
+
+<bean class="net.sf.hibernate.jconsole.util.JpaHibernateJmxBinding"/>
+					]]></source>
+				</p>
+			</answer>
+		</faq>
+
+		<faq id="hibernate-jmx-02">
+			<question>
+				Enable JMX support inside Hibernate - Solution 2
+			</question>
+			<answer>
+				<p>
+					Using the generic Spring support for JMX publishing
+				</p>
+				<source><![CDATA[
+<bean id="jmxExporter"
+	  class="org.springframework.jmx.export.MBeanExporter">
+	<property name="beans">
+		<map>
+			<entry key="Hibernate:application=Statistics">
+				<ref local="statisticsBean"/>
+			</entry>
+		</map>
+	</property>
+</bean>
+
+<bean id="statisticsBean" class="org.hibernate.jmx.StatisticsService">
+	<property name="statisticsEnabled">
+		<value>true</value>
+	</property>
+	<property name="sessionFactory">
+		<ref local="sessionFactory"/>
+	</property>
+</bean>
+				]]></source>
+			</answer>
+		</faq>
+
+		<faq id="hibernate-statistics">
+			<question>
+				Enable the generation of statistics inside Hibernate
+			</question>
+			<answer>
+				<p>
+					Make sure you set the hibernate property "<code>hibernate.generate_statistics</code>"
+					to true inside "persistence.xml" or any other supported configuration file.
+				</p>
+				<source><![CDATA[
+<prop key="hibernate.generate_statistics">true</prop>
+				]]></source>
+			</answer>
+		</faq>
+	</part>
+
+	<part id="jconsole">
+		<title>Using the plugin with JConsole</title>
+
+		<faq id="quickstart-jconsole">
+			<question>
+				Quickstart with JConsole
+			</question>
+			<answer>
+				<source>
+cd C:\Sandbox\Libraries\hibernate
+jconsole -pluginpath C:\Sandbox\\${project.build.finalName}.jar
+				</source>
+				<p>
+					<b>Important Note:</b>
+					Make sure you start JConsole from a working path which contains
+					<b>"hibernate3.jar"</b>
+					as this is required by the plugin to work correctly.
+				</p>
+			</answer>
+		</faq>
+
+		<faq id="customize-jconsole">
+			<question>
+				Customizations
+			</question>
+			<answer>
+				<source>
+jconsole -pluginpath C:\Sandbox\\${project.build.finalName}.jar \
+		-J-Dhibernate.classpath=C:\Sandbox\Libraries\hibernate\hibernate3.jar \
+		-J-Dhibernate.mbean=Hibernate:application=Statistics
+				</source>
+				<ul>
+					<li>
+						"<code>hibernate.classpath</code>":
+						Points to a jar or directory of jars that contains the hibernate jars.
+						<br/>
+						(If the path is set to a directory, the filename pattern "hibernate*.jar" is used
+						to add all matching jars to the system classpath)
+					</li>
+					<li>
+						"<code>hibernate.mbean</code>":
+						Specifies the object name of the Hibernate statistics Mbean for the case that it wasn't
+						published under the name suggested above.
+					</li>
+				</ul>
+			</answer>
+		</faq>
+	</part>
+
+	<part id="visualvm">
+
+		<title>Using the plugin with VisualVm</title>
+
+		<faq id="how-install">
+			<question>
+				Quickstart with VisualVm
+			</question>
+			<answer>
+				<p>
+					Make sure you installed the plugin "VisualVm-JConsole" and configured the
+					"JConsole-Plugin" path inside the "Options" menu to point to "${project.build.finalName}.jar".
+				</p>
+				<p>
+					Restart VisualVm either in the correct working path or by adding the customization
+					parameters inside the commandline as shown below.
+					(see <a href="#customize-jconsole">Customizations</a> for more details)
+				</p>
+				<source>
+visualvm -J-Dhibernate.classpath=C:\Sandbox\Libraries\hibernate\hibernate3.jar \
+		-J-Dhibernate.mbean=Hibernate:application=Statistics
+				</source>
+			</answer>
+		</faq>
+	</part>
+</faqs>

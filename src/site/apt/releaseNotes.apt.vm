@@ -1,0 +1,45 @@
+    ------
+    Release Notes
+    ------
+    Juergen Kellerer
+    ------
+    2009-12-04
+    ------
+
+Release Notes
+
+* ${project.artifactId}-1.0.3.jar
+
+    * Supporting Hibernate 3.5 - 3.1
+
+    * Applied patch from: https://sourceforge.net/tracker/?func=detail&aid=3013675&group_id=289306&atid=1225026
+
+* ${project.artifactId}-1.0.2.jar
+
+    * Added new feature allowing to hide & show graphs by clicking on the legend label.
+
+    * Fixed bug in the data recorder, it was loosing timestamps when data was resized.
+
+    * Added new filter rule to "hibernate.classpath" to ensure the plugin is not
+      added to the classpath if it exists in the specified folder.
+
+    * Added release notes and other common reports.
+
+    * Changed site template
+
+* ${project.artifactId}-1.0.1.jar
+
+    * Improved look and feel of the chart widgets and refactored code to a more
+      reasonable structure.
+
+    * Fixed bug that table sort order became out of sync. after an update.
+
+    * Improved site.
+
+* ${project.artifactId}-1.0.jar
+
+    * Initial release with basic support for displaying query,
+      entity, collection and cache statistics and basic widgets and
+      highlighters to visualize the collected data.
+
+    * Initial version of the site and documentation.

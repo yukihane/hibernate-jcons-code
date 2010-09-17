@@ -1,0 +1,102 @@
+<!--
+  ~ Copyright (c) 2009
+  ~
+  ~ This file is part of HibernateJConsole.
+  ~
+  ~     HibernateJConsole is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     HibernateJConsole is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+<html>
+<head>
+	<style type="text/css">
+		body {
+		padding: 10pt;
+		font-family: sans-serif;
+		}
+		pre {
+		padding-left: 14pt;
+		}
+	</style>
+</head>
+<body>
+<h2>Hibernate Not Found</h2>
+
+<p>
+	The hibernate statistics MBean or the "hibernate3.jar" was not found in this context.
+	To resolve this issue, validate that all subsequent requirements are fullfilled:
+</p>
+
+<h3>
+	1. The Hibernate MBean is published inside the monitored application
+</h3>
+
+<p>
+	Please ensure that you published the hibernate statistics MBean as
+	<code>"Hibernate:application=Statistics"</code> inside the monitored application.<br/>
+	<b>Note:</b> Hibernate is not publishing anything by default, it has to be done
+	manually using Java code.<br/>
+</p>
+
+<p>
+	In case of you published the MBean under a different name than the one expected
+	by this plugin, use the commandline option <code>"-J-Dhibernate.mbean=OtherName"</code>
+	to specify an alternate MBean name.
+</p>
+
+<p>
+	In case of your monitored application is not yet publishing any hibernate MBeans,
+	use the following helper class (contained inside "hibernate-jconsole.jar") to adjust
+	your application and enable the JMX support in hibernate:<br/>
+	<br/>
+	<b>Plain example</b> (Hibernate only):
+		<pre><code>MBeanServer myServer = ...;
+			SessionFactory sf = ...;
+			HibernateJmxBinding jmxBinding = new HibernateJmxBinding(myServer, sf);
+			jmxBinding.registerJmxBinding();</code></pre>
+<b>Plain example</b> (Hibernate in JPA environment):
+		<pre><code>MBeanServer myServer = ...;
+			EntityManagerFactory emf = ...;
+			JpaHibernateJmxBinding jmxBinding = new JpaHibernateJmxBinding(myServer, emf);
+			jmxBinding.registerJmxBinding();</code></pre>
+<b>Spring example</b> (annotation config enabled):
+		<pre><code>&lt;context:annotation-config/&gt;
+			&lt;context:mbean-server id="jmxServer"/&gt;
+
+			&lt;bean class="net.sf.hibernate.jconsole.util.JpaHibernateJmxBinding"/&gt;</code></pre>
+</p>
+
+<h3>
+	2. Hibernate is within the classpath of JConsole or VisualVm
+</h3>
+
+<p>
+	The hibernate statistics MBean doesn't use default JMX data types for all statistics.
+	As a result the hibernate3.jar must be in the system classpath of JConsole or
+	VisualVm to overcome class cast exceptions during the RMI calls.
+	<br/>
+	Please make sure that one of the following options applies:
+<ul>
+	<li>JConsole or VisualVm was started from a working directory that contains
+		the required JARs in one of the following search paths:
+		<code>"./hibernate3.jar"</code>, <code>"lib/hibernate3.jar"</code>
+	</li>
+	<li>JConsole or VisualVm was started with the commandline option:
+		<code>"-J-Dhibernate.classpath=/path/to/folderOrJarFile"</code>
+	</li>
+	<li>JConsole or VisualVm was started with a tweaked classpath that
+		contains the hibernate dependencies already.
+	</li>
+</ul>
+</p>
+</body>
+</html>

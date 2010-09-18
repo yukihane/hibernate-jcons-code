@@ -40,5 +40,19 @@
 			<groupId>net.sf.hibernate-jconsole</groupId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<artifactId>hibernate-core</artifactId>
+			<groupId>org.hibernate</groupId>
+			<version>3.5.1-Final</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<artifactId>hibernate-jmx</artifactId>
+			<groupId>org.hibernate</groupId>
+			<version>3.5.1-Final</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

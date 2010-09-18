@@ -38,7 +38,8 @@ public enum Methods {
 	getEntityStatistics(Names.HibernateStatistics, Names.getEntityStatistics, String.class.getName()),
 	getCollectionStatistics(Names.HibernateStatistics, Names.getCollectionStatistics, String.class.getName()),
 	getSecondLevelCacheStatistics(Names.HibernateStatistics, Names.getSecondLevelCacheStatistics, String.class.getName()),
-	getQueryStatistics(Names.HibernateStatistics, Names.getQueryStatistics, String.class.getName()),;
+	getQueryStatistics(Names.HibernateStatistics, Names.getQueryStatistics, String.class.getName()),
+	clear(Names.HibernateStatistics, Names.clear),;
 
 	private Names mBeanName;
 	private Names name;

@@ -128,7 +128,7 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>trunk/src/main/resources</directory>
+				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
@@ -161,8 +161,27 @@
 					</descriptors>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.tinyjee</groupId>
+						<artifactId>doxia-include-macro</artifactId>
+						<version>1.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>maven.tinyjee.org</id>
+			<url>http://maven.tinyjee.org</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>

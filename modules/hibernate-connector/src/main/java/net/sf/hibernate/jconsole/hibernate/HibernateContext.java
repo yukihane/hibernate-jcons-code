@@ -20,6 +20,7 @@
 package net.sf.hibernate.jconsole.hibernate;
 
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
+import net.sf.hibernate.jconsole.stats.Names;
 import net.sf.hibernate.jconsole.stats.StraightNameMappingProxy;
 import net.sf.hibernate.jconsole.util.ClasspathUtil;
 
@@ -31,6 +32,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -83,7 +85,7 @@ public class HibernateContext extends AbstractStatisticsContext {
 		}
 	}
 
-	private Map<String, Object> attributes = new HashMap<String, Object>();
+	private Map<Names, Object> attributes = new HashMap<Names, Object>();
 
 	/**
 	 * {@inheritDoc}
@@ -144,12 +146,15 @@ public class HibernateContext extends AbstractStatisticsContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Map<String, Object> getAttributes(List<String> attributeNames) throws Exception {
-		String[] names = attributeNames.toArray(new String[attributeNames.size()]);
-		List<Attribute> attributeList = getConnection().getAttributes(HIBERNATE_STATISTICS, names).asList();
+	protected Map<Names, Object> getAttributes(List<Names> attributeNames) throws Exception {
+		String[] names = new String[attributeNames.size()];
+		Iterator<Names> iN = attributeNames.iterator();
+		for (int i = 0; i < names.length; i++)
+			names[i] = iN.next().name();
 
+		List<Attribute> attributeList = getConnection().getAttributes(HIBERNATE_STATISTICS, names).asList();
 		for (Attribute attribute : attributeList)
-			attributes.put(attribute.getName(), attribute.getValue());
+			attributes.put(Names.valueOf(attribute.getName()), attribute.getValue());
 
 		return attributes;
 	}

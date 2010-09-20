@@ -20,6 +20,7 @@
 package net.sf.hibernate.jconsole.stats;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -82,6 +83,27 @@ public enum Names {
 		method, attribute
 	}
 
+	private static final List<Names> allAttributes, allMethods;
+
+	static {
+		List<Names> names = new ArrayList<Names>(values().length);
+		List<Names> methods = new ArrayList<Names>();
+
+		for (Names name : values()) {
+			switch (name.getType()) {
+				case attribute:
+					names.add(name);
+					break;
+				case method:
+					methods.add(name);
+					break;
+			}
+		}
+
+		allMethods = Collections.unmodifiableList(methods);
+		allAttributes = Collections.unmodifiableList(names);
+	}
+
 	private Type type = Type.attribute;
 
 	private Names() {
@@ -101,15 +123,20 @@ public enum Names {
 	}
 
 	/**
-	 * Returns all attribute names as string list.
+	 * Returns all method names as list.
 	 *
-	 * @return all attribute names as string list.
+	 * @return all method names as list.
 	 */
-	public static List<String> getAllAttributes() {
-		List<String> names = new ArrayList<String>(values().length);
-		for (Names name : values())
-			if (name.getType() == Type.attribute)
-				names.add(name.name());
-		return names;
+	public static List<Names> getAllMethods() {
+		return allMethods;
+	}
+
+	/**
+	 * Returns all attribute names as list.
+	 *
+	 * @return all attribute names as list.
+	 */
+	public static List<Names> getAllAttributes() {
+		return allAttributes;
 	}
 }

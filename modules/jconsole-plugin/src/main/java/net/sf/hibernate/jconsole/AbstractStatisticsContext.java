@@ -97,7 +97,7 @@ public abstract class AbstractStatisticsContext implements Serializable {
 
 	protected abstract <T> T proxyFor(Class<T> interfaceClass, Object delegate);
 
-	protected abstract Map<String, Object> getAttributes(List<String> attributeNames) throws Exception;
+	protected abstract Map<Names, Object> getAttributes(List<Names> attributeNames) throws Exception;
 
 	protected abstract boolean isEnabled();
 
@@ -115,9 +115,8 @@ public abstract class AbstractStatisticsContext implements Serializable {
 	}
 
 	void refreshAttributes() throws Exception {
-		List<String> attributeNames = Names.getAllAttributes();
-		for (Map.Entry<String, Object> e : getAttributes(attributeNames).entrySet())
-			this.attributes.put(Names.valueOf(e.getKey()), e.getValue());
+		for (Map.Entry<Names, Object> e : getAttributes(Names.getAllAttributes()).entrySet())
+			this.attributes.put(e.getKey(), e.getValue());
 	}
 
 	void applyAttributesToSamplers() {

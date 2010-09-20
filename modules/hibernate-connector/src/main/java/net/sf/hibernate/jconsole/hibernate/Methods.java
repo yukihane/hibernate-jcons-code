@@ -19,13 +19,12 @@
 
 package net.sf.hibernate.jconsole.hibernate;
 
-import net.sf.hibernate.jconsole.Names;
+import net.sf.hibernate.jconsole.stats.Names;
 
-import javax.management.InstanceNotFoundException;
-import javax.management.MBeanException;
-import javax.management.MBeanServerConnection;
-import javax.management.ReflectionException;
+import javax.management.*;
 import java.io.IOException;
+
+import static net.sf.hibernate.jconsole.hibernate.HibernateContext.HIBERNATE_STATISTICS;
 
 /**
  * Enumerates used methods.
@@ -35,24 +34,24 @@ import java.io.IOException;
  */
 public enum Methods {
 
-	getEntityStatistics(Names.HibernateStatistics, Names.getEntityStatistics, String.class.getName()),
-	getCollectionStatistics(Names.HibernateStatistics, Names.getCollectionStatistics, String.class.getName()),
-	getSecondLevelCacheStatistics(Names.HibernateStatistics, Names.getSecondLevelCacheStatistics, String.class.getName()),
-	getQueryStatistics(Names.HibernateStatistics, Names.getQueryStatistics, String.class.getName()),
-	clear(Names.HibernateStatistics, Names.clear),;
+	getEntityStatistics(HIBERNATE_STATISTICS, Names.getEntityStatistics, String.class.getName()),
+	getCollectionStatistics(HIBERNATE_STATISTICS, Names.getCollectionStatistics, String.class.getName()),
+	getSecondLevelCacheStatistics(HIBERNATE_STATISTICS, Names.getSecondLevelCacheStatistics, String.class.getName()),
+	getQueryStatistics(HIBERNATE_STATISTICS, Names.getQueryStatistics, String.class.getName()),
+	clear(HIBERNATE_STATISTICS, Names.clear),;
 
-	private Names mBeanName;
+	private ObjectName mBeanName;
 	private Names name;
 	private String[] signature;
 
-	private Methods(Names mBeanName, Names name, String... signature) {
+	private Methods(ObjectName mBeanName, Names name, String... signature) {
 		this.mBeanName = mBeanName;
 		this.name = name;
 		this.signature = signature;
 	}
 
 	public String[] getSignature() {
-		return signature;
+		return signature.clone();
 	}
 
 	/**
@@ -73,6 +72,6 @@ public enum Methods {
 	@SuppressWarnings("unchecked")
 	public <R> R invoke(MBeanServerConnection connection, Object... args)
 			throws InstanceNotFoundException, IOException, ReflectionException, MBeanException {
-		return (R) connection.invoke(mBeanName.getObjectName(), name.name(), args, signature);
+		return (R) connection.invoke(mBeanName, name.name(), args, signature);
 	}
 }

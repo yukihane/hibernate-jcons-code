@@ -20,15 +20,11 @@
 package net.sf.hibernate.jconsole;
 
 import net.sf.hibernate.jconsole.ui.MainTab;
-import net.sf.hibernate.jconsole.util.ClasspathUtil;
-import net.sf.hibernate.jconsole.util.UIUtils;
 
 import javax.management.InstanceNotFoundException;
+import javax.management.MBeanServerConnection;
 import javax.swing.*;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Is the entry point of the plugin.
@@ -37,33 +33,6 @@ import java.util.Map;
  * @version 1.0
  */
 public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
-
-	static final String HIBERNATE_VALIDATION_CLASS = System.getProperty("hibernate.class",
-			"org.hibernate.stat.CollectionStatistics");
-	static final String HIBERNATE_CLASSPATH = System.getProperty("hibernate.classpath");
-	static final String[] HIBERNATE_DEFAULT_SEARCHPATH =
-			System.getProperty("hibernate.searchpath", ".;lib").split(";+");
-
-	static final FilenameFilter HIBERNATE_FILTER = new FilenameFilter() {
-		public boolean accept(File dir, String name) {
-			name = name.toLowerCase();
-			return (!name.contains("hibernate-jconsole") && name.contains("hibernate") && name.endsWith(".jar")) ||
-					new File(dir, name).isDirectory();
-		}
-	};
-
-	// Add hibernate classpath
-
-	static {
-		String[] searchPath = HIBERNATE_CLASSPATH == null ?
-				HIBERNATE_DEFAULT_SEARCHPATH : new String[]{HIBERNATE_CLASSPATH};
-
-		for (String s : searchPath) {
-			File file = new File(s);
-			if (ClasspathUtil.addJars(file, false, HIBERNATE_FILTER))
-				break;
-		}
-	}
 
 	// Adjust tooltips to last longer (the default dismissal is to fast)
 
@@ -74,71 +43,98 @@ public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 	private class Updater extends SwingWorker<Object, Object> {
 		@Override
 		protected Object doInBackground() throws Exception {
-			try {
-				context.refreshAll();
-			} catch (InstanceNotFoundException e) {
-				mainTab.setHibernateAvailable(false);
-			} catch (Exception e) {
-				UIUtils.displayErrorMessage(null, e);
-				throw e;
+			for (Map.Entry<String, AbstractStatisticsContext> entry : contexts.entrySet()) {
+				try {
+					entry.getValue().refreshAll();
+				} catch (InstanceNotFoundException e) {
+					tabs.get(entry.getKey()).setHibernateAvailable(false);
+				}
 			}
 			return null;
 		}
 
 		@Override
 		protected void done() {
-			for (JPanel panel : getTabs().values()) {
-				if (panel instanceof Refreshable)
-					((Refreshable) panel).refresh(context);
+			for (Map.Entry<String, MainTab> entry : tabs.entrySet()) {
+				AbstractStatisticsContext context = contexts.get(entry.getKey());
+				if (context != null)
+					entry.getValue().refresh(context);
 			}
 		}
 	}
 
-	private final MainTab mainTab = new MainTab();
-	private final Map<String, JPanel> tabs = Collections.singletonMap(MainTab.NAME, (JPanel) mainTab);
-	private AbstractStatisticsContext context;
+	private final Map<String, MainTab> tabs = new LinkedHashMap<String, MainTab>();
+	private final Map<String, AbstractStatisticsContext> contexts = new HashMap<String, AbstractStatisticsContext>();
 
+	/**
+	 * Constructs the plugin.
+	 */
 	public JConsolePlugin() {
-		try {
-			// Lookup the hibernate classes inside the system class loader, making them
-			// available to the plugin class loader is not enough!
-			ClassLoader.getSystemClassLoader().loadClass(HIBERNATE_VALIDATION_CLASS);
-			try {
-				context = (AbstractStatisticsContext)
-						Class.forName("net.sf.hibernate.jconsole.hibernate.HibernateContext").newInstance();
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
-		} catch (ClassNotFoundException ignore) {
+		super();
+
+		List<AbstractStatisticsContext> statisticsContexts = AbstractStatisticsContext.getAvailableContexts();
+		for (AbstractStatisticsContext context : statisticsContexts) {
+			String key = addMainTab(new MainTab());
+			contexts.put(key, context);
 		}
-		mainTab.setHibernateAvailable(context != null);
+
+		if (statisticsContexts.isEmpty()) {
+			MainTab mt = new MainTab();
+			mt.setHibernateAvailable(false);
+			addMainTab(mt);
+		}
+	}
+
+	private String addMainTab(MainTab mainTab) {
+		String key = MainTab.NAME;
+
+		int i = 2;
+		while (tabs.containsKey(key))
+			key = MainTab.NAME.concat(" " + i);
+
+		tabs.put(key, mainTab);
+		return key;
+	}
+
+	/**
+	 * Returns a map of statistics contexts that correspond to the tabs.
+	 *
+	 * @return a map of statistics contexts that correspond to the tabs.
+	 */
+	public Map<String, AbstractStatisticsContext> getStatisticsContexts() {
+		return Collections.unmodifiableMap(contexts);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
+	@SuppressWarnings("unchecked")
 	public Map<String, JPanel> getTabs() {
-		return tabs;
+		return Collections.unmodifiableMap((Map) tabs);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public SwingWorker<?, ?> newSwingWorker() {
-		if (context == null)
-			return null;
-
 		switch (getContext().getConnectionState()) {
 			case CONNECTING:
 			case DISCONNECTED:
-				context.setConnection(null);
+				for (AbstractStatisticsContext context : contexts.values())
+					context.setConnection(null);
 				return null;
 
 			default:
-				context.setConnection(getContext().getMBeanServerConnection());
-				return new Updater();
+				MBeanServerConnection connection = getContext().getMBeanServerConnection();
+				for (Map.Entry<String, AbstractStatisticsContext> entry : contexts.entrySet()) {
+					AbstractStatisticsContext context = entry.getValue();
+					context.setConnection(connection);
+					tabs.get(entry.getKey()).setHibernateAvailable(context.isEnabled());
+				}
+
+				return contexts.isEmpty() ? null : new Updater();
 		}
 	}
 }

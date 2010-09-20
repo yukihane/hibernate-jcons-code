@@ -19,25 +19,15 @@
 
 package net.sf.hibernate.jconsole;
 
-import net.sf.hibernate.jconsole.stats.CollectionStatistics;
-import net.sf.hibernate.jconsole.stats.EntityStatistics;
-import net.sf.hibernate.jconsole.stats.QueryStatistics;
-import net.sf.hibernate.jconsole.stats.SecondLevelCacheStatistics;
+import net.sf.hibernate.jconsole.stats.*;
 import net.sf.hibernate.jconsole.util.DataSampler;
 import net.sf.hibernate.jconsole.util.DataTable;
 import net.sf.hibernate.jconsole.util.FixedSizeDataSampler;
 import net.sf.hibernate.jconsole.util.TimeboxedDataSampler;
 
-import javax.management.Attribute;
-import javax.management.AttributeList;
 import javax.management.MBeanServerConnection;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import static net.sf.hibernate.jconsole.Names.HibernateStatistics;
+import java.util.*;
 
 /**
  * Partially implemented abstraction layer for JPA providers.
@@ -50,6 +40,18 @@ public abstract class AbstractStatisticsContext implements Serializable {
 	private static final long serialVersionUID = 1682035090240809541L;
 
 	private static final int HISTORY_LENGTH = Integer.getInteger("hibernate.history.length", 5000);
+
+	private static final ServiceLoader<AbstractStatisticsContext> CONTEXT_LOADER =
+			ServiceLoader.load(AbstractStatisticsContext.class);
+
+	public static List<AbstractStatisticsContext> getAvailableContexts() {
+		List<AbstractStatisticsContext> contexts = new ArrayList<AbstractStatisticsContext>();
+		for (AbstractStatisticsContext context : CONTEXT_LOADER) {
+			if (context.isEnabled())
+				contexts.add(context);
+		}
+		return contexts;
+	}
 
 	private transient MBeanServerConnection connection;
 
@@ -95,7 +97,14 @@ public abstract class AbstractStatisticsContext implements Serializable {
 
 	protected abstract <T> T proxyFor(Class<T> interfaceClass, Object delegate);
 
+	protected abstract Map<String, Object> getAttributes(List<String> attributeNames) throws Exception;
+
+	protected abstract boolean isEnabled();
+
 	public void refreshAll() throws Exception {
+		if (getConnection() == null)
+			throw new IllegalStateException("Cannot call refresh when not connected.");
+
 		refreshAttributes();
 		refreshStatisticsTable();
 		refreshEntityStatistics();
@@ -107,11 +116,8 @@ public abstract class AbstractStatisticsContext implements Serializable {
 
 	void refreshAttributes() throws Exception {
 		List<String> attributeNames = Names.getAllAttributes();
-		AttributeList attributes = connection.getAttributes(HibernateStatistics.getObjectName(),
-				attributeNames.toArray(new String[attributeNames.size()]));
-
-		for (Attribute attribute : attributes.asList())
-			this.attributes.put(Names.valueOf(attribute.getName()), attribute.getValue());
+		for (Map.Entry<String, Object> e : getAttributes(attributeNames).entrySet())
+			this.attributes.put(Names.valueOf(e.getKey()), e.getValue());
 	}
 
 	void applyAttributesToSamplers() {

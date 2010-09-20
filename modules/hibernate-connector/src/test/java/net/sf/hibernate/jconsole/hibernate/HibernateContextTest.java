@@ -17,31 +17,36 @@
  *     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.sf.hibernate.jconsole;
+package net.sf.hibernate.jconsole.hibernate;
 
+import net.sf.hibernate.jconsole.AbstractStatisticsContext;
+import net.sf.hibernate.jconsole.JConsolePlugin;
 import org.junit.Test;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Map;
 
+import static net.sf.hibernate.jconsole.hibernate.HibernateContext.HIBERNATE_FILTER;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Regression Test for the Classpath filter
+ * Tests some aspects of HibernateContext.
  *
- * @author Juergen_Kellerer, 01.12.2009 16:26:43
+ * @author Juergen_Kellerer, 2010-09-20
+ * @version 1.0
  */
-public class JConsolePluginHibernateFilterTest {
+public class HibernateContextTest {
 
 	private void assertAccepts(File file) {
 		assertTrue("Did not accept: " + file,
-				JConsolePlugin.HIBERNATE_FILTER.accept(file.getParentFile(), file.getName()));
+				HIBERNATE_FILTER.accept(file.getParentFile(), file.getName()));
 	}
 
 	private void assertDenies(File file) {
 		assertFalse("Did accept: " + file,
-				JConsolePlugin.HIBERNATE_FILTER.accept(file.getParentFile(), file.getName()));
+				HIBERNATE_FILTER.accept(file.getParentFile(), file.getName()));
 	}
 
 	@Test
@@ -76,5 +81,19 @@ public class JConsolePluginHibernateFilterTest {
 		for (String name : Arrays.asList("hibernate-jconsole.jar",
 				"hibernate-jconsole-1.0.jar", "hibernate-jconsole.x.jar"))
 			assertDenies(new File(name));
+	}
+
+	@Test
+	public void testContextIsDetectedByPlugin() {
+		boolean found = false;
+
+		JConsolePlugin plugin = new JConsolePlugin();
+		Map<String, AbstractStatisticsContext> contexts = plugin.getStatisticsContexts();
+		for (String key : plugin.getTabs().keySet()) {
+			if (contexts.get(key) instanceof HibernateContext)
+				found = true;
+		}
+
+		assertTrue(found);
 	}
 }

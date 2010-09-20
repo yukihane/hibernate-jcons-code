@@ -19,7 +19,7 @@
 
 package net.sf.hibernate.jconsole.util;
 
-import net.sf.hibernate.jconsole.Names;
+import net.sf.hibernate.jconsole.hibernate.HibernateContext;
 import org.hibernate.SessionFactory;
 import org.hibernate.jmx.StatisticsService;
 
@@ -34,8 +34,6 @@ import java.lang.management.ManagementFactory;
  * Exposes Hibernate to JMX.
  */
 public class HibernateJmxBinding {
-
-	public static final String DEFAULT_BEAN_NAME = Names.HibernateStatistics.getObjectName().toString();
 
 	@Resource
 	protected MBeanServer mBeanServer;
@@ -79,7 +77,7 @@ public class HibernateJmxBinding {
 	 */
 	public ObjectName getStatisticsBeanName() throws Exception {
 		if (statisticsBeanName == null)
-			statisticsBeanName = new ObjectName(DEFAULT_BEAN_NAME);
+			statisticsBeanName = HibernateContext.HIBERNATE_STATISTICS;
 		return statisticsBeanName;
 	}
 

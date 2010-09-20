@@ -28,6 +28,14 @@
 		<head>
 			<meta name="keywords"
 				  content="hibernate, hql, jpa, jconsole, plugin, visualvm, jmx, monitoring, profiling"/>
+			<script type="text/javascript" src="http://piwik.tinyjee.org/piwik.js"></script>
+			<script type="text/javascript">
+				try {
+				var piwikTracker = Piwik.getTracker("http://piwik.tinyjee.org/piwik.php", 3);
+				piwikTracker.trackPageView();
+				piwikTracker.enableLinkTracking();
+				} catch( err ) {}
+			</script>
 		</head>
 
 		<breadcrumbs>

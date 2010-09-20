@@ -17,10 +17,8 @@
  *     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.sf.hibernate.jconsole;
+package net.sf.hibernate.jconsole.stats;
 
-import javax.management.MalformedObjectNameException;
-import javax.management.ObjectName;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,15 +30,13 @@ import java.util.List;
  */
 public enum Names {
 
-	HibernateStatistics(Type.mbean, System.getProperty("hibernate.mbean", "Hibernate:application=Statistics")),
+	clear(Type.method),
+	logSummary(Type.method),
 
-	clear(Type.method, null),
-	logSummary(Type.method, null),
-
-	getEntityStatistics(Type.method, null),
-	getCollectionStatistics(Type.method, null),
-	getSecondLevelCacheStatistics(Type.method, null),
-	getQueryStatistics(Type.method, null),
+	getEntityStatistics(Type.method),
+	getCollectionStatistics(Type.method),
+	getSecondLevelCacheStatistics(Type.method),
+	getQueryStatistics(Type.method),
 
 	CloseStatementCount,
 	CollectionFetchCount,
@@ -83,23 +79,16 @@ public enum Names {
 	SecondLevelCachePutCount,;
 
 	public enum Type {
-		method, attribute, mbean
+		method, attribute
 	}
 
 	private Type type = Type.attribute;
-	private ObjectName objectName;
 
 	private Names() {
 	}
 
-	private Names(Type type, String objectName) {
+	private Names(Type type) {
 		this.type = type;
-		if (objectName != null)
-			try {
-				this.objectName = new ObjectName(objectName);
-			} catch (MalformedObjectNameException e) {
-				throw new IllegalArgumentException(e);
-			}
 	}
 
 	/**
@@ -109,15 +98,6 @@ public enum Names {
 	 */
 	public Type getType() {
 		return type;
-	}
-
-	/**
-	 * Returns the object name of this mbean or null if the name is not an mbean type.
-	 *
-	 * @return the object name of this mbean or null if the name is not an mbean type.
-	 */
-	public ObjectName getObjectName() {
-		return objectName;
 	}
 
 	/**

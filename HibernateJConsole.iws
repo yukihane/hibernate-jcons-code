@@ -2,61 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="2a6aefec-39a4-43ab-98c6-ebbbcaa6df42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test/java/net/sf/hibernate/jconsole/tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test/java/net/sf/hibernate/jconsole" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test/java/net/sf/hibernate" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test/java/net/sf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test/java/net" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test/java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/hibernate-3-6-tester.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/src/test/java/net/sf/hibernate/jconsole/tester/HibernateContextTesterTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/AbstractStatisticsTable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/CollectionStatisticsTable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/PrimaryPerMinuteStatisticsTable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/stats/PrimaryStatisticsTable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/AbstractChartViewDetails.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsDetails.java" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\3-1-tester\src\main" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\3-2-tester\src\main" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\3-3-tester\src\main" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\3-5-tester\src\main" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-1-tester\hibernate-3-1-tester.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-1-tester\pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-1-tester\src\test\java\net\sf\hibernate\jconsole\tester\HibernateContextTesterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-2-tester\hibernate-3-2-tester.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-2-tester\pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-2-tester\src\test\java\net\sf\hibernate\jconsole\tester\HibernateContextTesterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-3-tester\hibernate-3-3-tester.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-3-tester\pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-3-tester\src\test\java\net\sf\hibernate\jconsole\tester\HibernateContextTesterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-5-tester\hibernate-3-5-tester.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-5-tester\pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\3-5-tester\src\test\java\net\sf\hibernate\jconsole\tester\HibernateContextTesterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\hibernate-generic-tester.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\src\main\java\net\sf\hibernate\jconsole\tester\DummyAction.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\src\main\java\net\sf\hibernate\jconsole\tester\HibernateContextTester.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\src\main\java\net\sf\hibernate\jconsole\tester\HibernateSessions.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\src\main\java\net\sf\hibernate\jconsole\tester\TestMessageEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\src\main\resources\net\sf\hibernate\jconsole\tester\test-message-entity.hbm.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\src\test\java\net\sf\hibernate\jconsole\tester\HibernateContextTesterTest.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\modules\generic-tester\src\test\java\net\sf\hibernate\jconsole\tester\HibernateSessionsTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/test/java/net/sf/hibernate/jconsole/tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/test/java/net/sf/hibernate/jconsole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/test/java/net/sf/hibernate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/test/java/net/sf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/test/java/net" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/test/java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src/test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/src" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/test/java/net/sf/hibernate/jconsole/tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/test/java/net/sf/hibernate/jconsole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/test/java/net/sf/hibernate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/test/java/net/sf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/test/java/net" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/test/java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src/test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/src" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/test/java/net/sf/hibernate/jconsole/tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/test/java/net/sf/hibernate/jconsole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/test/java/net/sf/hibernate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/test/java/net/sf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/test/java/net" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/test/java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src/test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/src" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/test/java/net/sf/hibernate/jconsole/tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/test/java/net/sf/hibernate/jconsole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/test/java/net/sf/hibernate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/test/java/net/sf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/test/java/net" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/test/java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src/test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/src" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/java/net/sf/hibernate/jconsole/tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/java/net/sf/hibernate/jconsole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/java/net/sf/hibernate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/java/net/sf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/java/net" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/resources/net/sf/hibernate/jconsole/tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/resources/net/sf/hibernate/jconsole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/resources/net/sf/hibernate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/resources/net/sf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/resources/net" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main/resources" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/main" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/test/java/net/sf/hibernate/jconsole/tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/test/java/net/sf/hibernate/jconsole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/test/java/net/sf/hibernate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/test/java/net/sf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/test/java/net" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/test/java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src/test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/src" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/hibernate-tester/modules" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.ipr" afterPath="$PROJECT_DIR$/HibernateJConsole.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.iws" afterPath="$PROJECT_DIR$/HibernateJConsole.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" afterPath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/pom.xml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/pom.xml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/pom.xml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/hibernate-3-5-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/hibernate-3-5-tester.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/pom.xml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/hibernate-generic-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/hibernate-generic-tester.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/pom.xml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/java/net/sf/hibernate/jconsole/tester/HibernateContextTester.java" afterPath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/java/net/sf/hibernate/jconsole/tester/HibernateContextTester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/pom.xml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/AbstractStatisticsContext.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/AbstractStatisticsContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsolePlugin.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsolePlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsTab.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/CollectionsTab.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractJTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractJTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractTableDetails.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractTableDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/AbstractChart2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/AbstractChart2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/ChartAxis.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/ChartAxis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/FilledLineGraph2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/FilledLineGraph2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/Legend.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/Legend.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/LegendJLabel.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/LegendJLabel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/LineGraph2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/LineGraph2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/DataTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/DataTable.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="HibernateJConsole.iws" />
@@ -198,10 +231,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HibernateContextTester.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HibernateContextTester.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/java/net/sf/hibernate/jconsole/tester/HibernateContextTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="23" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.023255814">
+            <state line="41" column="23" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -216,10 +249,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.0">
+            <state line="42" column="0" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.50158226">
               <folding />
             </state>
           </provider>
@@ -775,217 +808,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="generic-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jconsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generic-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="3-6-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="3-6-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="3-5-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="3-3-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="3-2-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-tester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="3-1-tester" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1771,13 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="19" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="60" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0">
@@ -1801,21 +1617,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/java/net/sf/hibernate/jconsole/tester/HibernateContextTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="23" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.023255814">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/generic-tester/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.0">
+        <state line="41" column="23" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1837,6 +1639,27 @@
     <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="25" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="19" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/generic-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.50158226">
           <folding />
         </state>
       </provider>

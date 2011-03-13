@@ -220,13 +220,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HibernateJConsole.iml" filepath="$PROJECT_DIR$/HibernateJConsole.iml" />
-      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/hibernate-3-1-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-1-tester/hibernate-3-1-tester.iml" />
-      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/hibernate-3-2-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-2-tester/hibernate-3-2-tester.iml" />
-      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/hibernate-3-3-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-3-tester/hibernate-3-3-tester.iml" />
-      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/hibernate-3-5-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/modules/3-5-tester/hibernate-3-5-tester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/hibernate-3-5-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/hibernate-3-5-tester.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/hibernate-3-6-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/hibernate-3-6-tester.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" filepath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" />
-      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/hibernate-generic-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/modules/generic-tester/hibernate-generic-tester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/generic-tester/hibernate-generic-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/hibernate-generic-tester.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/hibernate-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/hibernate-tester.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/jconsole-plugin/jconsole-plugin.iml" filepath="$PROJECT_DIR$/modules/jconsole-plugin/jconsole-plugin.iml" />
     </modules>

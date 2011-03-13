@@ -14,7 +14,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="jconsole-plugin" />
-    <orderEntry type="library" name="Maven: com.sun:jconsole:1.6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.hibernate:ejb3-persistence:3.3.2.Beta1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.hibernate:hibernate-core:3.3.2.GA" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: antlr:antlr:2.7.6" level="project" />

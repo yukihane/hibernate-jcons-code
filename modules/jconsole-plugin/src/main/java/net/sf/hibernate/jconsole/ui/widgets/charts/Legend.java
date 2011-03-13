@@ -30,8 +30,8 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.List;
 
 /**
@@ -53,6 +53,7 @@ public class Legend extends RefreshableJPanel {
 	 * @param chart The chart to construct the legend for.
 	 */
 	public Legend(AbstractChart2D chart) {
+		super();
 		this.parent = chart;
 		setLayout(new SpringLayout());
 		setPreferredSize(new Dimension(100, 100));
@@ -68,48 +69,43 @@ public class Legend extends RefreshableJPanel {
 	public void refresh(AbstractStatisticsContext context) {
 		super.refresh(context);
 
-		List<DataTable.Column> columns = parent.getDataTable(context).getColumns();
-		if (this.columns == null || !this.columns.equals(columns)) {
-			this.columns = columns;
+		List<DataTable.Column> parentColumns = parent.getDataTable(context).getColumns();
+		if (columns == null || !columns.equals(parentColumns)) {
+			columns = parentColumns;
 
 			removeAll();
-			Cursor hand = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-			for (DataTable.Column column : columns) {
-				LegendJLabel l = new LegendJLabel(parent.getColorForColumn(column), parent.getLegendForColumn(column));
-				l.setCursor(hand);
-				l.setDisabled(!parent.isColumnVisible(column));
-				l.addMouseListener(new ColumnVisibilityToggle(column));
-				add(l);
+			if (!parentColumns.isEmpty()) {
+				Cursor hand = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+				for (DataTable.Column column : parentColumns) {
+					LegendJLabel l = new LegendJLabel(
+							parent.getColorForColumn(column), parent.getLegendForColumn(column));
+					l.setCursor(hand);
+					l.setDisabled(!parent.isColumnVisible(column));
+					l.addMouseListener(new ColumnVisibilityToggle(column));
+					add(l);
+				}
 			}
 
-			UIUtils.makeCompactGrid(this, columns.size(), 1, 0, 0, SPACING, SPACING);
+			UIUtils.makeCompactGrid(this, parentColumns.size(), 1, 0, 0, SPACING, SPACING);
 		}
 	}
 
-	private class ColumnVisibilityToggle implements MouseListener {
+	private final class ColumnVisibilityToggle extends MouseAdapter {
 
-		private DataTable.Column column;
+		private final DataTable.Column column;
 
 		private ColumnVisibilityToggle(DataTable.Column column) {
 			this.column = column;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
 		public void mouseClicked(MouseEvent e) {
 			LegendJLabel label = (LegendJLabel) e.getSource();
 			parent.setColumnVisible(column, !parent.isColumnVisible(column));
 			label.setDisabled(!label.isDisabled());
-		}
-
-		public void mousePressed(MouseEvent e) {
-		}
-
-		public void mouseReleased(MouseEvent e) {
-		}
-
-		public void mouseEntered(MouseEvent e) {
-		}
-
-		public void mouseExited(MouseEvent e) {
 		}
 	}
 }

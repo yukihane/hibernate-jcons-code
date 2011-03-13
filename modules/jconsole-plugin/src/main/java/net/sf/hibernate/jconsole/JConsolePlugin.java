@@ -45,9 +45,10 @@ public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 		protected Object doInBackground() throws Exception {
 			for (Map.Entry<String, AbstractStatisticsContext> entry : contexts.entrySet()) {
 				try {
-					entry.getValue().refreshAll();
+					entry.getValue().refresh();
 				} catch (InstanceNotFoundException e) {
 					tabs.get(entry.getKey()).setHibernateAvailable(false);
+					e.printStackTrace();
 				}
 			}
 			return null;
@@ -55,10 +56,14 @@ public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 
 		@Override
 		protected void done() {
-			for (Map.Entry<String, MainTab> entry : tabs.entrySet()) {
-				AbstractStatisticsContext context = contexts.get(entry.getKey());
-				if (context != null)
-					entry.getValue().refresh(context);
+			try {
+				for (Map.Entry<String, MainTab> entry : tabs.entrySet()) {
+					AbstractStatisticsContext context = contexts.get(entry.getKey());
+					if (context != null)
+						entry.getValue().refresh(context);
+				}
+			} catch (RuntimeException e) {
+				e.printStackTrace();
 			}
 		}
 	}

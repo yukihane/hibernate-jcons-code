@@ -21,6 +21,7 @@ package net.sf.hibernate.jconsole.ui;
 
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.ui.widgets.RefreshableJPanel;
+import net.sf.hibernate.jconsole.ui.widgets.RefreshableJSplitPane;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,11 +37,14 @@ public class CollectionsTab extends RefreshableJPanel {
 	public static final String NAME = "Collections";
 
 	CollectionsTable collectionsTable = new CollectionsTable();
+	CollectionsDetails details = new CollectionsDetails(collectionsTable);
+	RefreshableJSplitPane splitPane = new RefreshableJSplitPane(JSplitPane.VERTICAL_SPLIT,
+			new JScrollPane(collectionsTable), details);
 
 	public CollectionsTab() {
 		super(new BorderLayout());
-		add(BorderLayout.CENTER, new JScrollPane(collectionsTable));
-		//add(BorderLayout.SOUTH, entityDetails);
+		add(BorderLayout.CENTER, splitPane);
+		splitPane.setResizeWeight(1);
 	}
 
 	@Override

@@ -44,6 +44,13 @@ public abstract class AbstractJTable<E> extends JTable {
 		private String tooltip;
 		private Class<?> type = Object.class;
 
+		/**
+		 * Creates a new Column instance.
+		 *
+		 * @param identifier An identifier used to address the column.
+		 * @param tooltip	the tool-tip text to show on mouse over.
+		 * @param type	   the type of the column, e.g. Comparable.class.
+		 */
 		public Column(String identifier, String tooltip, Class<?> type) {
 			this.identifier = identifier;
 			this.tooltip = tooltip;
@@ -69,10 +76,22 @@ public abstract class AbstractJTable<E> extends JTable {
 		}
 	}
 
+	/**
+	 * Converts ms to seconds.
+	 *
+	 * @param ms the ms to convert.
+	 * @return the seconds.
+	 */
 	public static double msToSeconds(long ms) {
 		return ((double) ms) / 1000D;
 	}
 
+	/**
+	 * Rounds the given input with 3 remaining digits.
+	 *
+	 * @param input hte input to round.
+	 * @return the input rounded to a human readable number.
+	 */
 	public static double round(double input) {
 		return Math.round(input * 1000D) / 1000D;
 	}
@@ -92,6 +111,9 @@ public abstract class AbstractJTable<E> extends JTable {
 		}
 	};
 
+	/**
+	 * Constructs a new table.
+	 */
 	protected AbstractJTable() {
 		dataModel.setColumnIdentifiers(getColumns());
 		setModel(dataModel);

@@ -30,6 +30,14 @@ public class LineGraph2D extends Graph2D {
 
 	private static final long serialVersionUID = 3791460415201358526L;
 
+	private int dotSize = 1;
+
+	/**
+	 * Creates a new line graph using the defined graph values and max value.
+	 *
+	 * @param values   the Y values along the X axis.
+	 * @param maxValue the maximum value that can be shown on the Y axis.
+	 */
 	public LineGraph2D(double[] values, double maxValue) {
 		super(values, maxValue);
 	}
@@ -48,8 +56,18 @@ public class LineGraph2D extends Graph2D {
 			int x = xCoordinates[i], y = yCoordinates[i];
 			if (i > 0)
 				g2d.drawLine(previousX, previousY, x, y);
+			/*if (dotSize > 1)
+				g2d.fillOval(x - dotSize, y - dotSize, x + dotSize, y + dotSize);*/
 			previousX = x;
 			previousY = y;
 		}
+	}
+
+	public int getDotSize() {
+		return dotSize;
+	}
+
+	public void setDotSize(int dotSize) {
+		this.dotSize = dotSize;
 	}
 }

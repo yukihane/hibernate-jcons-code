@@ -36,10 +36,11 @@
 	</parent>
 
 	<modules>
-		<module>modules/3-1-tester</module>
-		<module>modules/3-2-tester</module>
-		<module>modules/3-3-tester</module>
-		<module>modules/3-5-tester</module>
-		<module>modules/generic-tester</module>
+		<module>3-1-tester</module>
+		<module>3-2-tester</module>
+		<module>3-3-tester</module>
+		<module>3-5-tester</module>
+		<module>3-6-tester</module>
+		<module>generic-tester</module>
 	</modules>
 </project>

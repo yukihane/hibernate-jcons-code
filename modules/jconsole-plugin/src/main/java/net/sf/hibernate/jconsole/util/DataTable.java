@@ -38,8 +38,19 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 	 * Specifies the type of data contained in a column.
 	 */
 	public enum DataFlavour {
+		/**
+		 * Column stores increasing absolute values.
+		 */
 		absolute,
+
+		/**
+		 * Column stores average values.
+		 */
 		average,
+
+		/**
+		 * Column stores percentage values (values from 0 to 1).
+		 */
 		percentage,;
 
 		double combine(List<Row> rows, Column column) {
@@ -72,6 +83,12 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 		String name;
 		DataFlavour dataFlavour;
 
+		/**
+		 * Contructs a new column to be used inside the data table.
+		 *
+		 * @param name		the name of the column.
+		 * @param dataFlavour the data flavour used when shrinking columns.
+		 */
 		public Column(String name, DataFlavour dataFlavour) {
 			if (name == null || dataFlavour == null)
 				throw new IllegalArgumentException("Name and dataFlavour must not be null.");
@@ -111,19 +128,26 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 			return timeStamp;
 		}
 
+		/**
+		 * Returns the value of the specified column.
+		 *
+		 * @param columnIndex the index of the column to get the value from.
+		 * @return the value of the specified column.
+		 */
 		public double getValue(int columnIndex) {
 			return values[columnIndex];
 		}
 	}
 
 	private int maxEntries;
-	private Column[] columns;
+	private Column[] columns = new Column[0];
 	private LinkedList<Row> rows = new LinkedList<Row>();
 
 	/**
 	 * Used for the serialization option.
 	 */
 	public DataTable() {
+		super();
 	}
 
 	/**
@@ -133,6 +157,7 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 	 * @param columns	The columns for this table.
 	 */
 	public DataTable(int maxEntries, Column... columns) {
+		super();
 		if (columns == null || columns.length == 0)
 			throw new IllegalArgumentException("No columns were defined for this data table.");
 		this.maxEntries = maxEntries;
@@ -141,6 +166,12 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 			columns[i].index = i;
 	}
 
+	/**
+	 * Returns the column instance of the given name.
+	 *
+	 * @param name the name of the column to return.
+	 * @return the column instance of the given name.
+	 */
 	public Column getColumn(String name) {
 		for (Column column : columns) {
 			if (column.name.equals(name))
@@ -232,9 +263,9 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 	}
 
 	/**
-	 * Returns a new DataTable that is shrinked to the new given size.
+	 * Returns a new DataTable that is shrunken to the new given size.
 	 * <p/>
-	 * All rows inside the source table are re-caclulated based on the given data flavour.
+	 * All rows inside the source table are recalculated based on the given data flavour.
 	 *
 	 * @return A new instance of data table having the given size.
 	 * @param	newSize	The new size of the resulting data table.

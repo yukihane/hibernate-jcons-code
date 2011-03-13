@@ -21,7 +21,6 @@ package net.sf.hibernate.jconsole.hibernate;
 
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.stats.Names;
-import net.sf.hibernate.jconsole.stats.StraightNameMappingProxy;
 import net.sf.hibernate.jconsole.util.ClasspathUtil;
 
 import javax.management.Attribute;
@@ -138,8 +137,8 @@ public class HibernateContext extends AbstractStatisticsContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Object getCacheStatisticsFor(String name) throws Exception {
-		return Methods.getSecondLevelCacheStatistics.invoke(getConnection(), name);
+	protected Object getCacheStatisticsFor(String cacheRegion) throws Exception {
+		return Methods.getSecondLevelCacheStatistics.invoke(getConnection(), cacheRegion);
 	}
 
 	/**
@@ -157,15 +156,5 @@ public class HibernateContext extends AbstractStatisticsContext {
 			attributes.put(Names.valueOf(attribute.getName()), attribute.getValue());
 
 		return attributes;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected <T> T proxyFor(Class<T> interfaceClass, Object delegate) {
-		if (delegate == null)
-			delegate = new Object();
-		return StraightNameMappingProxy.newInstance(interfaceClass, delegate, 0L);
 	}
 }

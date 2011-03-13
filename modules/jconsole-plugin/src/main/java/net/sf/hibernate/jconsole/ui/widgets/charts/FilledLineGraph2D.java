@@ -14,6 +14,12 @@ public class FilledLineGraph2D extends LineGraph2D {
 
 	private int alpha = 64;
 
+	/**
+	 * Creates a new filled line graph using the defined graph values and max value.
+	 *
+	 * @param values   the Y values along the X axis.
+	 * @param maxValue the maximum value that can be shown on the Y axis.
+	 */
 	public FilledLineGraph2D(double[] values, double maxValue) {
 		super(values, maxValue);
 	}

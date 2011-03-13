@@ -13,7 +13,7 @@ public class LegendJLabel extends JLabel {
 	/**
 	 * Implements the color icon used to show the graph relationship.
 	 */
-	private static class ColorIcon implements Icon {
+	private static final class ColorIcon implements Icon {
 
 		static final int ICON_SIZE = 8;
 
@@ -27,6 +27,7 @@ public class LegendJLabel extends JLabel {
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public void paintIcon(Component c, Graphics g, int x, int y) {
 			Graphics2D g2d = (Graphics2D) g;
 			g2d.setPaint(new GradientPaint(x, y, Color.WHITE, x, y + ICON_SIZE + 1, color));
@@ -38,6 +39,7 @@ public class LegendJLabel extends JLabel {
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public int getIconWidth() {
 			return ICON_SIZE;
 		}
@@ -45,6 +47,7 @@ public class LegendJLabel extends JLabel {
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public int getIconHeight() {
 			return ICON_SIZE;
 		}

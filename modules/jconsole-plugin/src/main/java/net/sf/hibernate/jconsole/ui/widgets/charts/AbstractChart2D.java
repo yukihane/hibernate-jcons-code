@@ -143,15 +143,15 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 */
 	protected Paint getGraphBackground() {
 		if (backgroundPaint == null) {
-			Rectangle graphBounds = getGraphBounds();
-			if (graphBounds.height < 3) {
+			Rectangle bounds = getGraphBounds();
+			if (bounds.height < 3) {
 				backgroundPaint = BACKGROUND_GARDIENT_BRIGHT_TOP;
 			} else {
-				int height = graphBounds.height;
+				int height = bounds.height;
 				Color[] colors = {BACKGROUND_GARDIENT_BRIGHT_TOP,
 						BACKGROUND_GARDIENT_DARK, BACKGROUND_GARDIENT_BRIGHT_BOTTOM};
 				float[] fractions = {0.0f, 0.80f, 1f};
-				backgroundPaint = new LinearGradientPaint(0, height / 3, 0, height, fractions, colors);
+				backgroundPaint = new LinearGradientPaint(0, height / 3f, 0, height, fractions, colors);
 			}
 		}
 		return backgroundPaint;
@@ -168,11 +168,11 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 			return null;
 
 		Point m = event.getPoint();
-		Rectangle graphBounds = getGraphBounds();
+		Rectangle bounds = getGraphBounds();
 
-		if (graphBounds.contains(m)) {
-			double xPercentage = (double) (m.x - graphBounds.x) / (double) graphBounds.width;
-			double yPercentage = Math.max(0, 1D - (double) (m.y - graphBounds.y) / (double) graphBounds.height);
+		if (bounds.contains(m)) {
+			double xPercentage = (double) (m.x - bounds.x) / (double) bounds.width;
+			double yPercentage = Math.max(0, 1D - (double) (m.y - bounds.y) / (double) bounds.height);
 			String xPosition = horizontalAxis.getAxisLabel(
 					horizontalAxis.getMinValue() + (xPercentage * horizontalAxis.getAxisRange()));
 			String yPosition = verticalAxis.getAxisLabel(
@@ -223,56 +223,64 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		}
 	}
 
+	@Override
+	protected void paintChildren(Graphics g) {
+		super.paintChildren(g);
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void paintComponent(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
+		Graphics2D g2d = (Graphics2D) g.create();
+		try {
+			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+			Rectangle bounds = getGraphBounds();
 
-		Rectangle graphBounds = getGraphBounds();
+			if (graphs != null) {
+				// Drawing the background gradient for the graphs.
+				g2d.setPaint(getGraphBackground());
+				g2d.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
 
-		if (graphs != null) {
-			// Drawing the background gradient for the graphs.
-			g2d.setPaint(getGraphBackground());
-			g2d.fillRect(graphBounds.x, graphBounds.y, graphBounds.width, graphBounds.height);
+				// Drawing the graphs.
+				List<DataTable.Column> columnList = dataTable.getColumns();
+				Iterator<DataTable.Column> columns = columnList.iterator();
+				for (Graph2D graph : graphs) {
+					g2d.setPaint(getColorForColumn(columns.next()));
+					if (!graph.isVisible())
+						continue;
+					graph.setBounds(bounds);
+					graph.paint(g2d);
+				}
 
-			// Drawing the graphs.
-			List<DataTable.Column> columnList = dataTable.getColumns();
-			Iterator<DataTable.Column> columns = columnList.iterator();
-			for (Graph2D graph : graphs) {
-				g2d.setPaint(getColorForColumn(columns.next()));
-				if (!graph.isVisible())
-					continue;
-				graph.setBounds(graphBounds);
-				graph.paint(g2d);
+				// Drawing the overlays.
+				columns = columnList.iterator();
+				for (Graph2D graph : graphs) {
+					g2d.setPaint(getColorForColumn(columns.next()));
+					if (!graph.isVisible())
+						continue;
+					graph.paintOverlay(g2d);
+				}
+
+				int x = bounds.x + bounds.width - 1;
+				g2d.setPaint(Color.LIGHT_GRAY);
+				g2d.drawLine(x, bounds.y, x, bounds.y + bounds.height);
 			}
 
-			// Drawing the overlays.
-			columns = columnList.iterator();
-			for (Graph2D graph : graphs) {
-				g2d.setPaint(getColorForColumn(columns.next()));
-				if (!graph.isVisible())
-					continue;
-				graph.paintOverlay(g2d);
+			if (verticalAxis != null) {
+				verticalAxis.setBounds(getVerticalAxisBounds());
+				verticalAxis.paint(g2d);
 			}
 
-			int x = graphBounds.x + graphBounds.width - 1;
-			g2d.setPaint(Color.LIGHT_GRAY);
-			g2d.drawLine(x, graphBounds.y, x, graphBounds.y + graphBounds.height);
-		}
-
-		if (verticalAxis != null) {
-			verticalAxis.setBounds(getVerticalAxisBounds());
-			verticalAxis.paint(g2d);
-		}
-
-		if (horizontalAxis != null) {
-			horizontalAxis.setBounds(getHorizontalAxisBounds());
-			horizontalAxis.paint(g2d);
+			if (horizontalAxis != null) {
+				horizontalAxis.setBounds(getHorizontalAxisBounds());
+				horizontalAxis.paint(g2d);
+			}
+		} finally {
+			g2d.dispose();
 		}
 	}
 
@@ -288,23 +296,38 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		return horizontalAxis;
 	}
 
+	/**
+	 * Returns the rectangle around the vertical axis.
+	 *
+	 * @return the rectangle around the vertical axis.
+	 */
 	protected Rectangle getVerticalAxisBounds() {
 		if (verticalAxisBounds == null) {
-			Rectangle graphBounds = getGraphBounds();
-			verticalAxisBounds = new Rectangle(0, graphBounds.y, graphBounds.x, graphBounds.height);
+			Rectangle bounds = getGraphBounds();
+			verticalAxisBounds = new Rectangle(0, bounds.y, bounds.x, bounds.height);
 		}
 		return verticalAxisBounds;
 	}
 
+	/**
+	 * Returns the rectangle around the horizontal axis.
+	 *
+	 * @return the rectangle around the horizontal axis.
+	 */
 	protected Rectangle getHorizontalAxisBounds() {
 		if (horizontalAxisBounds == null) {
-			Rectangle graphBounds = getGraphBounds();
-			int y = graphBounds.y + graphBounds.height;
-			horizontalAxisBounds = new Rectangle(graphBounds.x, y, graphBounds.width, getHeight() - y);
+			Rectangle bounds = getGraphBounds();
+			int y = bounds.y + bounds.height;
+			horizontalAxisBounds = new Rectangle(bounds.x, y, bounds.width, getHeight() - y);
 		}
 		return horizontalAxisBounds;
 	}
 
+	/**
+	 * Returns the rectangle around all graphs.
+	 *
+	 * @return the rectangle around all graphs.
+	 */
 	protected Rectangle getGraphBounds() {
 		if (graphBounds == null) {
 			graphBounds = new Rectangle(graphInsets.left, graphInsets.top,
@@ -342,7 +365,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		for (Graph2D graph : graphs)
 			graph.setMaxValue(maxValue);
 
-		repaint();
+		repaint(25);
 	}
 
 	/**
@@ -352,8 +375,8 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	public void refresh(AbstractStatisticsContext context) {
 		super.refresh(context);
 
-		Rectangle rect = getGraphBounds();
-		dataTable = getDataTable(context).shrinkToSize((int) rect.getWidth());
+		Rectangle bounds = getGraphBounds();
+		dataTable = getDataTable(context).shrinkToSize((int) bounds.getWidth());
 		verticalAxis = createVerticalAxis(dataTable);
 		horizontalAxis = createHorizontalAxis(dataTable);
 
@@ -362,13 +385,16 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		boolean[] visibleFlags = getAllGraphVisibleFlags();
 
 		columnMap.clear();
-		graphs = new LineGraph2D[columns.size()];
-		for (DataTable.Column column : columns) {
-			graphs[i] = createGraph(column, dataTable.getColumnValues(column), 0D);
-			graphs[i].setVisible(i >= visibleFlags.length || visibleFlags[i]);
-			columnMap.put(column, graphs[i]);
-			i++;
-		}
+		if (!columns.isEmpty()) {
+			graphs = new LineGraph2D[columns.size()];
+			for (DataTable.Column column : columns) {
+				graphs[i] = createGraph(column, dataTable.getColumnValues(column), 0D);
+				graphs[i].setVisible(i >= visibleFlags.length || visibleFlags[i]);
+				columnMap.put(column, graphs[i]);
+				i++;
+			}
+		} else
+			graphs = null;
 
 		updateVisibility();
 	}

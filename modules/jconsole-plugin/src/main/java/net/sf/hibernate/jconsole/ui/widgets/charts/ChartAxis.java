@@ -40,7 +40,13 @@ public class ChartAxis extends AbstractChartElement {
 	private static final Color TEXT_COLOR = Color.BLACK;
 
 	public enum Orientation {
+		/**
+		 * Defines that the axis is drawn horizontally.
+		 */
 		horizontal,
+		/**
+		 * Defines that the axis is drawn vertically.
+		 */
 		vertical
 	}
 
@@ -48,6 +54,13 @@ public class ChartAxis extends AbstractChartElement {
 	protected double[] values;
 	private Orientation orientation;
 
+	/**
+	 * Constructs a new ChartAxis.
+	 *
+	 * @param tickSize	the length of the lines leaving the axis border.
+	 * @param orientation the orientation of the axis.
+	 * @param values	  the max values of the axis.
+	 */
 	public ChartAxis(int tickSize, Orientation orientation, double... values) {
 		this.tickSize = tickSize;
 		this.orientation = orientation;

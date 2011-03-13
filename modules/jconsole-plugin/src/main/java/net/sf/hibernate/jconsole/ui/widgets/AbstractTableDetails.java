@@ -20,6 +20,7 @@
 package net.sf.hibernate.jconsole.ui.widgets;
 
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
@@ -42,6 +43,16 @@ public abstract class AbstractTableDetails<E> extends RefreshableJPanel implemen
 		setMinimumSize(MIN_SIZE);
 
 		this.table = table;
-		table.getSelectionModel().addListSelectionListener(this);
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				try {
+					AbstractTableDetails.this.valueChanged(e);
+				} catch (RuntimeException re) {
+					re.printStackTrace();
+				}
+			}
+		});
 	}
 }

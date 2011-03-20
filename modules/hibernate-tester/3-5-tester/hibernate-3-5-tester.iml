@@ -12,6 +12,7 @@
     <orderEntry type="module" module-name="hibernate-generic-tester" />
     <orderEntry type="module" module-name="hibernate-connector" />
     <orderEntry type="module" module-name="jconsole-plugin" />
+    <orderEntry type="library" name="Maven: com.sun:jconsole:1.6" level="project" />
     <orderEntry type="library" name="Maven: org.hsqldb:hsqldb:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:0.9.18" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:0.9.18" level="project" />

@@ -12,6 +12,7 @@
     <orderEntry type="module" module-name="hibernate-generic-tester" />
     <orderEntry type="module" module-name="hibernate-connector" />
     <orderEntry type="module" module-name="jconsole-plugin" />
+    <orderEntry type="library" name="Maven: com.sun:jconsole:1.6" level="project" />
     <orderEntry type="library" name="Maven: org.hsqldb:hsqldb:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: javassist:javassist:3.12.0.GA" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hibernate:hibernate-core:3.6.1.Final" level="project" />

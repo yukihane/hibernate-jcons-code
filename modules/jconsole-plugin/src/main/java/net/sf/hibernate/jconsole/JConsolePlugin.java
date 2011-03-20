@@ -40,6 +40,8 @@ public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 		ToolTipManager.sharedInstance().setDismissDelay(60 * 1000);
 	}
 
+	private boolean instanceNotFoundReported;
+
 	private class Updater extends SwingWorker<Object, Object> {
 		@Override
 		protected Object doInBackground() throws Exception {
@@ -48,7 +50,10 @@ public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 					entry.getValue().refresh();
 				} catch (InstanceNotFoundException e) {
 					tabs.get(entry.getKey()).setHibernateAvailable(false);
-					e.printStackTrace();
+					if (!instanceNotFoundReported) {
+						e.printStackTrace();
+						instanceNotFoundReported = true;
+					}
 				}
 			}
 			return null;

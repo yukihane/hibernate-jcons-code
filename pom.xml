@@ -159,6 +159,11 @@
 					<descriptors>
 						<descriptor>src/assemble/app.xml</descriptor>
 					</descriptors>
+					<archive>
+						<Manifest>
+							<Main-Class>net.sf.hibernate.jconsole.JConsoleStarter</Main-Class>
+						</Manifest>
+					</archive>
 				</configuration>
 			</plugin>
 

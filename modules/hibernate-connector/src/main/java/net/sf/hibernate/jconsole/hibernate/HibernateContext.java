@@ -22,6 +22,7 @@ package net.sf.hibernate.jconsole.hibernate;
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.stats.Names;
 import net.sf.hibernate.jconsole.util.ClasspathUtil;
+import net.sf.hibernate.jconsole.util.JMXUtil;
 
 import javax.management.Attribute;
 import javax.management.MBeanServerConnection;
@@ -30,10 +31,7 @@ import javax.management.ObjectName;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Is a local context that is used to cache and exchange statistical information.
@@ -71,39 +69,87 @@ public class HibernateContext extends AbstractStatisticsContext {
 		}
 	};
 
-	// Add hibernate classpath
+	private boolean classPathInitialized, instanceNotFoundReported;
+	private Map<Names, Object> attributes = new HashMap<Names, Object>();
 
-	static {
-		String[] searchPath = HIBERNATE_CLASSPATH == null ?
-				HIBERNATE_DEFAULT_SEARCHPATH : new String[]{HIBERNATE_CLASSPATH};
-
+	boolean findAndAddHibernateJars(String[] searchPath) {
 		for (String s : searchPath) {
 			File file = new File(s);
 			if (ClasspathUtil.addJars(file, false, HIBERNATE_FILTER))
-				break;
+				return true;
+		}
+		return false;
+	}
+
+	List<File> collectReachableJarsFromRemoteJVM() {
+		try {
+			List<File> jars = new ArrayList<File>();
+			Properties properties = JMXUtil.getSystemProperties(getConnection());
+
+			String cwd = properties.getProperty("user.dir");
+			String[] cp = properties.getProperty("java.class.path").
+					split(properties.getProperty("path.separator", ";"));
+
+			for (String path : cp) {
+				File f = new File(path);
+				if (!f.isFile())
+					f = new File(cwd + File.separator + path);
+				if (f.isFile())
+					jars.add(f);
+			}
+
+			return jars;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 
-	private Map<Names, Object> attributes = new HashMap<Names, Object>();
+	void initializeClasspath() {
+		if (classPathInitialized)
+			return;
+
+		boolean success = false;
+
+		if (HIBERNATE_CLASSPATH != null)
+			success = findAndAddHibernateJars(new String[]{HIBERNATE_CLASSPATH});
+
+		if (!success) {
+			List<File> list = collectReachableJarsFromRemoteJVM();
+			success = ClasspathUtil.addJars(list.toArray(new File[list.size()]), false, HIBERNATE_FILTER);
+		}
+
+		if (!success)
+			success = findAndAddHibernateJars(HIBERNATE_DEFAULT_SEARCHPATH);
+
+		classPathInitialized = success;
+	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected boolean isEnabled() {
+		MBeanServerConnection c = getConnection();
+		if (c == null)
+			return true;
+
+		initializeClasspath();
+
 		try {
 			// Lookup the hibernate classes inside the system class loader, making them
 			// available to the plugin class loader is not enough!
 			Class.forName(HIBERNATE_VALIDATION_CLASS, true, ClassLoader.getSystemClassLoader());
 		} catch (ClassNotFoundException ignore) {
-			System.err.println("Didn't find class '" + HIBERNATE_VALIDATION_CLASS +
-					"', the hibernate environment is not correctly set.");
+			if (!instanceNotFoundReported) {
+				System.err.println("Didn't find class '" + HIBERNATE_VALIDATION_CLASS +
+						"', the hibernate environment is not correctly set.");
+				instanceNotFoundReported = true;
+			}
 			return false;
 		}
 
-		MBeanServerConnection c = getConnection();
 		try {
-			return c == null || c.isRegistered(HIBERNATE_STATISTICS);
+			return c.isRegistered(HIBERNATE_STATISTICS);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

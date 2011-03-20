@@ -10,11 +10,20 @@ Release Notes
 
 * ${project.artifactId}-1.0.4.jar
 
-    * Added Test-Suite that runs on Hibernate 3.1 - 3.5 (to prove compatibility during build)
+    * Added Test-Suite that runs on Hibernate 3.1, 3.2, 3.3, 3.5 and 3.6 (to prove compatibility during build)
 
     * Added Query, Entity, Collection & Cache graphs.
 
-    * Added simple data abstraction layer (to enable better unit testing or add support for other vendors)
+    * Added a simple data abstraction layer (to enable better unit testing or add support for other vendors)
+
+    * Added a "Main-Class" that allows starting <<<jconsole>>> by starting using:
+
+----
+java -jar ${project.artifactId}-1.0.4.jar
+----
+
+    * Added auto-detection and configuration on the used <<<hibernate.jar>>> upon connection to the
+      target VM when it runs on the same host.
 
 * ${project.artifactId}-1.0.3.jar
 

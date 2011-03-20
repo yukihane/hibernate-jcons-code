@@ -86,9 +86,13 @@ public class ClasspathUtil {
 		for (File f : file) {
 			if (f.isDirectory()) {
 				if (recursive)
-					addJars(f.listFiles(filter), recursive);
+					addJars(f.listFiles(filter), recursive, filter);
 				continue;
 			}
+
+			if (filter != null && !filter.accept(f.getParentFile(), f.getName()))
+				continue;
+
 			if (f.getName().toLowerCase().endsWith(".jar"))
 				try {
 					jars.add(f.toURI().toURL());
@@ -98,6 +102,7 @@ public class ClasspathUtil {
 		}
 
 		addURLs(jars);
+
 		return !jars.isEmpty();
 	}
 

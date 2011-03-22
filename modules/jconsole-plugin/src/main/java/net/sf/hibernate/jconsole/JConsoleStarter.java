@@ -25,6 +25,7 @@ import javax.management.MBeanServer;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.util.*;
 
@@ -51,23 +52,25 @@ public class JConsoleStarter {
 			if (path.isEmpty() || new File(jconsoleExecutable).isFile()) {
 				List<String> command = buildJConsoleCL(jconsoleExecutable, args);
 				ProcessBuilder builder = new ProcessBuilder();
-				Process process = builder.command(command).redirectErrorStream(true).start();
 				try {
-					if (process.exitValue() == 0)
-						return;
-				} catch (IllegalThreadStateException e) {
-					return; // process is running.
+					builder.command(command).redirectErrorStream(true).start();
+					return;
+				} catch (IOException e) {
+					// next path is tried.
 				}
 			} else if (!new File(path).exists())
 				i.remove();
 		}
 
 		JOptionPane.showMessageDialog(null, "Couldn't find 'jconsole' within the paths:\n" +
-				String.valueOf(searchPaths).replace(',', '\n'), "Failed to start 'jconsole'",
+				String.valueOf(searchPaths).replace(',', '\n') + "\n\n" +
+				"Please set 'JDK_HOME', configure 'jconsole' to be available through 'PATHS'\n" +
+				"or install a JDK next to the JRE used to start this JAR.",
+				"Failed to start 'jconsole'",
 				JOptionPane.ERROR_MESSAGE);
 	}
 
-	private static Set<String> buildSearchPaths() {
+	static Set<String> buildSearchPaths() {
 		Set<String> searchPaths = new LinkedHashSet<String>();
 		searchPaths.add(System.getProperty("jdk.path", "") + File.separator + "bin");
 		searchPaths.add(System.getenv("JDK_PATH") + File.separator + "bin");
@@ -80,6 +83,27 @@ public class JConsoleStarter {
 		if (parentDir != null && "jre".equalsIgnoreCase(javaHome.getName()))
 			parentDir = parentDir.getParentFile();
 
+		addDirsToSearchPath(searchPaths, parentDir);
+
+		handleWindowsSpecificPaths(searchPaths);
+
+		return searchPaths;
+	}
+
+	static void handleWindowsSpecificPaths(Set<String> searchPaths) {
+		String programFiles = System.getenv("ProgramFiles");
+		if (programFiles != null) {
+			addDirsToSearchPath(searchPaths, new File(programFiles + File.separator + "Java"));
+
+			String altPath = programFiles.contains("(x86)") ?
+					programFiles.replace(" (x86)", "") :
+					System.getenv("ProgramFiles(x86)");
+			if (altPath != null && !altPath.equals(searchPaths))
+				addDirsToSearchPath(searchPaths, new File(altPath + File.separator + "Java"));
+		}
+	}
+
+	static void addDirsToSearchPath(Set<String> searchPaths, File parentDir) {
 		File[] searchDirs = parentDir == null ? null : parentDir.listFiles(new FileFilter() {
 			@Override
 			public boolean accept(File file) {
@@ -90,7 +114,6 @@ public class JConsoleStarter {
 		if (searchDirs != null)
 			for (File searchDir : searchDirs)
 				searchPaths.add(searchDir + File.separator + "bin");
-		return searchPaths;
 	}
 
 	static List<String> buildJConsoleCL(String executable, String[] args) throws Exception {

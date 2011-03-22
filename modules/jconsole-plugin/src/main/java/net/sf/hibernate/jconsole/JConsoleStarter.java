@@ -22,11 +22,11 @@ package net.sf.hibernate.jconsole;
 import net.sf.hibernate.jconsole.util.JMXUtil;
 
 import javax.management.MBeanServer;
+import javax.swing.*;
 import java.io.File;
+import java.io.FileFilter;
 import java.lang.management.ManagementFactory;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Searches for "jconsole" in the path and starts it with the required arguments.
@@ -40,12 +40,57 @@ public class JConsoleStarter {
 	private static final MBeanServer MBS = ManagementFactory.getPlatformMBeanServer();
 
 	public static void main(String[] args) throws Exception {
-		ProcessBuilder builder = new ProcessBuilder();
+		final Set<String> searchPaths = buildSearchPaths();
 
-		// TODO: Try multiple paths.
-		List<String> command = buildJConsoleCL("jconsole", args);
+		for (Iterator<String> i = searchPaths.iterator(); i.hasNext();) {
+			String path = i.next();
 
-		builder.command(command).redirectErrorStream(true).start();
+			final String jconsoleExecutable = path + (path.isEmpty() ? "" : File.separator) +
+					"jconsole" + (File.separatorChar == '\\' ? ".exe" : "");
+
+			if (path.isEmpty() || new File(jconsoleExecutable).isFile()) {
+				List<String> command = buildJConsoleCL(jconsoleExecutable, args);
+				ProcessBuilder builder = new ProcessBuilder();
+				Process process = builder.command(command).redirectErrorStream(true).start();
+				try {
+					if (process.exitValue() == 0)
+						return;
+				} catch (IllegalThreadStateException e) {
+					return; // process is running.
+				}
+			} else if (!new File(path).exists())
+				i.remove();
+		}
+
+		JOptionPane.showMessageDialog(null, "Couldn't find 'jconsole' within the paths:\n" +
+				String.valueOf(searchPaths).replace(',', '\n'), "Failed to start 'jconsole'",
+				JOptionPane.ERROR_MESSAGE);
+	}
+
+	private static Set<String> buildSearchPaths() {
+		Set<String> searchPaths = new LinkedHashSet<String>();
+		searchPaths.add(System.getProperty("jdk.path", "") + File.separator + "bin");
+		searchPaths.add(System.getenv("JDK_PATH") + File.separator + "bin");
+		searchPaths.add(""); // use PATHS
+
+		searchPaths.add(System.getProperty("java.home") + File.separator + "bin");
+
+		File javaHome = new File(System.getProperty("java.home"));
+		File parentDir = javaHome.getParentFile();
+		if (parentDir != null && "jre".equalsIgnoreCase(javaHome.getName()))
+			parentDir = parentDir.getParentFile();
+
+		File[] searchDirs = parentDir == null ? null : parentDir.listFiles(new FileFilter() {
+			@Override
+			public boolean accept(File file) {
+				return file.isDirectory();
+			}
+		});
+
+		if (searchDirs != null)
+			for (File searchDir : searchDirs)
+				searchPaths.add(searchDir + File.separator + "bin");
+		return searchPaths;
 	}
 
 	static List<String> buildJConsoleCL(String executable, String[] args) throws Exception {

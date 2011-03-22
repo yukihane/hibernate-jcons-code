@@ -128,12 +128,19 @@ public class HibernateContext extends AbstractStatisticsContext {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void setConnection(MBeanServerConnection connection) {
+		super.setConnection(connection);
+		initializeClasspath();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected boolean isEnabled() {
 		MBeanServerConnection c = getConnection();
 		if (c == null)
 			return true;
-
-		initializeClasspath();
 
 		try {
 			// Lookup the hibernate classes inside the system class loader, making them

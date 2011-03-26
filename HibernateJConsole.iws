@@ -2,9 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="2a6aefec-39a4-43ab-98c6-ebbbcaa6df42" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/src/assemble" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/src/main/java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/src/main" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/src/test/java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/src/test" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/src" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/distribution.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/distribution/src/assemble/app.xml" />
+      <change type="DELETED" beforePath="C:\Projects\SF\hibernate-jcons\trunk\src\assemble\app.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assemble" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.ipr" afterPath="$PROJECT_DIR$/HibernateJConsole.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.iws" afterPath="$PROJECT_DIR$/HibernateJConsole.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java" afterPath="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsoleStarter.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsoleStarter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" afterPath="$PROJECT_DIR$/modules/hibernate-connector/hibernate-connector.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-connector/pom.xml" afterPath="$PROJECT_DIR$/modules/hibernate-connector/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/hibernate-3-5-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/hibernate-3-5-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/hibernate-3-6-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/hibernate-3-6-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/hibernate-generic-tester.iml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/hibernate-generic-tester.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/resources/net/sf/hibernate/jconsole/tester/test-message-entity.hbm.xml" afterPath="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/resources/net/sf/hibernate/jconsole/tester/test-message-entity.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/jconsole-plugin.iml" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/jconsole-plugin.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/pom.xml" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="HibernateJConsole.iws" />
@@ -110,28 +133,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="JConsoleStarter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsoleStarter.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="48" selection-start="2182" selection-end="2182" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HibernateContextTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/test/java/net/sf/hibernate/jconsole/hibernate/HibernateContextTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="32" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0">
+            <state line="44" column="0" selection-start="1735" selection-end="1735" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/pom.xml">
+        <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="26" column="28" selection-start="1135" selection-end="1135" vertical-scroll-proportion="-8.76">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/distribution/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="30" selection-start="1093" selection-end="1093" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/distribution/src/assemble/app.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="12" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.6752368">
               <folding />
             </state>
           </provider>
@@ -140,34 +172,16 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="163" column="28" selection-start="4873" selection-end="4873" vertical-scroll-proportion="0.0">
+            <state line="44" column="31" selection-start="1737" selection-end="1737" vertical-scroll-proportion="-19.2">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assemble/app.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HibernateContext.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HibernateContext.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="0" selection-start="4035" selection-end="4035" vertical-scroll-proportion="0.41964287">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JConsolePlugin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsolePlugin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="4" selection-start="1332" selection-end="1373" vertical-scroll-proportion="0.0">
+            <state line="129" column="0" selection-start="4035" selection-end="4035" vertical-scroll-proportion="-70.2">
               <folding />
             </state>
           </provider>
@@ -207,25 +221,29 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
+    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/AbstractChart2D.java" />
-        <option value="$PROJECT_DIR$/modules/hibernate-tester/pom.xml" />
-        <option value="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/pom.xml" />
-        <option value="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/pom.xml" />
-        <option value="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/pom.xml" />
-        <option value="$PROJECT_DIR$/modules/hibernate-tester/3-5-tester/pom.xml" />
         <option value="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/pom.xml" />
         <option value="$PROJECT_DIR$/modules/hibernate-tester/3-6-tester/pom.xml" />
         <option value="$PROJECT_DIR$/src/site/apt/releaseNotes.apt.vm" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/JMXUtil.java" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/ClasspathUtil.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/util/JMXUtilTest.java" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsolePlugin.java" />
         <option value="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsoleStarter.java" />
         <option value="$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java" />
+        <option value="$PROJECT_DIR$/modules/packaging/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/jconsole-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-connector/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/resources/net/sf/hibernate/jconsole/tester/test-message-entity.hbm.xml" />
+        <option value="$PROJECT_DIR$/modules/distribution/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/distribution/src/assemble/app.xml" />
       </list>
     </option>
   </component>
@@ -666,22 +684,8 @@
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="HibernateJConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-connector" />
+              <option name="myItemId" value="jconsole-plugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -699,7 +703,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-connector" />
+              <option name="myItemId" value="jconsole-plugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -721,7 +725,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-connector" />
+              <option name="myItemId" value="jconsole-plugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -747,23 +751,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate-connector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jconsole" />
+              <option name="myItemId" value="hibernate-tester" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -784,47 +772,93 @@
               <option name="myItemId" value="hibernate-connector" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HibernateJConsole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="distribution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HibernateJConsole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="distribution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HibernateJConsole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="distribution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jconsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hibernate" />
+              <option name="myItemId" value="assemble" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="129" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="100" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="31" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="100" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="124" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="31" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="124" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="true" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="103" />
@@ -840,22 +874,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="130" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth5" value="804" />
+    <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="options.lastSelected" value="org.sonar.ide.idea.IdeaSonarProjectComponent" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder5" value="5" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
-    <property name="project.structure.side.proportion" value="0.25432098" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="project.structure.side.proportion" value="0.25432098" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -1087,24 +1121,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" />
       <module name="" />
@@ -1131,6 +1147,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -1247,7 +1281,7 @@
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
-    <configuration useDefault="true">C:\Users\Juergen_Kellerer\AppData\Roaming\Subversion</configuration>
+    <configuration useDefault="true">C:\Users\juergen\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
   </component>
@@ -1281,6 +1315,10 @@
         <SvnCopyRootSimple>
           <option name="myVcsRoot" value="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-connector" />
           <option name="myCopyRoot" value="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-connector" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\Projects\SF\hibernate-jcons\trunk\modules\distribution" />
+          <option name="myCopyRoot" value="C:\Projects\SF\hibernate-jcons\trunk\modules\distribution" />
         </SvnCopyRootSimple>
         <SvnCopyRootSimple>
           <option name="myVcsRoot" value="C:\Projects\SF\hibernate-jcons\trunk\modules\hibernate-tester\3-5-tester" />
@@ -1334,7 +1372,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="0" width="1433" height="870" extended-state="0" />
+    <frame x="10" y="14" width="1257" height="937" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1344,11 +1382,11 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43933055" sideWeight="0.0" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4387755" sideWeight="0.0" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12773722" sideWeight="0.6723164" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2759124" sideWeight="0.49511856" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.180067" sideWeight="0.6723164" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2077052" sideWeight="0.56122446" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50488144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1380,7 +1418,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved path search and fixed timing issue." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed build by adding missing repo and default goal.&#10;- Improved usage of assembly plugin (using single goal)&#10;- Fixed legacy reference to hibernate 2 dtd (improving build speed as no internet connection is needed now)" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1393,7 +1431,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Updated the site to contain a new layout and logo, release notes and more report types." />
     <MESSAGE value="Fixed bug that the classpath scanner could include the hibernate-jconsole.jar itself (and lead to access exceptions by double loaded classes)" />
     <MESSAGE value="Removed misleaded test directory." />
     <MESSAGE value="Enabled additional report types and added a checkstyle configuration for the project." />
@@ -1418,6 +1455,7 @@
     <MESSAGE value="resolved tree conflict (svn)." />
     <MESSAGE value="Added auto detection of hibernate jars and jconsole path." />
     <MESSAGE value="Improved path search and fixed timing issue." />
+    <MESSAGE value="- Fixed build by adding missing repo and default goal.&#10;- Improved usage of assembly plugin (using single goal)&#10;- Fixed legacy reference to hibernate 2 dtd (improving build speed as no internet connection is needed now)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1431,26 +1469,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="25" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/site/apt/releaseNotes.apt.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../DevEnv/jdk32/src.zip!/javax/management/MBeanServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="17" selection-start="10891" selection-end="10891" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../DevEnv/jdk32/src.zip!/javax/management/MBeanServerConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="40" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0" />
@@ -1461,28 +1479,16 @@
         <state line="93" column="0" selection-start="2964" selection-end="2964" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsoleStarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="48" selection-start="2133" selection-end="2133" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/test/java/net/sf/hibernate/jconsole/hibernate/HibernateContextTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="32" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="28" selection-start="4873" selection-end="4873" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assemble/app.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="89" column="32" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsolePlugin.java">
@@ -1492,35 +1498,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/AbstractStatisticsContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="50" selection-start="1789" selection-end="1789" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="48" column="50" selection-start="1789" selection-end="1789" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/util/JMXUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="0" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="101" column="0" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/test/java/net/sf/hibernate/jconsole/util/JMXUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/JConsoleStarter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="48" selection-start="2182" selection-end="2182" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="49" column="0" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/src/main/java/net/sf/hibernate/jconsole/hibernate/HibernateContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="0" selection-start="4035" selection-end="4035" vertical-scroll-proportion="0.41964287">
+        <state line="129" column="0" selection-start="4035" selection-end="4035" vertical-scroll-proportion="-70.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="31" selection-start="1737" selection-end="1737" vertical-scroll-proportion="-19.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/jconsole-plugin/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="0" selection-start="1735" selection-end="1735" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-connector/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="28" selection-start="1135" selection-end="1135" vertical-scroll-proportion="-8.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/Hibernate/lib/hibernate.jar!/resources/schemas/hibernate-mapping-3.0.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/hibernate-tester/generic-tester/src/main/resources/net/sf/hibernate/jconsole/tester/test-message-entity.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="26" selection-start="919" selection-end="919" vertical-scroll-proportion="0.42625168">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/distribution/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="30" selection-start="1093" selection-end="1093" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/distribution/src/assemble/app.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="12" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.6752368">
           <folding />
         </state>
       </provider>
@@ -1538,6 +1580,11 @@
               </list>
             </option>
           </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions />
         </settings>
       </state>
       <state key="FacetStructureConfigurable.UI">
@@ -1583,6 +1630,7 @@
             <option name="proportions">
               <list>
                 <option value="0.25432098" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1598,6 +1646,11 @@
               </list>
             </option>
           </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions />
         </settings>
       </state>
     </states>

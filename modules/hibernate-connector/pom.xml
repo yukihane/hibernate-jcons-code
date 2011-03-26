@@ -19,45 +19,44 @@
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<packaging>jar</packaging>
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<artifactId>hibernate-connector</artifactId>
-	<name>Hibernate JConsole Plugin :: Hibernate Connector</name>
+    <parent>
+        <artifactId>hibernate-jconsole</artifactId>
+        <groupId>net.sf.hibernate-jconsole</groupId>
+        <version>1.0.4-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
 
-	<parent>
-		<artifactId>hibernate-jconsole</artifactId>
-		<groupId>net.sf.hibernate-jconsole</groupId>
-		<version>1.0.4-SNAPSHOT</version>
-		<relativePath>../../pom.xml</relativePath>
-	</parent>
+    <artifactId>hibernate-connector</artifactId>
+    <name>Hibernate JConsole Plugin :: Hibernate Connector</name>
 
-	<dependencies>
-		<dependency>
-			<artifactId>jconsole-plugin</artifactId>
-			<groupId>net.sf.hibernate-jconsole</groupId>
-			<version>${project.version}</version>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.hibernate-jconsole</groupId>
+            <artifactId>jconsole-plugin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-		<dependency>
-			<artifactId>ejb3-persistence</artifactId>
-			<groupId>org.hibernate</groupId>
-			<version>3.3.2.Beta1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<artifactId>hibernate-core</artifactId>
-			<groupId>org.hibernate</groupId>
-			<version>3.3.2.GA</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<artifactId>hibernate-jmx</artifactId>
-			<groupId>org.hibernate</groupId>
-			<version>3.3.2.GA</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <artifactId>ejb3-persistence</artifactId>
+            <groupId>org.hibernate</groupId>
+            <version>3.3.2.Beta1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <artifactId>hibernate-core</artifactId>
+            <groupId>org.hibernate</groupId>
+            <version>3.3.2.GA</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <artifactId>hibernate-jmx</artifactId>
+            <groupId>org.hibernate</groupId>
+            <version>3.3.2.GA</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011
+  ~
+  ~ This file is part of HibernateJConsole.
+  ~
+  ~     HibernateJConsole is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     HibernateJConsole is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>hibernate-jconsole</artifactId>
+        <groupId>net.sf.hibernate-jconsole</groupId>
+        <version>1.0.4-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>distribution</artifactId>
+    <name>Hibernate JConsole Plugin :: Distribution</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.hibernate-jconsole</groupId>
+            <artifactId>jconsole-plugin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.hibernate-jconsole</groupId>
+            <artifactId>hibernate-connector</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <finalName>${app.name}-${project.version}</finalName>
+                    <outputDirectory>../../target/</outputDirectory>
+                    <descriptors>
+                        <descriptor>src/assemble/app.xml</descriptor>
+                    </descriptors>
+                    <archive>
+                        <Manifest>
+                            <Main-Class>net.sf.hibernate.jconsole.JConsoleStarter</Main-Class>
+                        </Manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

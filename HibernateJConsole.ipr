@@ -220,6 +220,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HibernateJConsole.iml" filepath="$PROJECT_DIR$/HibernateJConsole.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/packaging/distribution.iml" filepath="$PROJECT_DIR$/modules/packaging/distribution.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-1-tester/hibernate-3-1-tester.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-2-tester/hibernate-3-2-tester.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" filepath="$PROJECT_DIR$/modules/hibernate-tester/3-3-tester/hibernate-3-3-tester.iml" />
@@ -234,7 +235,7 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6 (32bit)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ResourceManagerContainer">

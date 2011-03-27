@@ -11,18 +11,25 @@ ${project.name} - ${project.version}
 * About ${project.name}
 
     "${project.build.finalName}" is a plugin to
-    <<{{{http://java.sun.com/j2se/1.5.0/docs/guide/management/jconsole.html}jconsole}}>> or
+    <<{{{http://java.sun.com/j2se/1.5.0/docs/guide/management/jconsole.html}JConsole}}>> or
     <<{{{https://visualvm.dev.java.net/}visualvm}}>> allowing to monitor
     hibernate via its JMX exports. The plugin displays grahps and details on
     queries, entities, collections and cache efficiency.
 
-    In order to use the plugin, make sure that the application monitored by jconsole
+    In order to use the plugin, make sure that the application monitored by JConsole
     already exports the hibernate statistics MBean (when it does, the MBean appears
     under the MBeans section).
     Follow the <<{{{usage.html}usage guide}}>> for more information.
 
-    {{{https://sourceforge.net/projects/hibernate-jcons/files/}
-    Download "${project.build.finalName}.jar"}}
+    {{{http://sourceforge.net/projects/hibernate-jcons/files/alpha/${project.build.finalName}.jar/download}
+    <<Download>> "${project.build.finalName}.jar"}}
+    ({{{http://sourceforge.net/projects/hibernate-jcons/files/}all versions}})
+
+* Screenshot
+
+[images/screenshot.png] Version 1.0.1 - Queries
+
+    Version 1.0.1 - Queries
 
 * Help wanted
 
@@ -37,9 +44,3 @@ ${project.name} - ${project.version}
     {{{http://sourceforge.net/tracker/?group_id=289306}Feature requests}}.
     Open discussions or other issues go into the
     {{{http://sourceforge.net/projects/hibernate-jcons/forums}forums}} section.
-
-* Screenshot
-
-[images/screenshot.png] Version 1.0.1 - Queries
-
-    Version 1.0.1 - Queries

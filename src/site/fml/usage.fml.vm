@@ -119,6 +119,24 @@ jmxBinding.registerJmxBinding();
 			</question>
 			<answer>
 				<source>
+java -jar ${project.build.finalName}.jar
+				</source>
+				<p>
+				    <b>Note:</b>
+				    From version 1.0.4 the plugin automatically searches the JConsole executable
+				    and passes all given arguments. When connecting to a locally monitored
+				    process, the hibernate jars are automatically detected and added to
+				    JConsole's classpath.
+                </p>
+			</answer>
+		</faq>
+
+		<faq id="quickstart-jconsole-prior-1.0.4">
+			<question>
+				Quickstart with JConsole - Prior to 1.0.4
+			</question>
+			<answer>
+				<source>
 cd C:\Sandbox\Libraries\hibernate
 jconsole -pluginpath C:\Sandbox\\${project.build.finalName}.jar
 				</source>
@@ -173,8 +191,11 @@ jconsole -pluginpath C:\Sandbox\\${project.build.finalName}.jar \
 					"JConsole-Plugin" path inside the "Options" menu to point to "${project.build.finalName}.jar".
 				</p>
 				<p>
-					Restart VisualVm either in the correct working path or by adding the customization
-					parameters inside the commandline as shown below.
+					Restart VisualVm and start monitoring Hibernate applications.
+				</p>
+				<p>
+					When monitoring remote application, restart VisualVM either in the correct working path or by
+					adding the customization parameters inside the commandline as shown below.
 					(see <a href="#customize-jconsole">Customizations</a> for more details)
 				</p>
 				<source>

@@ -111,7 +111,7 @@ public class HibernateContext extends AbstractStatisticsContext {
 		boolean success = false;
 
 		if (HIBERNATE_CLASSPATH != null)
-			success = findAndAddHibernateJars(new String[]{HIBERNATE_CLASSPATH});
+			success = findAndAddHibernateJars(HIBERNATE_CLASSPATH.split(";+"));
 
 		if (!success) {
 			List<File> list = collectReachableJarsFromRemoteJVM();

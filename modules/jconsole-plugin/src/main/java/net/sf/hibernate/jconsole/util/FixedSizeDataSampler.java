@@ -18,6 +18,7 @@ public class FixedSizeDataSampler<E extends Number> extends DataSampler<E> {
 	 * @param maxSamples the amount of samples to collect.
 	 */
 	public FixedSizeDataSampler(int maxSamples) {
+		super();
 		this.maxSamples = maxSamples;
 	}
 

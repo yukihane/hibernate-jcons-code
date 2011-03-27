@@ -19,19 +19,13 @@
 
 package net.sf.hibernate.jconsole.ui;
 
-import net.sf.hibernate.jconsole.AbstractStatisticsContext;
-import net.sf.hibernate.jconsole.ui.widgets.RefreshableJPanel;
-
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * * Implements the entities page.
  *
  * @author Juergen_Kellerer, 2009-11-19
  * @version 1.0
  */
-public class EntitiesTab extends RefreshableJPanel {
+public class EntitiesTab extends AbstractTableTab {
 
 	public static final String NAME = "Entities";
 
@@ -39,15 +33,8 @@ public class EntitiesTab extends RefreshableJPanel {
 	EntityDetails entityDetails = new EntityDetails(entitiesTable);
 
 	public EntitiesTab() {
-		super(new BorderLayout());
-		add(BorderLayout.NORTH, entityDetails);
-		add(BorderLayout.CENTER, new JScrollPane(entitiesTable));
-	}
-
-	@Override
-	public void refresh(AbstractStatisticsContext context) {
-		super.refresh(context);
-		entitiesTable.refresh(context);
+		super();
+		init(entityDetails);
 	}
 }
 

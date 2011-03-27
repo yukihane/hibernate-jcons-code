@@ -36,13 +36,21 @@ import java.util.WeakHashMap;
  */
 public abstract class AbstractChart2D extends RefreshableJPanel {
 
+	static final String DEFAULT_COLOR_SET =
+			"0x4A85CC;0xD04B47;0xA3C955;0x8564AD;0x44B7D7;0x44B7D7;0x1F518E;0xF0EDE0;0x8C8C8C";
+
 	static final String TOOLTIP_TEMPLATE = "x: %s - y: %s";
 	static final Color BACKGROUND_GARDIENT_BRIGHT_TOP = Color.decode("0xFFFFFF");
 	static final Color BACKGROUND_GARDIENT_BRIGHT_BOTTOM = Color.decode("0xFAFAFA");
 	static final Color BACKGROUND_GARDIENT_DARK = Color.decode("0xF5F5F5");
-	static final Color[] DEFAULT_GRAPH_COLORS = new Color[]{
-			Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA,
-			Color.ORANGE, Color.CYAN, Color.DARK_GRAY, Color.PINK};
+	static final Color[] DEFAULT_GRAPH_COLORS;
+
+	static {
+		String[] colors = System.getProperty("hibernate.graph.colors", DEFAULT_COLOR_SET).split(";+");
+		DEFAULT_GRAPH_COLORS = new Color[colors.length];
+		for (int i = 0; i < colors.length; i++)
+			DEFAULT_GRAPH_COLORS[i] = Color.decode(colors[i].trim());
+	}
 
 	private Insets graphInsets = new Insets(10, 60, 20, 0);
 
@@ -50,15 +58,16 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	private ChartAxis verticalAxis;
 	private ChartAxis horizontalAxis;
 
-	private Graph2D[] graphs;
+	private AbstractGraph2D[] graphs;
 	private Color[] graphColors = DEFAULT_GRAPH_COLORS;
 
 	private Paint backgroundPaint;
 	private Rectangle verticalAxisBounds, horizontalAxisBounds, graphBounds;
 
-	private WeakHashMap<DataTable.Column, Graph2D> columnMap = new WeakHashMap<DataTable.Column, Graph2D>();
+	private WeakHashMap<DataTable.Column, AbstractGraph2D> columnMap = new WeakHashMap<DataTable.Column, AbstractGraph2D>();
 
 	protected AbstractChart2D() {
+		super();
 		setOpaque(true);
 		setToolTipText("non-empty");
 	}
@@ -205,7 +214,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * @return true if the specified column is visible.
 	 */
 	public boolean isColumnVisible(DataTable.Column column) {
-		Graph2D graph = columnMap.get(column);
+		AbstractGraph2D graph = columnMap.get(column);
 		return graph != null && graph.isVisible();
 	}
 
@@ -216,7 +225,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * @param visible True to set the column to visible, false to hide it.
 	 */
 	public void setColumnVisible(DataTable.Column column, boolean visible) {
-		Graph2D graph = columnMap.get(column);
+		AbstractGraph2D graph = columnMap.get(column);
 		if (graph != null) {
 			graph.setVisible(visible);
 			updateVisibility();
@@ -232,7 +241,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintComponent(Graphics g) {
+	protected synchronized void paintComponent(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g.create();
 		try {
 			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -248,7 +257,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 				// Drawing the graphs.
 				List<DataTable.Column> columnList = dataTable.getColumns();
 				Iterator<DataTable.Column> columns = columnList.iterator();
-				for (Graph2D graph : graphs) {
+				for (AbstractGraph2D graph : graphs) {
 					g2d.setPaint(getColorForColumn(columns.next()));
 					if (!graph.isVisible())
 						continue;
@@ -258,7 +267,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 
 				// Drawing the overlays.
 				columns = columnList.iterator();
-				for (Graph2D graph : graphs) {
+				for (AbstractGraph2D graph : graphs) {
 					g2d.setPaint(getColorForColumn(columns.next()));
 					if (!graph.isVisible())
 						continue;
@@ -337,11 +346,15 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		return graphBounds;
 	}
 
-	private boolean[] getAllGraphVisibleFlags() {
-		boolean[] visibleFlags = new boolean[graphs == null ? 0 : graphs.length];
-		for (int i = 0; i < visibleFlags.length; i++)
-			visibleFlags[i] = graphs[i].isVisible();
-		return visibleFlags;
+	private synchronized boolean[] getAllGraphVisibleFlags() {
+		if (graphs == null)
+			return new boolean[0];
+		else {
+			boolean[] visibleFlags = new boolean[graphs.length];
+			for (int i = 0; i < visibleFlags.length; i++)
+				visibleFlags[i] = graphs[i].isVisible();
+			return visibleFlags;
+		}
 	}
 
 	/**
@@ -357,13 +370,15 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	/**
 	 * Updates the visibility settings after a change in the graphs or graph visibility.
 	 */
-	public void updateVisibility() {
-		double maxValue = 0;
-		for (Graph2D graph : graphs)
-			if (graph.isVisible())
-				maxValue = Math.max(maxValue, graph.getMaxGraphValue());
-		for (Graph2D graph : graphs)
-			graph.setMaxValue(maxValue);
+	public synchronized void updateVisibility() {
+		if (graphs != null) {
+			double maxValue = 0;
+			for (AbstractGraph2D graph : graphs)
+				if (graph.isVisible())
+					maxValue = Math.max(maxValue, graph.getMaxGraphValue());
+			for (AbstractGraph2D graph : graphs)
+				graph.setMaxValue(maxValue);
+		}
 
 		repaint(25);
 	}
@@ -372,7 +387,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void refresh(AbstractStatisticsContext context) {
+	public synchronized void refresh(AbstractStatisticsContext context) {
 		super.refresh(context);
 
 		Rectangle bounds = getGraphBounds();

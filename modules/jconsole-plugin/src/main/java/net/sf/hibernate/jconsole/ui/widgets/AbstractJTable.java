@@ -96,7 +96,7 @@ public abstract class AbstractJTable<E> extends JTable {
 		return Math.round(input * 1000D) / 1000D;
 	}
 
-	protected DefaultTableModel dataModel = new DefaultTableModel() {
+	private class MyTableModel extends DefaultTableModel {
 
 		private static final long serialVersionUID = -3098276628365570375L;
 
@@ -109,16 +109,18 @@ public abstract class AbstractJTable<E> extends JTable {
 		public boolean isCellEditable(int row, int column) {
 			return false;
 		}
-	};
+	}
 
 	/**
 	 * Constructs a new table.
 	 */
 	protected AbstractJTable() {
-		dataModel.setColumnIdentifiers(getColumns());
-		setModel(dataModel);
+		super();
+		MyTableModel model = new MyTableModel();
+		model.setColumnIdentifiers(getColumns());
+		setModel(model);
 
-		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(dataModel);
+		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
 		sorter.setSortsOnUpdates(true);
 		setRowSorter(sorter);
 
@@ -142,6 +144,11 @@ public abstract class AbstractJTable<E> extends JTable {
 				return getColumns()[realIndex].getTooltip();
 			}
 		};
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
 	}
 
 	/**
@@ -171,7 +178,8 @@ public abstract class AbstractJTable<E> extends JTable {
 
 		int i = 0;
 		boolean changed = false;
-		for (Iterator dataIterator = dataModel.getDataVector().iterator(); dataIterator.hasNext();) {
+		final MyTableModel model = (MyTableModel) dataModel;
+		for (Iterator dataIterator = model.getDataVector().iterator(); dataIterator.hasNext();) {
 			Vector rowVector = (Vector) dataIterator.next();
 			ListIterator rowIterator = rowVector.listIterator();
 			String key = rowIterator.hasNext() ? String.valueOf(rowIterator.next()) : null;
@@ -179,7 +187,7 @@ public abstract class AbstractJTable<E> extends JTable {
 
 			if (statistics == null) {
 				dataIterator.remove();
-				dataModel.fireTableRowsDeleted(i, i);
+				model.fireTableRowsDeleted(i, i);
 				continue;
 			}
 
@@ -197,10 +205,10 @@ public abstract class AbstractJTable<E> extends JTable {
 		}
 
 		for (Map.Entry<String, E> entry : updateData.entrySet())
-			dataModel.addRow(toTableRow(entry.getKey(), entry.getValue()));
+			model.addRow(toTableRow(entry.getKey(), entry.getValue()));
 
 		// We need to redraw all rows because the sort order may have changed...
 		if (changed || !updateData.isEmpty())
-			dataModel.fireTableRowsUpdated(0, dataModel.getRowCount() - 1);
+			model.fireTableRowsUpdated(0, model.getRowCount() - 1);
 	}
 }

@@ -19,8 +19,6 @@
 
 package net.sf.hibernate.jconsole.ui.widgets;
 
-import net.sf.hibernate.jconsole.stats.QueryStatistics;
-
 import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.msToSeconds;
 
 /**
@@ -29,15 +27,6 @@ import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.msToSeconds;
  * @author Juergen_Kellerer, 21.11.2009
  */
 public class QueryPerformanceTableCell extends PerformanceTableCell {
-
-	public static double toQueryPerformance(QueryStatistics statistics) {
-		return toQueryPerformance(statistics.getExecutionAvgTime() * statistics.getExecutionCount(),
-				statistics.getCacheHitCount() + statistics.getExecutionCount());
-	}
-
-	public static double toQueryPerformance(long totalTimeOnDb, long invocations) {
-		return (double) totalTimeOnDb / (double) invocations;
-	}
 
 	public QueryPerformanceTableCell(double maxQueryPerformance, double queryPerformance) {
 		super(maxQueryPerformance, Math.max(0D, maxQueryPerformance - queryPerformance));

@@ -26,7 +26,7 @@ import java.awt.*;
  *
  * @author Juergen_Kellerer, 23.11.2009
  */
-public abstract class Graph2D extends AbstractChartElement {
+public abstract class AbstractGraph2D extends AbstractChartElement {
 
 	private static final long serialVersionUID = 3791460415201358526L;
 
@@ -35,8 +35,9 @@ public abstract class Graph2D extends AbstractChartElement {
 	protected int[] xCoordinates, yCoordinates;
 	protected boolean visible = true;
 
-	public Graph2D(double[] values, double maxValue) {
-		this.values = values;
+	public AbstractGraph2D(double[] values, double maxValue) {
+		super();
+		this.values = values == null ? null : values.clone();
 		this.maxValue = maxValue;
 	}
 
@@ -155,7 +156,7 @@ public abstract class Graph2D extends AbstractChartElement {
 	 */
 	@Override
 	public void setRect(double x, double y, double width, double height) {
-		if (this.width != width || this.height != height)
+		if (this.width != width || this.height != height) //NOSONAR - Precession is not an issue here
 			invalidate();
 		super.setRect(x, y, width, height);
 	}

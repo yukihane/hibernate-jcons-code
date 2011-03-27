@@ -79,14 +79,6 @@ public class RefreshableJSplitPane extends JSplitPane implements Refreshable {
 	 * {@inheritDoc}
 	 */
 	public void refresh(AbstractStatisticsContext context) {
-		refreshComponents(getComponents(), context);
-	}
-
-	protected void refreshComponents(Component[] components, AbstractStatisticsContext context) {
-		for (Component component : components) {
-			if (!(component instanceof Refreshable))
-				continue;
-			((Refreshable) component).refresh(context);
-		}
+		RefreshableJPanel.refreshComponents(getComponents(), context);
 	}
 }

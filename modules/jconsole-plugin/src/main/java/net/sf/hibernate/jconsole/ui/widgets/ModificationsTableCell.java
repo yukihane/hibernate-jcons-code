@@ -27,6 +27,7 @@ package net.sf.hibernate.jconsole.ui.widgets;
 public class ModificationsTableCell extends LineBarTableCell {
 	public ModificationsTableCell(long maxModificationCount,
 								  long inserts, long updates, long deletes) {
+		super();
 		setStyle(Style.GREEN);
 
 		long modificationCount = inserts + updates + deletes;

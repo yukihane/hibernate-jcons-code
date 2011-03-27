@@ -24,20 +24,20 @@
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>hibernate-3-1-tester</artifactId>
-	<name>Hibernate Connector Tester :: 3.1 Tester</name>
-
 	<parent>
 		<artifactId>hibernate-tester</artifactId>
-		<groupId>net.sf.hibernate-jconsole</groupId>
+		<groupId>net.sf.hibernate-jconsole.testsuite</groupId>
 		<version>1.0.4-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
+	<artifactId>hibernate-3-1-tester</artifactId>
+	<name>Hibernate Connector Tester :: 3.1 Tester</name>
+
 	<dependencies>
 		<dependency>
 			<artifactId>hibernate-generic-tester</artifactId>
-			<groupId>net.sf.hibernate-jconsole</groupId>
+			<groupId>net.sf.hibernate-jconsole.testsuite</groupId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -45,14 +45,29 @@
 			<artifactId>hibernate</artifactId>
 			<groupId>org.hibernate</groupId>
 			<version>3.1.3</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>jta</artifactId>
 			<version>1.1</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<!-- Triggers the building of a CLI tester -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

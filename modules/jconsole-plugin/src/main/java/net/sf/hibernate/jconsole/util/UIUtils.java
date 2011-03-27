@@ -33,7 +33,7 @@ import java.io.StringWriter;
  * @author Juergen_Kellerer, 2009-11-19
  * @version 1.0
  */
-public class UIUtils {
+public final class UIUtils {
 
 	static String exceptionToString(Throwable t) {
 		StringWriter w = new StringWriter(1024);

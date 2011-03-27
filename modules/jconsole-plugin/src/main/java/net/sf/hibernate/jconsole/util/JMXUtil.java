@@ -31,7 +31,7 @@ import java.util.Properties;
  * @author Juergen_Kellerer, 2011-03-20
  * @version 1.0
  */
-public class JMXUtil {
+public final class JMXUtil {
 
 	private static ObjectName operatingSystem;
 	private static ObjectName runtimeName;
@@ -45,7 +45,7 @@ public class JMXUtil {
 	 * @throws Exception if the operation failed.
 	 */
 	public static Object getRuntimeAttribute(MBeanServerConnection mbs, String attributeName) throws Exception {
-		if (runtimeName == null)
+		if (runtimeName == null) //NOSONAR - MT is not an issue.
 			runtimeName = new ObjectName("java.lang:type=Runtime");
 		return mbs.getAttribute(runtimeName, attributeName);
 	}
@@ -60,7 +60,7 @@ public class JMXUtil {
 	 */
 	public static Object getOperatingSystemAttribute(MBeanServerConnection mbs,
 													 String attributeName) throws Exception {
-		if (operatingSystem == null)
+		if (operatingSystem == null) //NOSONAR - MT is not an issue.
 			operatingSystem = new ObjectName("java.lang:type=OperatingSystem");
 		return mbs.getAttribute(operatingSystem, attributeName);
 	}

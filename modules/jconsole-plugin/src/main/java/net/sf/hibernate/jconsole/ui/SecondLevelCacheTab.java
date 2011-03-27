@@ -19,35 +19,22 @@
 
 package net.sf.hibernate.jconsole.ui;
 
-import net.sf.hibernate.jconsole.AbstractStatisticsContext;
-import net.sf.hibernate.jconsole.ui.widgets.RefreshableJPanel;
-
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * * Implements the cache page.
  *
  * @author Juergen_Kellerer, 2009-11-20
  * @version 1.0
  */
-public class SecondLevelCacheTab extends RefreshableJPanel {
+public class SecondLevelCacheTab extends AbstractTableTab {
 
 	public static final String NAME = "Cache";
 
 	SecondLevelCacheTable cacheTable = new SecondLevelCacheTable();
-	//EntityDetails entityDetails = new EntityDetails(entitiesTable);
+	SecondLevelCacheDetails cacheDetails = new SecondLevelCacheDetails(cacheTable);
 
 	public SecondLevelCacheTab() {
-		super(new BorderLayout());
-		add(BorderLayout.CENTER, new JScrollPane(cacheTable));
-		//add(BorderLayout.SOUTH, entityDetails);
-	}
-
-	@Override
-	public void refresh(AbstractStatisticsContext context) {
-		super.refresh(context);
-		cacheTable.refresh(context);
+		super();
+		init(cacheDetails);
 	}
 }
 

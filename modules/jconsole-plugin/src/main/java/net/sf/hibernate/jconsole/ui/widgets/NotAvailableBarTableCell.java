@@ -29,6 +29,7 @@ import java.awt.*;
  */
 public class NotAvailableBarTableCell extends LineBarTableCell {
 	public NotAvailableBarTableCell() {
+		super();
 		setValue(-1);
 		setFont(DEFAULT.deriveFont(Font.ITALIC));
 	}

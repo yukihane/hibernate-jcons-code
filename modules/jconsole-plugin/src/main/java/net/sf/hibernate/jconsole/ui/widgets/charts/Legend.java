@@ -95,6 +95,7 @@ public class Legend extends RefreshableJPanel {
 		private final DataTable.Column column;
 
 		private ColumnVisibilityToggle(DataTable.Column column) {
+			super();
 			this.column = column;
 		}
 

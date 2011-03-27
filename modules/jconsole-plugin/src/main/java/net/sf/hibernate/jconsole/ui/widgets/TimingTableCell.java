@@ -22,13 +22,14 @@ package net.sf.hibernate.jconsole.ui.widgets;
 import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.msToSeconds;
 
 /**
- * Is a table cell that shows the timinig (avg, max and min time).
+ * Is a table cell that shows the timing (avg, max and min time).
  *
  * @author Juergen_Kellerer, 2009-11-20
  * @version 1.0
  */
 public class TimingTableCell extends LineBarTableCell {
 	public TimingTableCell(double maxTotalAvg, double totalAvg, long avg, long max, long min) {
+		super();
 		setStyle(Style.GREEN);
 
 		setValue(Math.max(0, totalAvg / maxTotalAvg));

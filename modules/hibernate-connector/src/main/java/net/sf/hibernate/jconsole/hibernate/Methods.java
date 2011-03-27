@@ -24,7 +24,7 @@ import net.sf.hibernate.jconsole.stats.Names;
 import javax.management.*;
 import java.io.IOException;
 
-import static net.sf.hibernate.jconsole.hibernate.HibernateContext.HIBERNATE_STATISTICS;
+import static net.sf.hibernate.jconsole.util.HibernateJmxBinding.HIBERNATE_STATISTICS;
 
 /**
  * Enumerates used methods.

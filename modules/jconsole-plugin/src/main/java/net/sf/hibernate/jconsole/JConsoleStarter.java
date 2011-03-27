@@ -35,10 +35,12 @@ import java.util.*;
  * @author Juergen_Kellerer, 2011-03-20
  * @version 1.0
  */
-public class JConsoleStarter {
+public final class JConsoleStarter {
 
 	private static final String PLUGIN_JAR = "hibernate-jconsole";
 	private static final MBeanServer MBS = ManagementFactory.getPlatformMBeanServer();
+	private static final String BIN_FOLDER = File.separator + "bin";
+	private static final String JAVA_FOLDER = File.separator + "Java";
 
 	public static void main(String[] args) throws Exception {
 		final Set<String> searchPaths = buildSearchPaths();
@@ -72,11 +74,11 @@ public class JConsoleStarter {
 
 	static Set<String> buildSearchPaths() {
 		Set<String> searchPaths = new LinkedHashSet<String>();
-		searchPaths.add(System.getProperty("jdk.path", "") + File.separator + "bin");
-		searchPaths.add(System.getenv("JDK_PATH") + File.separator + "bin");
+		searchPaths.add(System.getProperty("jdk.path", "") + BIN_FOLDER);
+		searchPaths.add(System.getenv("JDK_PATH") + BIN_FOLDER);
 		searchPaths.add(""); // use PATHS
 
-		searchPaths.add(System.getProperty("java.home") + File.separator + "bin");
+		searchPaths.add(System.getProperty("java.home") + BIN_FOLDER);
 
 		File javaHome = new File(System.getProperty("java.home"));
 		File parentDir = javaHome.getParentFile();
@@ -93,13 +95,13 @@ public class JConsoleStarter {
 	static void handleWindowsSpecificPaths(Set<String> searchPaths) {
 		String programFiles = System.getenv("ProgramFiles");
 		if (programFiles != null) {
-			addDirsToSearchPath(searchPaths, new File(programFiles + File.separator + "Java"));
+			addDirsToSearchPath(searchPaths, new File(programFiles + JAVA_FOLDER));
 
 			String altPath = programFiles.contains("(x86)") ?
 					programFiles.replace(" (x86)", "") :
 					System.getenv("ProgramFiles(x86)");
-			if (altPath != null && !altPath.equals(searchPaths))
-				addDirsToSearchPath(searchPaths, new File(altPath + File.separator + "Java"));
+			if (altPath != null && !altPath.equals(programFiles))
+				addDirsToSearchPath(searchPaths, new File(altPath + JAVA_FOLDER));
 		}
 	}
 
@@ -113,7 +115,7 @@ public class JConsoleStarter {
 
 		if (searchDirs != null)
 			for (File searchDir : searchDirs)
-				searchPaths.add(searchDir + File.separator + "bin");
+				searchPaths.add(searchDir + BIN_FOLDER);
 	}
 
 	static List<String> buildJConsoleCL(String executable, String[] args) throws Exception {
@@ -148,5 +150,8 @@ public class JConsoleStarter {
 
 			jconsoleCommand.add(jconsoleArg.toString());
 		}
+	}
+
+	private JConsoleStarter() {
 	}
 }

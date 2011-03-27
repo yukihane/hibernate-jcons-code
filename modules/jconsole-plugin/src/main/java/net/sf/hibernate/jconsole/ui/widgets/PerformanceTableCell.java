@@ -30,6 +30,7 @@ import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.round;
 public class PerformanceTableCell extends LineBarTableCell {
 
 	public PerformanceTableCell(double maxPerformance, double performance) {
+		super();
 		setStyle(Style.ORANGE);
 
 		double p = performance / maxPerformance;

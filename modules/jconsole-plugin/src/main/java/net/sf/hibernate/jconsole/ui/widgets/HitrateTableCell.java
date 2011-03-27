@@ -19,6 +19,7 @@
 
 package net.sf.hibernate.jconsole.ui.widgets;
 
+import static net.sf.hibernate.jconsole.stats.StatisticsUtil.toRatio;
 import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.round;
 
 /**
@@ -29,14 +30,9 @@ import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.round;
  */
 public class HitrateTableCell extends LineBarTableCell {
 
-	public static double toHitRate(long hitCount, long missCount) {
-		if (hitCount == 0 && missCount == 0)
-			return 0;
-		return (double) hitCount / (double) (missCount + hitCount);
-	}
-
 	public HitrateTableCell(long hitCount, long missCount, long putCount) {
-		double hitRate = toHitRate(hitCount, missCount);
+		super();
+		double hitRate = toRatio(hitCount, missCount);
 
 		setValue(hitRate);
 		setLabelValue(round(hitRate * 100D));

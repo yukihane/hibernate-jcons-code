@@ -34,7 +34,7 @@ import java.util.List;
  * @author Juergen_Kellerer, 2009-11-18
  * @version 1.0
  */
-public class ClasspathUtil {
+public final class ClasspathUtil {
 
 	private static Method addURL;
 
@@ -47,10 +47,10 @@ public class ClasspathUtil {
 		}
 	}
 
-	public static void addURLs(List<URL> URLs) {
+	public static void addURLs(List<URL> urls) {
 		URLClassLoader sysloader = (URLClassLoader) ClassLoader.getSystemClassLoader();
 		try {
-			for (URL url : URLs) {
+			for (URL url : urls) {
 				addURL.invoke(sysloader, url);
 
 				// Reconstruct classpath property

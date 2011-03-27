@@ -62,6 +62,7 @@ public class ChartAxis extends AbstractChartElement {
 	 * @param values	  the max values of the axis.
 	 */
 	public ChartAxis(int tickSize, Orientation orientation, double... values) {
+		super();
 		this.tickSize = tickSize;
 		this.orientation = orientation;
 		this.values = values;

@@ -19,10 +19,9 @@
 
 package net.sf.hibernate.jconsole.ui;
 
+import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.stats.EntityStatistics;
-import net.sf.hibernate.jconsole.ui.widgets.AbstractTableDetails;
-
-import javax.swing.event.ListSelectionEvent;
+import net.sf.hibernate.jconsole.util.DataTable;
 
 /**
  * Implements the details panel below the query table.
@@ -30,8 +29,13 @@ import javax.swing.event.ListSelectionEvent;
  * @author Juergen_Kellerer, 2009-11-19
  * @version 1.0
  */
-public class EntityDetails extends AbstractTableDetails<EntityStatistics> {
+public class EntityDetails extends AbstractChartViewDetails<EntityStatistics> {
 
+	/**
+	 * Creates an instance of EntityDetails for the given table.
+	 *
+	 * @param entitiesTable the table to create the details for.
+	 */
 	public EntityDetails(EntitiesTable entitiesTable) {
 		super(entitiesTable);
 	}
@@ -39,10 +43,8 @@ public class EntityDetails extends AbstractTableDetails<EntityStatistics> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void valueChanged(ListSelectionEvent e) {
-		if (e.getValueIsAdjusting())
-			return;
-		int rowIdx = e.getFirstIndex();
-		table.getValueAt(rowIdx, 0);
+	@Override
+	protected DataTable getDataTableFor(AbstractStatisticsContext context, Object selection) {
+		return context.getEntityStatisticsTables().get(String.valueOf(selection));
 	}
 }

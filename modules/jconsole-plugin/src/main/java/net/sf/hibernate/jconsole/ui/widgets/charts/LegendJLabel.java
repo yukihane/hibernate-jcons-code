@@ -29,11 +29,14 @@ public class LegendJLabel extends JLabel {
 		 */
 		@Override
 		public void paintIcon(Component c, Graphics g, int x, int y) {
-			Graphics2D g2d = (Graphics2D) g;
-			g2d.setPaint(new GradientPaint(x, y, Color.WHITE, x, y + ICON_SIZE + 1, color));
-			g2d.fillRect(x, y, ICON_SIZE, ICON_SIZE);
-			g2d.setPaint(borderColor);
-			g2d.drawRect(x, y, ICON_SIZE, ICON_SIZE);
+			if (g instanceof Graphics2D) {
+				Graphics2D g2d = (Graphics2D) g;
+				g2d.setPaint(new GradientPaint(x, y, Color.WHITE, x, y + ICON_SIZE + 1, color));
+				g2d.fillRect(x, y, ICON_SIZE, ICON_SIZE);
+				g2d.setPaint(borderColor);
+				g2d.drawRect(x, y, ICON_SIZE, ICON_SIZE);
+			} else
+				throw new IllegalStateException("The icon cannot be used without Graphics2D.");
 		}
 
 		/**

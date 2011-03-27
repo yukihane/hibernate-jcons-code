@@ -32,7 +32,7 @@ import java.util.*;
  * @author Juergen_Kellerer, 2009-11-18
  * @version 1.0
  */
-public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
+public class HibernateJConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 
 	// Adjust tooltips to last longer (the default dismissal is to fast)
 
@@ -66,6 +66,7 @@ public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 					AbstractStatisticsContext context = contexts.get(entry.getKey());
 					if (context != null)
 						entry.getValue().refresh(context);
+					entry.getValue().repaint();
 				}
 			} catch (RuntimeException e) {
 				e.printStackTrace();
@@ -79,7 +80,7 @@ public class JConsolePlugin extends com.sun.tools.jconsole.JConsolePlugin {
 	/**
 	 * Constructs the plugin.
 	 */
-	public JConsolePlugin() {
+	public HibernateJConsolePlugin() {
 		super();
 
 		List<AbstractStatisticsContext> statisticsContexts = AbstractStatisticsContext.getAvailableContexts();

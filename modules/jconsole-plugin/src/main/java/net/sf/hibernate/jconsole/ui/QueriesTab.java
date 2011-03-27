@@ -19,19 +19,13 @@
 
 package net.sf.hibernate.jconsole.ui;
 
-import net.sf.hibernate.jconsole.AbstractStatisticsContext;
-import net.sf.hibernate.jconsole.ui.widgets.RefreshableJPanel;
-
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * Implements the queries page.
  *
  * @author Juergen_Kellerer, 2009-11-19
  * @version 1.0
  */
-public class QueriesTab extends RefreshableJPanel {
+public class QueriesTab extends AbstractTableTab {
 
 	public static final String NAME = "Queries";
 
@@ -39,14 +33,7 @@ public class QueriesTab extends RefreshableJPanel {
 	QueryDetails queryDetails = new QueryDetails(queriesTable);
 
 	public QueriesTab() {
-		super(new BorderLayout());
-		add(BorderLayout.NORTH, queryDetails);
-		add(BorderLayout.CENTER, new JScrollPane(queriesTable));
-	}
-
-	@Override
-	public void refresh(AbstractStatisticsContext context) {
-		super.refresh(context);
-		queriesTable.refresh(context);
+		super();
+		init(queryDetails);
 	}
 }

@@ -19,37 +19,21 @@
 
 package net.sf.hibernate.jconsole.ui;
 
-import net.sf.hibernate.jconsole.AbstractStatisticsContext;
-import net.sf.hibernate.jconsole.ui.widgets.RefreshableJPanel;
-import net.sf.hibernate.jconsole.ui.widgets.RefreshableJSplitPane;
-
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * Implements the collections page.
  *
  * @author Juergen_Kellerer, 2009-11-20
  * @version 1.0
  */
-public class CollectionsTab extends RefreshableJPanel {
+public class CollectionsTab extends AbstractTableTab {
 
 	public static final String NAME = "Collections";
 
 	CollectionsTable collectionsTable = new CollectionsTable();
 	CollectionsDetails details = new CollectionsDetails(collectionsTable);
-	RefreshableJSplitPane splitPane = new RefreshableJSplitPane(JSplitPane.VERTICAL_SPLIT,
-			new JScrollPane(collectionsTable), details);
 
 	public CollectionsTab() {
-		super(new BorderLayout());
-		add(BorderLayout.CENTER, splitPane);
-		splitPane.setResizeWeight(1);
-	}
-
-	@Override
-	public void refresh(AbstractStatisticsContext context) {
-		super.refresh(context);
-		collectionsTable.refresh(context);
+		super();
+		init(details);
 	}
 }

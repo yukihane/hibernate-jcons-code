@@ -37,6 +37,7 @@ public class MainTab extends RefreshableJPanel {
 	HibernateNotFoundContent notFoundContent = new HibernateNotFoundContent();
 
 	public MainTab() {
+		super();
 		setHibernateAvailable(false);
 	}
 

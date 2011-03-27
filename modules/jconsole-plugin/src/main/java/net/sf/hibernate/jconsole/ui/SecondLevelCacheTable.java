@@ -23,6 +23,7 @@ import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.formatters.EntityHighlighter;
 import net.sf.hibernate.jconsole.stats.SecondLevelCacheStatistics;
 import net.sf.hibernate.jconsole.ui.widgets.AbstractRefreshableJTable;
+import net.sf.hibernate.jconsole.ui.widgets.ElementsInCacheTableCell;
 import net.sf.hibernate.jconsole.ui.widgets.HitrateTableCell;
 import net.sf.hibernate.jconsole.ui.widgets.TableCellJLabel;
 
@@ -43,6 +44,7 @@ public class SecondLevelCacheTable extends AbstractRefreshableJTable<SecondLevel
 			new Column("Hits", null, Long.class),
 			new Column("Misses", null, Long.class),
 			new Column("Puts", null, Long.class),
+			new Column("Cache Size", null, Comparable.class),
 	};
 
 	private EntityHighlighter highlighter = new EntityHighlighter();
@@ -60,6 +62,9 @@ public class SecondLevelCacheTable extends AbstractRefreshableJTable<SecondLevel
 		v.add(s.getHitCount());
 		v.add(s.getMissCount());
 		v.add(s.getPutCount());
+
+		v.add(new ElementsInCacheTableCell(s.getElementCountInMemory(), s.getElementCountOnDisk(),
+				s.getSizeInMemory()));
 
 		return v;
 	}

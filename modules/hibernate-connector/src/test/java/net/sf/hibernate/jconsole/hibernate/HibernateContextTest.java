@@ -20,7 +20,7 @@
 package net.sf.hibernate.jconsole.hibernate;
 
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
-import net.sf.hibernate.jconsole.JConsolePlugin;
+import net.sf.hibernate.jconsole.HibernateJConsolePlugin;
 import org.junit.Test;
 
 import java.io.File;
@@ -87,7 +87,7 @@ public class HibernateContextTest {
 	public void testContextIsDetectedByPlugin() {
 		boolean found = false;
 
-		JConsolePlugin plugin = new JConsolePlugin();
+		HibernateJConsolePlugin plugin = new HibernateJConsolePlugin();
 		Map<String, AbstractStatisticsContext> contexts = plugin.getStatisticsContexts();
 		for (String key : plugin.getTabs().keySet()) {
 			if (contexts.get(key) instanceof HibernateContext)

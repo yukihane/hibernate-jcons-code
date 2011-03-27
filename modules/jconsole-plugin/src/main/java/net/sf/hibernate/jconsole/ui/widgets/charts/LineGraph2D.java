@@ -26,11 +26,12 @@ import java.awt.*;
  *
  * @author Juergen_Kellerer, 22.11.2009
  */
-public class LineGraph2D extends Graph2D {
+public class LineGraph2D extends AbstractGraph2D {
 
 	private static final long serialVersionUID = 3791460415201358526L;
 
 	private int dotSize = 1;
+	private float strokeSize = 1.6f;
 
 	/**
 	 * Creates a new line graph using the defined graph values and max value.
@@ -51,15 +52,24 @@ public class LineGraph2D extends Graph2D {
 		if (xCoordinates == null)
 			return;
 
-		int previousX = 0, previousY = 0;
-		for (int i = 0; i < xCoordinates.length && i < width; i++) {
-			int x = xCoordinates[i], y = yCoordinates[i];
-			if (i > 0)
-				g2d.drawLine(previousX, previousY, x, y);
-			/*if (dotSize > 1)
-				g2d.fillOval(x - dotSize, y - dotSize, x + dotSize, y + dotSize);*/
-			previousX = x;
-			previousY = y;
+		final Stroke stroke = g2d.getStroke();
+		try {
+			g2d.setStroke(new BasicStroke(strokeSize));
+
+			int previousX = 0, previousY = 0;
+			for (int i = 0; i < xCoordinates.length && i < width; i++) {
+				int x = xCoordinates[i], y = yCoordinates[i];
+				if (i > 0)
+					g2d.drawLine(previousX, previousY, x, y);
+
+				//if (dotSize > 1)
+				//	g2d.fillOval(x - dotSize, y - dotSize, x + dotSize, y + dotSize);
+
+				previousX = x;
+				previousY = y;
+			}
+		} finally {
+			g2d.setStroke(stroke);
 		}
 	}
 
@@ -69,5 +79,13 @@ public class LineGraph2D extends Graph2D {
 
 	public void setDotSize(int dotSize) {
 		this.dotSize = dotSize;
+	}
+
+	public float getStrokeSize() {
+		return strokeSize;
+	}
+
+	public void setStrokeSize(float strokeSize) {
+		this.strokeSize = strokeSize;
 	}
 }

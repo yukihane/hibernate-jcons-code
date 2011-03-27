@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010
+ * Copyright (c) 2011
  *
  * This file is part of HibernateJConsole.
  *
@@ -20,45 +20,41 @@
 package net.sf.hibernate.jconsole.ui;
 
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
+import net.sf.hibernate.jconsole.Refreshable;
 import net.sf.hibernate.jconsole.ui.widgets.RefreshableJPanel;
 import net.sf.hibernate.jconsole.ui.widgets.RefreshableJSplitPane;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 /**
- * Contains the Main content shown on the main tab.
+ * Abstract implementations of a tab used to display a table in a tab.
  *
- * @author Juergen_Kellerer, 21.11.2009
- * @version 1.0
+ * @author juergen_kellerer, 2011-03-27
  */
-public class MainContent extends RefreshableJPanel {
+public class AbstractTableTab extends RefreshableJPanel {
 
-	final MainLoadChart loadChart = new MainLoadChart();
-	final JTabbedPane tabs = new JTabbedPane();
-	final RefreshableJSplitPane splitPane;
+	protected RefreshableJSplitPane splitPane;
+	protected Refreshable table;
 
-	public MainContent() {
-		super();
+	public AbstractTableTab() {
+		super(new BorderLayout());
+	}
 
-		loadChart.setBorder(new EmptyBorder(4, 4, 4, 4));
-		loadChart.setPreferredSize(new Dimension(400, 130));
+	void init(AbstractChartViewDetails tableDetails) {
+		table = tableDetails.getTable();
 
-		tabs.add(QueriesTab.NAME, new QueriesTab());
-		tabs.add(CollectionsTab.NAME, new CollectionsTab());
-		tabs.add(EntitiesTab.NAME, new EntitiesTab());
-		tabs.add(SecondLevelCacheTab.NAME, new SecondLevelCacheTab());
+		splitPane = new RefreshableJSplitPane(JSplitPane.VERTICAL_SPLIT,
+				new JScrollPane(tableDetails.getTable()), tableDetails);
 
-		splitPane = new RefreshableJSplitPane(JSplitPane.VERTICAL_SPLIT, loadChart, tabs);
+		splitPane.setResizeWeight(1);
+
 		add(BorderLayout.CENTER, splitPane);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
+	@Override
 	public void refresh(AbstractStatisticsContext context) {
 		super.refresh(context);
-		refreshComponents(tabs.getComponents(), context);
+		table.refresh(context);
 	}
 }

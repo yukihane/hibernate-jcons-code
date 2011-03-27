@@ -30,16 +30,45 @@ import java.io.Serializable;
  * @version 1.0
  */
 public interface EntityStatistics extends Serializable {
-
+	/**
+	 * Returns the amount of deletes on the entity.
+	 *
+	 * @return the amount of deletes on the entity.
+	 */
 	long getDeleteCount();
 
+	/**
+	 * Returns the amount of entity creations.
+	 *
+	 * @return the amount of entity creations.
+	 */
 	long getInsertCount();
 
+	/**
+	 * Returns the amount of db hits caused by loading the entity.
+	 *
+	 * @return the amount of db hits caused by loading the entity.
+	 */
 	long getLoadCount();
 
+	/**
+	 * Returns the amount entity changes.
+	 *
+	 * @return the amount entity changes.
+	 */
 	long getUpdateCount();
 
+	/**
+	 * Returns the amount of hits on the entity
+	 *
+	 * @return the amount of hits on the entity
+	 */
 	long getFetchCount();
 
+	/**
+	 * Returns the amount of optimistic lock failures.
+	 *
+	 * @return the amount of optimistic lock failures.
+	 */
 	long getOptimisticFailureCount();
 }

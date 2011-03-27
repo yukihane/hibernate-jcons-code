@@ -31,6 +31,7 @@ public class ExecutionCountTableCell extends LineBarTableCell {
 	}
 
 	public ExecutionCountTableCell(long maxExecutionCount, long executionCount, long directExecutionCount) {
+		super();
 		setStyle(Style.GREEN);
 
 		setValue(Math.max(0, (double) executionCount / (double) maxExecutionCount));

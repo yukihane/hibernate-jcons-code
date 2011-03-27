@@ -84,7 +84,7 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 		DataFlavour dataFlavour;
 
 		/**
-		 * Contructs a new column to be used inside the data table.
+		 * Constructs a new column to be used inside the data table.
 		 *
 		 * @param name		the name of the column.
 		 * @param dataFlavour the data flavour used when shrinking columns.
@@ -112,7 +112,7 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 	/**
 	 * Stores the data of a single row.
 	 */
-	public static class Row implements Serializable {
+	public final static class Row implements Serializable {
 
 		private static final long serialVersionUID = 470467266282223088L;
 

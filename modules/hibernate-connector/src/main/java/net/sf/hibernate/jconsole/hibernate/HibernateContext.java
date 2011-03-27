@@ -22,12 +22,11 @@ package net.sf.hibernate.jconsole.hibernate;
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.stats.Names;
 import net.sf.hibernate.jconsole.util.ClasspathUtil;
+import net.sf.hibernate.jconsole.util.HibernateJmxBinding;
 import net.sf.hibernate.jconsole.util.JMXUtil;
 
 import javax.management.Attribute;
 import javax.management.MBeanServerConnection;
-import javax.management.MalformedObjectNameException;
-import javax.management.ObjectName;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -42,17 +41,6 @@ import java.util.*;
 public class HibernateContext extends AbstractStatisticsContext {
 
 	private static final long serialVersionUID = -7295609157873741739L;
-
-	public static final ObjectName HIBERNATE_STATISTICS;
-
-	static {
-		try {
-			HIBERNATE_STATISTICS = new ObjectName(
-					System.getProperty("hibernate.mbean", "Hibernate:application=Statistics"));
-		} catch (MalformedObjectNameException e) {
-			throw new RuntimeException(e);
-		}
-	}
 
 	static final String HIBERNATE_VALIDATION_CLASS = System.getProperty(
 			"hibernate.class", "org.hibernate.stat.CollectionStatistics");
@@ -94,7 +82,7 @@ public class HibernateContext extends AbstractStatisticsContext {
 				File f = new File(path);
 				if (!f.isFile())
 					f = new File(cwd + File.separator + path);
-				if (f.isFile())
+				if (f.isFile() && !jars.contains(f))
 					jars.add(f);
 			}
 
@@ -156,7 +144,7 @@ public class HibernateContext extends AbstractStatisticsContext {
 		}
 
 		try {
-			return c.isRegistered(HIBERNATE_STATISTICS);
+			return c.isRegistered(HibernateJmxBinding.HIBERNATE_STATISTICS);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -204,7 +192,8 @@ public class HibernateContext extends AbstractStatisticsContext {
 		for (int i = 0; i < names.length; i++)
 			names[i] = iN.next().name();
 
-		List<Attribute> attributeList = getConnection().getAttributes(HIBERNATE_STATISTICS, names).asList();
+		List<Attribute> attributeList = getConnection().
+				getAttributes(HibernateJmxBinding.HIBERNATE_STATISTICS, names).asList();
 		for (Attribute attribute : attributeList)
 			attributes.put(Names.valueOf(attribute.getName()), attribute.getValue());
 

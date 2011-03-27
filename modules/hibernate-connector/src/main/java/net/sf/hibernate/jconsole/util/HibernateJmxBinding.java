@@ -19,7 +19,6 @@
 
 package net.sf.hibernate.jconsole.util;
 
-import net.sf.hibernate.jconsole.hibernate.HibernateContext;
 import org.hibernate.SessionFactory;
 import org.hibernate.jmx.StatisticsService;
 
@@ -27,6 +26,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import javax.management.MBeanServer;
+import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
 
@@ -34,6 +34,17 @@ import java.lang.management.ManagementFactory;
  * Exposes Hibernate to JMX.
  */
 public class HibernateJmxBinding {
+
+	public static final ObjectName HIBERNATE_STATISTICS;
+
+	static {
+		try {
+			HIBERNATE_STATISTICS = new ObjectName(
+					System.getProperty("hibernate.mbean", "Hibernate:application=Statistics"));
+		} catch (MalformedObjectNameException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	@Resource
 	protected MBeanServer mBeanServer;
@@ -77,7 +88,7 @@ public class HibernateJmxBinding {
 	 */
 	public ObjectName getStatisticsBeanName() throws Exception {
 		if (statisticsBeanName == null)
-			statisticsBeanName = HibernateContext.HIBERNATE_STATISTICS;
+			statisticsBeanName = HIBERNATE_STATISTICS;
 		return statisticsBeanName;
 	}
 

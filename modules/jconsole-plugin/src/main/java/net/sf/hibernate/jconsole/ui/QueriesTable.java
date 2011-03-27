@@ -28,8 +28,8 @@ import net.sf.hibernate.jconsole.ui.widgets.*;
 import java.util.Map;
 import java.util.Vector;
 
-import static net.sf.hibernate.jconsole.ui.widgets.HitrateTableCell.toHitRate;
-import static net.sf.hibernate.jconsole.ui.widgets.QueryPerformanceTableCell.toQueryPerformance;
+import static net.sf.hibernate.jconsole.stats.StatisticsUtil.toQueryPerformance;
+import static net.sf.hibernate.jconsole.stats.StatisticsUtil.toTotalAverageTime;
 
 /**
  * Implements a JTable containing all hibernate queries.
@@ -50,11 +50,6 @@ public class QueriesTable extends AbstractRefreshableJTable<QueryStatistics> {
 			new Column("Invocations", "The total amount of invocations (cached & direct).", Comparable.class),
 			new Column("Rows fetched", "Is the total of rows returned from the DB.", Long.class),
 	};
-
-	static double toTotalAverageTime(QueryStatistics statistics) {
-		double avg = statistics.getExecutionAvgTime() == 0 ? 0.1D : statistics.getExecutionAvgTime();
-		return ((double) statistics.getExecutionCount() * avg);
-	}
 
 	long maxExecutionCount;
 	double maxQueryPerformance;
@@ -80,7 +75,6 @@ public class QueriesTable extends AbstractRefreshableJTable<QueryStatistics> {
 
 
 		double databaseTime = toTotalAverageTime(s);
-		double cacheHitRate = toHitRate(s.getCacheHitCount(), s.getCacheMissCount());
 
 		v.add(new QueryPerformanceTableCell(maxQueryPerformance, toQueryPerformance(s)));
 

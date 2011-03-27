@@ -24,16 +24,16 @@
 	<packaging>pom</packaging>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>hibernate-tester</artifactId>
-
-	<name>Hibernate Connector Tester</name>
-
 	<parent>
 		<artifactId>hibernate-jconsole</artifactId>
 		<groupId>net.sf.hibernate-jconsole</groupId>
 		<version>1.0.4-SNAPSHOT</version>
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
+
+	<groupId>net.sf.hibernate-jconsole.testsuite</groupId>
+	<artifactId>hibernate-tester</artifactId>
+	<name>Hibernate Connector Tester</name>
 
 	<modules>
 		<module>3-1-tester</module>
@@ -43,4 +43,41 @@
 		<module>3-6-tester</module>
 		<module>generic-tester</module>
 	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-shade-plugin</artifactId>
+					<configuration>
+						<relocations>
+							<relocation>
+								<pattern>net.sf.hibernate</pattern>
+								<shadedPattern>testsuite.net.sf.hibernate</shadedPattern>
+								<excludes>
+									<exclude>net.sf.hibernate.jconsole.tester.*</exclude>
+								</excludes>
+							</relocation>
+						</relocations>
+
+						<shadedArtifactAttached>true</shadedArtifactAttached>
+						<shadedClassifierName>cli</shadedClassifierName>
+
+						<transformers>
+							<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+							<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ComponentsXmlResourceTransformer"/>
+							<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+								<mainClass>net.sf.hibernate.jconsole.tester.HibernateContextTester</mainClass>
+							</transformer>
+						</transformers>
+						<finalName>${project.artifactId}-${project.version}</finalName>
+						<outputDirectory>../../../target/</outputDirectory>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>

@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
  * @author Juergen_Kellerer, 2010-09-16
  * @version 1.0
  */
-public class StraightNameMappingProxy extends AbstractMethodMappingProxy {
+public final class StraightNameMappingProxy extends AbstractMethodMappingProxy {
 
 	private static final long serialVersionUID = 3119660935285415944L;
 

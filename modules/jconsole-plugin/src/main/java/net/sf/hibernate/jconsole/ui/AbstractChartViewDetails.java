@@ -83,6 +83,8 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 
 			lastSelection = selection;
 		}
+
+		repaint(25);
 	}
 
 	/**

@@ -46,7 +46,11 @@ public class LineBarTableCell extends JComponent implements Comparable<LineBarTa
 				BAR_BACKGROUND, Color.BLACK),
 
 		ORANGE(new GradientPaint(0, 1, Color.decode("0xFFFFC6"), 0, 10, Color.decode("0xFAFF7F")),
-				BAR_BACKGROUND, Color.BLACK);
+				BAR_BACKGROUND, Color.BLACK),
+
+		CYAN_ORANGE(new GradientPaint(0, 1, Color.decode("0xc6FFFF"), 0, 10, Color.decode("0x7FCCFA")),
+				new GradientPaint(0, 1, Color.decode("0xFFFFC6"), 0, 10, Color.decode("0xFAFF7F")),
+				Color.BLACK);
 
 		transient Paint bar;
 		transient Paint background;
@@ -67,6 +71,7 @@ public class LineBarTableCell extends JComponent implements Comparable<LineBarTa
 	private int overlayBrightnessOffset = UIUtils.getBrightness(Color.lightGray);
 
 	public LineBarTableCell() {
+		super();
 		setFont(DEFAULT);
 	}
 

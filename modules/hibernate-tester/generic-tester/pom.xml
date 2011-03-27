@@ -24,15 +24,15 @@
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>hibernate-generic-tester</artifactId>
-	<name>Hibernate Connector Tester :: Generic Tester</name>
-
 	<parent>
 		<artifactId>hibernate-tester</artifactId>
-		<groupId>net.sf.hibernate-jconsole</groupId>
+		<groupId>net.sf.hibernate-jconsole.testsuite</groupId>
 		<version>1.0.4-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
+
+	<artifactId>hibernate-generic-tester</artifactId>
+	<name>Hibernate Connector Tester :: Generic Tester</name>
 
 	<dependencies>
 		<dependency>

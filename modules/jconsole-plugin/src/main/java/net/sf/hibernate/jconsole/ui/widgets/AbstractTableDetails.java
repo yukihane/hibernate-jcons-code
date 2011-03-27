@@ -32,7 +32,7 @@ import java.awt.*;
  */
 public abstract class AbstractTableDetails<E> extends RefreshableJPanel implements ListSelectionListener {
 
-	protected static final Dimension MIN_SIZE = new Dimension(400, 130);
+	protected static final Dimension PREFERRED_SIZE = new Dimension(400, 130);
 
 	protected AbstractRefreshableJTable<E> table;
 
@@ -40,7 +40,7 @@ public abstract class AbstractTableDetails<E> extends RefreshableJPanel implemen
 		super(new BorderLayout(4, 4));
 
 		setBorder(new EmptyBorder(2, 0, 6, 0));
-		setMinimumSize(MIN_SIZE);
+		setPreferredSize(PREFERRED_SIZE);
 
 		this.table = table;
 
@@ -54,5 +54,9 @@ public abstract class AbstractTableDetails<E> extends RefreshableJPanel implemen
 				}
 			}
 		});
+	}
+
+	public AbstractRefreshableJTable<E> getTable() {
+		return table;
 	}
 }

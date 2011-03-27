@@ -48,11 +48,21 @@ public class RefreshableJPanel extends JPanel implements Refreshable {
 		refreshComponents(getComponents(), context);
 	}
 
-	protected void refreshComponents(Component[] components, AbstractStatisticsContext context) {
+	/**
+	 * Refreshes the components with the given context.
+	 *
+	 * @param components the components to refresh.
+	 * @param context	the context to refresh the components with.
+	 */
+	protected static void refreshComponents(Component[] components, AbstractStatisticsContext context) {
 		for (Component component : components) {
-			if (!(component instanceof Refreshable))
-				continue;
-			((Refreshable) component).refresh(context);
+			try {
+				if (component instanceof Refreshable)
+					((Refreshable) component).refresh(context);
+			} catch (RuntimeException e) {
+				e.printStackTrace();
+				throw e;
+			}
 		}
 	}
 }

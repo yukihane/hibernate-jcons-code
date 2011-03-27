@@ -43,8 +43,8 @@ public abstract class AbstractHighlighter {
 		OPERATOR("font-weight:bold; color: black;"),
 		NAME("font-weight:bold;"),;
 
-		final static String HTML_SPECIAL_CHARS = "<>&";
-		final static String[] HTML_SPECIAL_CHARS_ENTITIES = {"&lt;", "&gt;", "&amp;"};
+		static final String HTML_SPECIAL_CHARS = "<>&";
+		static final String[] HTML_SPECIAL_CHARS_ENTITIES = {"&lt;", "&gt;", "&amp;"};
 
 		private String css;
 
@@ -74,14 +74,42 @@ public abstract class AbstractHighlighter {
 	 */
 	protected interface Token {
 
+		/**
+		 * Returns true if this token is a delimiter.
+		 *
+		 * @return true if this token is a delimiter.
+		 */
 		boolean isDelimiter();
 
+		/**
+		 * Returns the token value.
+		 *
+		 * @return the token value.
+		 */
 		String getValue();
 
+		/**
+		 * Returns true if the token is made only of the given chars.
+		 *
+		 * @param chars the characters that may be contained in the token.
+		 * @return true if the token is made only of the given chars.
+		 */
 		boolean containsOnly(String chars);
 
+		/**
+		 * Returns true if the first char is in the given chars.
+		 *
+		 * @param chars the chars to check the first token char against.
+		 * @return true if the first char is in the given chars.
+		 */
 		boolean firstCharIn(String chars);
 
+		/**
+		 * Returns true if the last char is in the given chars.
+		 *
+		 * @param chars the chars to check the last token char against.
+		 * @return true if the last char is in the given chars.
+		 */
 		boolean lastCharIn(String chars);
 	}
 
@@ -92,7 +120,7 @@ public abstract class AbstractHighlighter {
 		void highlight(Token token, StringBuilder out);
 	}
 
-	private class TokenImplementation implements Token {
+	private final class TokenImplementation implements Token {
 
 		String value;
 
@@ -110,7 +138,7 @@ public abstract class AbstractHighlighter {
 
 		public boolean containsOnly(String chars) {
 			for (char c : value.toCharArray())
-				if (chars.indexOf(value.charAt(0)) == -1)
+				if (chars.indexOf(c) == -1)
 					return false;
 			return true;
 		}

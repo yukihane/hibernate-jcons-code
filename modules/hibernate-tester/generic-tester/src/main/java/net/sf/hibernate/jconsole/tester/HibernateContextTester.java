@@ -29,7 +29,7 @@ import net.sf.hibernate.jconsole.stats.QueryStatistics;
  * @author Juergen_Kellerer, 2010-09-18
  * @version 1.0
  */
-public class HibernateContextTester {
+public final class HibernateContextTester {
 
 	private HibernateContextTester() {
 	}
@@ -81,5 +81,27 @@ public class HibernateContextTester {
 	private static void assertEquals(Object expected, Object actual) {
 		if (!expected.equals(actual))
 			throw new IllegalArgumentException("Expected <" + expected + "> but was <" + actual + ">");
+	}
+
+	/**
+	 * Implements a main method allowing to start this tester as a mini hibernate application.
+	 *
+	 * @param args the cl args.
+	 * @throws Exception in case of the tester fails to init hibernate.
+	 */
+	public static void main(String[] args) throws Exception {
+		testContext();
+
+		// Waiting on user abort
+		final Thread thread = Thread.currentThread();
+		while (!thread.isInterrupted())
+			synchronized (thread) {
+				try {
+					new DummyAction().insertAndSelect();
+					thread.wait(5000);
+				} catch (InterruptedException e) {
+					thread.interrupt();
+				}
+			}
 	}
 }

@@ -40,6 +40,7 @@ public class TimeboxedDataSampler<E extends Number> extends DataSampler<E> {
 	 * @param timeboxLength The length of the timebox in ms.
 	 */
 	public TimeboxedDataSampler(long timeboxLength) {
+		super();
 		this.timeboxLength = timeboxLength;
 	}
 

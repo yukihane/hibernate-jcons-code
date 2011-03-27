@@ -61,8 +61,8 @@ public abstract class AbstractStatisticsContext implements Serializable {
 
 	private Map<String, EntityStatistics> entityStatistics =
 			new LinkedHashMap<String, EntityStatistics>();
-	private Map<String, CollectionStatisticsTable> entityStatisticTables =
-			new LinkedHashMap<String, CollectionStatisticsTable>();
+	private Map<String, EntityStatisticsTable> entityStatisticsTables =
+			new LinkedHashMap<String, EntityStatisticsTable>();
 
 	private Map<String, CollectionStatistics> collectionStatistics =
 			new LinkedHashMap<String, CollectionStatistics>();
@@ -71,13 +71,13 @@ public abstract class AbstractStatisticsContext implements Serializable {
 
 	private Map<String, QueryStatistics> queryStatistics =
 			new LinkedHashMap<String, QueryStatistics>();
-	private Map<String, QueryStatistics> queryStatisticsTables =
-			new LinkedHashMap<String, QueryStatistics>();
+	private Map<String, QueryStatisticsTable> queryStatisticsTables =
+			new LinkedHashMap<String, QueryStatisticsTable>();
 
 	private Map<String, SecondLevelCacheStatistics> cacheStatistics =
 			new LinkedHashMap<String, SecondLevelCacheStatistics>();
-	private Map<String, SecondLevelCacheStatistics> cacheStatisticsTables =
-			new LinkedHashMap<String, SecondLevelCacheStatistics>();
+	private Map<String, SecondLevelCacheStatisticsTable> cacheStatisticsTables =
+			new LinkedHashMap<String, SecondLevelCacheStatisticsTable>();
 
 	private List<AbstractStatisticsTable> statisticsTables = new ArrayList<AbstractStatisticsTable>();
 	private PrimaryStatisticsTable statisticsTable;
@@ -188,7 +188,13 @@ public abstract class AbstractStatisticsContext implements Serializable {
 	void refreshTables() throws Exception {
 		for (AbstractStatisticsTable table : statisticsTables)
 			table.refresh(this);
+		for (QueryStatisticsTable table : queryStatisticsTables.values())
+			table.refresh(this);
+		for (EntityStatisticsTable table : entityStatisticsTables.values())
+			table.refresh(this);
 		for (CollectionStatisticsTable table : collectionStatisticTables.values())
+			table.refresh(this);
+		for (SecondLevelCacheStatisticsTable table : cacheStatisticsTables.values())
 			table.refresh(this);
 	}
 
@@ -200,6 +206,8 @@ public abstract class AbstractStatisticsContext implements Serializable {
 	void refreshEntityStatistics() throws Exception {
 		for (String name : getEntityNames()) {
 			entityStatistics.put(name, proxyFor(EntityStatistics.class, getEntityStatisticsFor(name)));
+			if (!entityStatisticsTables.containsKey(name))
+				entityStatisticsTables.put(name, new EntityStatisticsTable(name));
 		}
 	}
 
@@ -214,12 +222,16 @@ public abstract class AbstractStatisticsContext implements Serializable {
 	void refreshQueryStatistics() throws Exception {
 		for (String name : getQueries()) {
 			queryStatistics.put(name, proxyFor(QueryStatistics.class, getQueryStatisticsFor(name)));
+			if (!queryStatisticsTables.containsKey(name))
+				queryStatisticsTables.put(name, new QueryStatisticsTable(name));
 		}
 	}
 
 	void refreshCacheStatistics() throws Exception {
 		for (String name : getCacheRegionNames()) {
 			cacheStatistics.put(name, proxyFor(SecondLevelCacheStatistics.class, getCacheStatisticsFor(name)));
+			if (!cacheStatisticsTables.containsKey(name))
+				cacheStatisticsTables.put(name, new SecondLevelCacheStatisticsTable(name));
 		}
 	}
 
@@ -268,8 +280,8 @@ public abstract class AbstractStatisticsContext implements Serializable {
 		return entityStatistics;
 	}
 
-	public Map<String, CollectionStatisticsTable> getEntityStatisticTables() {
-		return entityStatisticTables;
+	public Map<String, EntityStatisticsTable> getEntityStatisticsTables() {
+		return entityStatisticsTables;
 	}
 
 	public Map<String, CollectionStatistics> getCollectionStatistics() {
@@ -284,7 +296,7 @@ public abstract class AbstractStatisticsContext implements Serializable {
 		return queryStatistics;
 	}
 
-	public Map<String, QueryStatistics> getQueryStatisticsTables() {
+	public Map<String, QueryStatisticsTable> getQueryStatisticsTables() {
 		return queryStatisticsTables;
 	}
 
@@ -292,7 +304,7 @@ public abstract class AbstractStatisticsContext implements Serializable {
 		return cacheStatistics;
 	}
 
-	public Map<String, SecondLevelCacheStatistics> getCacheStatisticsTables() {
+	public Map<String, SecondLevelCacheStatisticsTable> getCacheStatisticsTables() {
 		return cacheStatisticsTables;
 	}
 }

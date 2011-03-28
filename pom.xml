@@ -15,11 +15,10 @@
   ~     GNU General Public License for more details.
   ~
   ~     You should have received a copy of the GNU General Public License
-  ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses/>.
+  ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses />.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<packaging>pom</packaging>
 	<modelVersion>4.0.0</modelVersion>
@@ -30,7 +29,7 @@
 	<name>Hibernate JConsole Plugin (hibernate-jconsole)</name>
 	<url>https://hibernate-jcons.sourceforge.net/</url>
 
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>
@@ -86,9 +85,9 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/${svn.tag}</connection>
+		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags/hibernate-jconsole-1.0.4</connection>
 		<tag>HEAD</tag>
-		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons</url>
+		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags/hibernate-jconsole-1.0.4</url>
 	</scm>
 
 	<repositories>

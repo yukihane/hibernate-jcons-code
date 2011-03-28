@@ -1,0 +1,14 @@
+/*
+#breadcrumbs {
+  background-image: url(../images/breadcrumbs-background.jpg);
+}
+#banner {
+  background: url(../images/banner-background.jpg);
+}
+*/
+
+h3 {
+	background-color: transparent;
+	background-image: none;
+	padding-left: 0;
+}

@@ -74,8 +74,8 @@ public class HibernateJConsolePlugin extends com.sun.tools.jconsole.JConsolePlug
 		}
 	}
 
-	private final Map<String, MainTab> tabs = new LinkedHashMap<String, MainTab>();
-	private final Map<String, AbstractStatisticsContext> contexts = new HashMap<String, AbstractStatisticsContext>();
+	final Map<String, MainTab> tabs = new LinkedHashMap<String, MainTab>();
+	final Map<String, AbstractStatisticsContext> contexts = new HashMap<String, AbstractStatisticsContext>();
 
 	/**
 	 * Constructs the plugin.

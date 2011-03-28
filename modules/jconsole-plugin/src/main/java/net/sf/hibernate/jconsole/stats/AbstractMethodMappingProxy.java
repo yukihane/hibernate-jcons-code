@@ -21,6 +21,7 @@ package net.sf.hibernate.jconsole.stats;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,7 +66,13 @@ public abstract class AbstractMethodMappingProxy implements InvocationHandler, S
 	@Override
 	public final Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		Method target = mapping.get(method);
-		return target == null ? defaultValue : target.invoke(delegate, args);
+		try {
+			return target == null ? defaultValue : target.invoke(delegate, args);
+		} catch (InvocationTargetException e) {
+			if (e.getCause() instanceof NullPointerException)
+				return defaultValue;
+			throw e;
+		}
 	}
 
 	private Map<Method, Method> getMethodMapping(Class<?> forInterface, Class<?> forClass) {

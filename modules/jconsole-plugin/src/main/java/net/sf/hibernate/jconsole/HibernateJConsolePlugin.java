@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010
+ * Copyright (c) 2011
  *
  * This file is part of HibernateJConsole.
  *

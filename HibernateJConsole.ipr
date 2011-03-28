@@ -602,6 +602,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: net.sf.hibernate-jconsole:jconsole-plugin:1.0.5-SNAPSHOT">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/hibernate-jconsole/jconsole-plugin/1.0.5-SNAPSHOT/jconsole-plugin-1.0.5-SNAPSHOT.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/hibernate-jconsole/jconsole-plugin/1.0.5-SNAPSHOT/jconsole-plugin-1.0.5-SNAPSHOT-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/hibernate-jconsole/jconsole-plugin/1.0.5-SNAPSHOT/jconsole-plugin-1.0.5-SNAPSHOT-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.0.Final/hibernate-jpa-2.0-api-1.0.0.Final.jar!/" />

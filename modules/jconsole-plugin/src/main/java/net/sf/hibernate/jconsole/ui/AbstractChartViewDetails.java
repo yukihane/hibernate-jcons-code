@@ -47,7 +47,7 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 	}
 
 	private Object lastSelection;
-	private Dimension sizeWhenSelected = new Dimension(400, 110);
+	private int detailsHeightWhenSelected = 110;
 	private AbstractStatisticsContext lastFreshContext;
 
 	/**
@@ -59,10 +59,12 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 
 		final int rowIdx = e.getFirstIndex();
 		final Object selection = table.getValueAt(rowIdx, 0);
+		final RefreshableJSplitPane splitPane = getParent() instanceof RefreshableJSplitPane ?
+				(RefreshableJSplitPane) getParent() : null;
 
 		if (lastSelection == null || !lastSelection.equals(selection)) {
-			if (lastSelection != null)
-				sizeWhenSelected = getSize();
+			if (lastSelection != null && splitPane != null)
+				detailsHeightWhenSelected = (int) (splitPane.getSize().getHeight() - splitPane.getDividerLocation());
 
 			removeAll();
 
@@ -91,14 +93,14 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 				chart2DPanel.refresh(lastFreshContext);
 
 				add(chart2DPanel, BorderLayout.CENTER);
-				setPreferredSize(sizeWhenSelected);
+				setPreferredSize(new Dimension(400, detailsHeightWhenSelected));
 			}
 
-			// Adjust devider.
-			if (getParent() instanceof RefreshableJSplitPane) {
-				double height = getParent().getSize().getHeight();
-				int dividerLocation = (int) (height - (selection == null ? 0 : sizeWhenSelected.getHeight()));
-				((RefreshableJSplitPane) getParent()).setDividerLocation(dividerLocation);
+			// Adjust divider.
+			if (splitPane != null) {
+				double height = splitPane.getSize().getHeight();
+				int dividerLocation = (int) (height - (selection == null ? 0 : detailsHeightWhenSelected));
+				splitPane.setDividerLocation(dividerLocation);
 			}
 
 			lastSelection = selection;
@@ -106,6 +108,7 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 
 		repaint(25);
 	}
+
 
 	/**
 	 * {@inheritDoc}

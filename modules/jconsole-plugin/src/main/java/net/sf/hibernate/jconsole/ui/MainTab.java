@@ -21,6 +21,7 @@ package net.sf.hibernate.jconsole.ui;
 
 import net.sf.hibernate.jconsole.ui.widgets.RefreshableJPanel;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -38,12 +39,12 @@ public class MainTab extends RefreshableJPanel {
 
 	public MainTab() {
 		super();
-		setHibernateAvailable(false);
 		setOpaque(true);
 		setBackground(Color.WHITE);
+		doSetHibernateAvailable(false);
 	}
 
-	public void setHibernateAvailable(boolean enabled) {
+	private void doSetHibernateAvailable(final boolean enabled) {
 		// Creating the mainContent "on-demand"!
 		// Note: If the hibernate jars are not in the path, an attempt to
 		// create an instance of main content results in a class cast exception...
@@ -52,5 +53,18 @@ public class MainTab extends RefreshableJPanel {
 
 		removeAll();
 		add(BorderLayout.CENTER, enabled ? mainContent : notFoundContent);
+	}
+
+	public void setHibernateAvailable(final boolean enabled) {
+		try {
+			SwingUtilities.invokeAndWait(new Runnable() {
+				@Override
+				public void run() {
+					doSetHibernateAvailable(enabled);
+				}
+			});
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

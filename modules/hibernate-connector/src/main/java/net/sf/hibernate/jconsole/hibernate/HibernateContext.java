@@ -79,6 +79,10 @@ public class HibernateContext extends AbstractStatisticsContext {
 					split(properties.getProperty("path.separator", ";"));
 
 			for (String path : cp) {
+				path = path.trim();
+				if (path.isEmpty())
+					continue;
+
 				File f = new File(path);
 				if (!f.isFile())
 					f = new File(cwd + File.separator + path);

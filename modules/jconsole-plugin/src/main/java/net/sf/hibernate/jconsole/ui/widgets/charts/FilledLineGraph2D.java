@@ -32,10 +32,11 @@ public class FilledLineGraph2D extends LineGraph2D {
 	 * @return the paint to use for filling the graph.
 	 */
 	protected Paint getFillPaint(Color targetColor, int graphHeight) {
-		return new GradientPaint(0, height - graphHeight,
-				new Color(targetColor.getRed(), targetColor.getGreen(), targetColor.getBlue(), alpha),
-				0, height - (graphHeight / 2),
-				new Color(255, 255, 255, alpha));
+		Color brighter = targetColor.brighter();
+		Color topPaint = new Color(brighter.getRed(), brighter.getGreen(), brighter.getBlue(), alpha);
+		Color bottomPaint = new Color(targetColor.getRed(), targetColor.getGreen(), targetColor.getBlue(), alpha);
+		return new GradientPaint(0, height - graphHeight, topPaint,
+				0, height - (int) (graphHeight / 1.5), bottomPaint);
 	}
 
 	/**

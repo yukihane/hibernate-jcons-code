@@ -39,6 +39,8 @@ public class MainTab extends RefreshableJPanel {
 	public MainTab() {
 		super();
 		setHibernateAvailable(false);
+		setOpaque(true);
+		setBackground(Color.WHITE);
 	}
 
 	public void setHibernateAvailable(boolean enabled) {

@@ -42,6 +42,10 @@ public class MainLoadChart extends Chart2DPanel {
 
 	public MainLoadChart() {
 		super(new AbstractChart2D() {
+			{
+				setFirstColorIndex(4);
+			}
+
 			@Override
 			protected DataTable getDataTable(AbstractStatisticsContext context) {
 				return context.getStatisticsTable();

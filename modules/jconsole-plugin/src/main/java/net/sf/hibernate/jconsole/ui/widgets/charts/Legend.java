@@ -103,10 +103,15 @@ public class Legend extends RefreshableJPanel {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void mouseClicked(MouseEvent e) {
-			LegendJLabel label = (LegendJLabel) e.getSource();
-			parent.setColumnVisible(column, !parent.isColumnVisible(column));
-			label.setDisabled(!label.isDisabled());
+		public void mouseClicked(final MouseEvent e) {
+			SwingUtilities.invokeLater(new Runnable() {
+				@Override
+				public void run() {
+					LegendJLabel label = (LegendJLabel) e.getSource();
+					parent.setColumnVisible(column, !parent.isColumnVisible(column));
+					label.setDisabled(!label.isDisabled());
+				}
+			});
 		}
 	}
 }

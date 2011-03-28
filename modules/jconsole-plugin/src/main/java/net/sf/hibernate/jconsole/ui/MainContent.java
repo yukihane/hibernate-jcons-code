@@ -51,6 +51,8 @@ public class MainContent extends RefreshableJPanel {
 		tabs.add(SecondLevelCacheTab.NAME, new SecondLevelCacheTab());
 
 		splitPane = new RefreshableJSplitPane(JSplitPane.VERTICAL_SPLIT, loadChart, tabs);
+		splitPane.setDividerLocation(140);
+
 		add(BorderLayout.CENTER, splitPane);
 	}
 

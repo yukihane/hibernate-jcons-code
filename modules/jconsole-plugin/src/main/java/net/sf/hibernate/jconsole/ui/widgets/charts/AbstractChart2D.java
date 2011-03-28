@@ -37,7 +37,7 @@ import java.util.WeakHashMap;
 public abstract class AbstractChart2D extends RefreshableJPanel {
 
 	static final String DEFAULT_COLOR_SET =
-			"0x4A85CC;0xD04B47;0xA3C955;0x8564AD;0x44B7D7;0x44B7D7;0x1F518E;0xF0EDE0;0x8C8C8C";
+			"0x4A85CC;0xD04B47;0xA3C955;0x8564AD;0x44B7D7;0xFFCC66;0x1F518E;0xBA83B2;0x8C8C8C";
 
 	static final String TOOLTIP_TEMPLATE = "x: %s - y: %s";
 	static final Color BACKGROUND_GARDIENT_BRIGHT_TOP = Color.decode("0xFFFFFF");
@@ -60,6 +60,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 
 	private AbstractGraph2D[] graphs;
 	private Color[] graphColors = DEFAULT_GRAPH_COLORS;
+	private int firstColorIndex = 0;
 
 	private Paint backgroundPaint;
 	private Rectangle verticalAxisBounds, horizontalAxisBounds, graphBounds;
@@ -88,6 +89,14 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 */
 	protected abstract String getLegendForColumn(DataTable.Column column);
 
+	public int getFirstColorIndex() {
+		return firstColorIndex;
+	}
+
+	public void setFirstColorIndex(int firstColorIndex) {
+		this.firstColorIndex = firstColorIndex;
+	}
+
 	/**
 	 * Returns the color to use for drawing the graph for the given column.
 	 *
@@ -95,7 +104,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * @return The color to use for drawing the graph.
 	 */
 	protected Color getColorForColumn(DataTable.Column column) {
-		int colorIdx = column.getIndex();
+		int colorIdx = firstColorIndex + column.getIndex();
 		while (colorIdx >= graphColors.length)
 			colorIdx -= graphColors.length;
 		return graphColors[colorIdx];
@@ -224,7 +233,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * @param column  The column to change the visibility for.
 	 * @param visible True to set the column to visible, false to hide it.
 	 */
-	public void setColumnVisible(DataTable.Column column, boolean visible) {
+	public synchronized void setColumnVisible(final DataTable.Column column, final boolean visible) {
 		AbstractGraph2D graph = columnMap.get(column);
 		if (graph != null) {
 			graph.setVisible(visible);
@@ -380,6 +389,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 				graph.setMaxValue(maxValue);
 		}
 
+		invalidate();
 		repaint(25);
 	}
 

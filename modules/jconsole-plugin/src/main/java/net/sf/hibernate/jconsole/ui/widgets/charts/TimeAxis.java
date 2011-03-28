@@ -39,7 +39,7 @@ public class TimeAxis extends ChartAxis {
 	 * to the total time range.
 	 */
 	enum Format {
-		MinutesFormat("mm:ss", 30 * 60 * 1000),
+		//MinutesFormat("mm:ss", 30 * 60 * 1000),
 		HourFormat("HH:mm:ss", 12 * 60 * 60 * 1000),
 		DayFormat("MM-dd HH:mm", -1),;
 

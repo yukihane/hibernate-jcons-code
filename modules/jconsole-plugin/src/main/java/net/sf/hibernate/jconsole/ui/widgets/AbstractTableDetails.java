@@ -19,7 +19,6 @@
 
 package net.sf.hibernate.jconsole.ui.widgets;
 
-import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
@@ -38,10 +37,6 @@ public abstract class AbstractTableDetails<E> extends RefreshableJPanel implemen
 
 	protected AbstractTableDetails(AbstractRefreshableJTable<E> table) {
 		super(new BorderLayout(4, 4));
-
-		setBorder(new EmptyBorder(2, 0, 6, 0));
-		setPreferredSize(PREFERRED_SIZE);
-
 		this.table = table;
 
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {

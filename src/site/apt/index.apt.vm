@@ -22,16 +22,16 @@ ${project.name} - ${project.version}
 
 * Quickstart
 
-	* Make sure your monitored hibernate application exports "<<<Hibernate:application=Statistics>>>" to JMX.
+	* Make sure your monitored application exports "<<<Hibernate:application=Statistics>>>" to JMX.
 	  (See <<{{{usage.html#pre-requisites}prerequisites}}>> for more information)
 
-	* To monitor a locally running application, run the jar with:
+	* Monitoring a <locally> running application:
 
 ----
 java -jar ${project.build.finalName}.jar
 ----
 
-	* Monitoring a remote application may require to start the jar with
+	* Monitoring a remote application may require to start the jar with:
 
 ----
 java -jar ${project.build.finalName}.jar -J-Dhibernate.classpath=/path/to/hibernateJars/
@@ -49,14 +49,13 @@ java -jar ${project.build.finalName}.jar -J-Dhibernate.classpath=/path/to/hibern
 
 * Help wanted
 
-    If you consider this small plugin useful please contribute to make it better.
-
+    If you consider this small plugin useful, please contribute to make it better.
     The whole project started as some sort of fun project done within one long
     weekend and though already usable, it's not yet very sophisticated with
     regards to the data that is visualized.
 
-    Please use the tracker system at sourceforge.net to issue
+    Use the tracker system at sourceforge.net to issue
     {{{http://sourceforge.net/tracker/?group_id=289306}Bug reports}} or
     {{{http://sourceforge.net/tracker/?group_id=289306}Feature requests}}.
-    Open discussions or other issues go into the
+    Open discussions or other issues can be filled into the
     {{{http://sourceforge.net/projects/hibernate-jcons/forums}forums}} section.

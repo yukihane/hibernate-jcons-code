@@ -22,11 +22,13 @@ package net.sf.hibernate.jconsole.ui;
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.ui.widgets.AbstractRefreshableJTable;
 import net.sf.hibernate.jconsole.ui.widgets.AbstractTableDetails;
+import net.sf.hibernate.jconsole.ui.widgets.RefreshableJSplitPane;
 import net.sf.hibernate.jconsole.ui.widgets.charts.AbstractChart2D;
 import net.sf.hibernate.jconsole.ui.widgets.charts.Chart2DPanel;
 import net.sf.hibernate.jconsole.ui.widgets.charts.LineGraph2D;
 import net.sf.hibernate.jconsole.util.DataTable;
 
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.*;
 
@@ -45,6 +47,8 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 	}
 
 	private Object lastSelection;
+	private Dimension sizeWhenSelected = new Dimension(400, 110);
+	private AbstractStatisticsContext lastFreshContext;
 
 	/**
 	 * {@inheritDoc}
@@ -57,10 +61,13 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 		final Object selection = table.getValueAt(rowIdx, 0);
 
 		if (lastSelection == null || !lastSelection.equals(selection)) {
+			if (lastSelection != null)
+				sizeWhenSelected = getSize();
+
 			removeAll();
 
 			if (selection != null) {
-				add(new Chart2DPanel(new AbstractChart2D() {
+				Chart2DPanel chart2DPanel = new Chart2DPanel(new AbstractChart2D() {
 					@Override
 					protected DataTable getDataTable(AbstractStatisticsContext context) {
 						DataTable dt = getDataTableFor(context, selection);
@@ -78,13 +85,35 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 						lg.setDotSize(2);
 						return lg;
 					}
-				}), BorderLayout.CENTER);
+				});
+
+				chart2DPanel.setBorder(new EmptyBorder(0, 0, 0, 4));
+				chart2DPanel.refresh(lastFreshContext);
+
+				add(chart2DPanel, BorderLayout.CENTER);
+				setPreferredSize(sizeWhenSelected);
+			}
+
+			// Adjust devider.
+			if (getParent() instanceof RefreshableJSplitPane) {
+				double height = getParent().getSize().getHeight();
+				int dividerLocation = (int) (height - (selection == null ? 0 : sizeWhenSelected.getHeight()));
+				((RefreshableJSplitPane) getParent()).setDividerLocation(dividerLocation);
 			}
 
 			lastSelection = selection;
 		}
 
 		repaint(25);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void refresh(AbstractStatisticsContext context) {
+		this.lastFreshContext = context;
+		super.refresh(context);
 	}
 
 	/**

@@ -40,11 +40,11 @@ public class SecondLevelCacheTable extends AbstractRefreshableJTable<SecondLevel
 
 	private static final Column[] COLUMNS = {
 			new Column("Cache Region", null, Comparable.class),
+			new Column("Cache Size", null, Comparable.class),
 			new Column("Hitrate", null, Comparable.class),
 			new Column("Hits", null, Long.class),
 			new Column("Misses", null, Long.class),
 			new Column("Puts", null, Long.class),
-			new Column("Cache Size", null, Comparable.class),
 	};
 
 	private EntityHighlighter highlighter = new EntityHighlighter();
@@ -57,14 +57,14 @@ public class SecondLevelCacheTable extends AbstractRefreshableJTable<SecondLevel
 		Vector<Object> v = new Vector<Object>(COLUMNS.length);
 
 		v.add(new TableCellJLabel(entity, null, highlighter));
+
+		v.add(new ElementsInCacheTableCell(s.getElementCountInMemory(), s.getElementCountOnDisk(),
+				s.getSizeInMemory()));
 		v.add(new HitrateTableCell(s.getHitCount(), s.getMissCount(), s.getPutCount()));
 
 		v.add(s.getHitCount());
 		v.add(s.getMissCount());
 		v.add(s.getPutCount());
-
-		v.add(new ElementsInCacheTableCell(s.getElementCountInMemory(), s.getElementCountOnDisk(),
-				s.getSizeInMemory()));
 
 		return v;
 	}

@@ -219,31 +219,43 @@ public class DataTable extends AbstractCollection<DataTable.Row> implements Seri
 	/**
 	 * Returns the minmum value in this data table.
 	 *
+	 * @param includeColumn A boolean array specifying whether a corresponding column shall be included or not.
+	 *                      (defaults to 'true')
 	 * @return the minmum value in this data table or Double.MAX_VALUE if the table is empty.
 	 */
-	public double getMinValue() {
+	public double getMinValue(boolean... includeColumn) {
 		double v = Double.MAX_VALUE;
 		for (Row row : rows) {
-			for (double value : row.values)
-				if (value < v)
-					v = value;
+			for (int i = 0; i < row.values.length; i++) {
+				if (i >= includeColumn.length || includeColumn[i]) {
+					double value = row.values[i];
+					if (value < v)
+						v = value;
+				}
+			}
 		}
-		return v;
+		return rows.isEmpty() ? 0D : v;
 	}
 
 	/**
 	 * Returns the maximum value in this data table.
 	 *
+	 * @param includeColumn A boolean array specifying whether a corresponding column shall be included or not.
+	 *                      (defaults to 'true')
 	 * @return the maximum value in this data table or Long.MIN_VALUE if the table is empty.
 	 */
-	public double getMaxValue() {
+	public double getMaxValue(boolean... includeColumn) {
 		double v = Long.MIN_VALUE;
 		for (Row row : rows) {
-			for (double value : row.values)
-				if (value > v)
-					v = value;
+			for (int i = 0; i < row.values.length; i++) {
+				if (i >= includeColumn.length || includeColumn[i]) {
+					double value = row.values[i];
+					if (value > v)
+						v = value;
+				}
+			}
 		}
-		return v;
+		return rows.isEmpty() ? 0D : v;
 	}
 
 	/**

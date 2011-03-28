@@ -66,6 +66,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	private Rectangle verticalAxisBounds, horizontalAxisBounds, graphBounds;
 
 	private WeakHashMap<DataTable.Column, AbstractGraph2D> columnMap = new WeakHashMap<DataTable.Column, AbstractGraph2D>();
+	private AbstractStatisticsContext lastFreshContext;
 
 	protected AbstractChart2D() {
 		super();
@@ -129,7 +130,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * @return A new implementation of ChartAxis.
 	 */
 	protected ChartAxis createVerticalAxis(DataTable dataTable) {
-		return new NumberAxis(dataTable);
+		return new NumberAxis(dataTable, getAllGraphVisibleFlags());
 	}
 
 	/**
@@ -237,7 +238,8 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		AbstractGraph2D graph = columnMap.get(column);
 		if (graph != null) {
 			graph.setVisible(visible);
-			updateVisibility();
+			if (lastFreshContext != null)
+				refresh(lastFreshContext);
 		}
 	}
 
@@ -398,6 +400,8 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 */
 	@Override
 	public synchronized void refresh(AbstractStatisticsContext context) {
+		lastFreshContext = context;
+
 		super.refresh(context);
 
 		Rectangle bounds = getGraphBounds();

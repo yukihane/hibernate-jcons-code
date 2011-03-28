@@ -38,10 +38,13 @@ public class NumberAxis extends ChartAxis {
 	/**
 	 * Constructs a new number axis for the given data table.
 	 *
-	 * @param dataTable The datatable to construct the number axis for.
+	 * @param dataTable		  The datatable to construct the number axis for.
+	 * @param visibleDataColumns An array indicating what columns are active.
 	 */
-	public NumberAxis(DataTable dataTable) {
-		super(20, Orientation.vertical, dataTable.getMinValue(), dataTable.getMaxValue());
+	public NumberAxis(DataTable dataTable, boolean... visibleDataColumns) {
+		super(20, Orientation.vertical,
+				dataTable.getMinValue(visibleDataColumns),
+				dataTable.getMaxValue(visibleDataColumns));
 	}
 
 	/**

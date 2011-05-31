@@ -40,10 +40,14 @@ public class QueryHighlighter extends AbstractHighlighter {
 
 	enum Markup {
 
-		SELECT, DISTINCT, FROM, WHERE,
+		SELECT, AS, DISTINCT, FROM, WHERE,
+		FETCH, JOIN, INNER, OUTER, LEFT,
 		BETWEEN, AND, OR, IN, HAVING, NOT,
+		UNKNOWN, OBJECT, EMPTY, MEMBER, OF,
+		EXISTS, ALL, ANY, SOME,
 		ORDER, BY, ASC, DESC,
 		UPDATE, DELETE, SET, LIKE,
+		NULL, TRUE, FALSE, IS,
 
 		LEFT_BRACE(Style.OPERATOR, "("),
 		RIGHT_BRACE(Style.OPERATOR, ")"),

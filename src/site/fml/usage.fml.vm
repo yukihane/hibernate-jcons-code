@@ -71,26 +71,27 @@ jmxBinding.registerJmxBinding();
 					Using the generic Spring support for JMX publishing
 				</p>
 				<source><![CDATA[
-<bean id="jmxExporter"
-	  class="org.springframework.jmx.export.MBeanExporter">
-	<property name="beans">
-		<map>
-			<entry key="Hibernate:application=Statistics">
-				<ref local="statisticsBean"/>
-			</entry>
-		</map>
-	</property>
+<bean id="jmxExporter" class="org.springframework.jmx.export.MBeanExporter">
+    <property name="beans">
+        <map>
+            <entry key="Hibernate:application=Statistics" value-ref="hibernateStatisticsBean"/>
+        </map>
+    </property>
 </bean>
 
-<bean id="statisticsBean" class="org.hibernate.jmx.StatisticsService">
-	<property name="statisticsEnabled">
-		<value>true</value>
-	</property>
-	<property name="sessionFactory">
-		<ref local="sessionFactory"/>
-	</property>
-</bean>
-				]]></source>
+<bean id="hibernateStatisticsBean" class="org.hibernate.jmx.StatisticsService">
+    <property name="statisticsEnabled" value="true"/>
+    <property name="sessionFactory">
+    	<!-- Uncomment the following when using Hibernate directly -->
+        <!-- ref local="sessionFactory"/ -->
+
+        <!-- Uncomment the following when using via JPA
+             (Assuming the managed EMF is named 'entityManagerFactory'.
+              Namespace is: xmlns:util="http://www.springframework.org/schema/util")
+        -->
+        <!-- util:property-path path="entityManagerFactory.sessionFactory" /-->
+    </property>
+</bean>]]></source>
 			</answer>
 		</faq>
 
@@ -103,9 +104,7 @@ jmxBinding.registerJmxBinding();
 					Make sure you set the hibernate property "<code>hibernate.generate_statistics</code>"
 					to true inside "persistence.xml" or any other supported configuration file.
 				</p>
-				<source><![CDATA[
-<prop key="hibernate.generate_statistics">true</prop>
-				]]></source>
+				<source><![CDATA[<prop key="hibernate.generate_statistics">true</prop>]]></source>
 			</answer>
 		</faq>
 	</part>
@@ -118,9 +117,7 @@ jmxBinding.registerJmxBinding();
 				Quickstart with JConsole
 			</question>
 			<answer>
-				<source>
-java -jar ${project.build.finalName}.jar
-				</source>
+				<source>java -jar ${project.build.finalName}.jar</source>
 				<p>
 				    <b>Note:</b>
 				    From version 1.0.4 the plugin automatically searches the JConsole executable

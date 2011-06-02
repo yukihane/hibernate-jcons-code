@@ -78,10 +78,9 @@ MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
 mBeanServer.registerMBean(statsMBean, new ObjectName("Hibernate:application=Statistics"));]]></source>
 
 				<b>Hibernate in JPA environment:</b>
-				<source>
+				<source><![CDATA[
 EntityManagerFactory emf = ...;
-SessionFactory sf = ((HibernateEntityManagerFactory)emf).getSessionFactory();
-				</source>
+SessionFactory sf = ((HibernateEntityManagerFactory)emf).getSessionFactory();]]></source>
 			</answer>
 		</faq>
 

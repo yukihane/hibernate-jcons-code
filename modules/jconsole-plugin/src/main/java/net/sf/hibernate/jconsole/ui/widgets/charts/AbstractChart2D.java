@@ -409,8 +409,9 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 
 		super.refresh(context);
 
+		// Shrinking the data table to have a max accuracy of one measurement point per 4 pixel.
 		Rectangle bounds = getGraphBounds();
-		dataTable = getDataTable(context).shrinkToSize((int) bounds.getWidth());
+		dataTable = getDataTable(context).shrinkToSize((int) Math.max(1, bounds.getWidth() / 4));
 		verticalAxis = createVerticalAxis(dataTable);
 		horizontalAxis = createHorizontalAxis(dataTable);
 

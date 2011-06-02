@@ -54,6 +54,7 @@ public class Legend extends RefreshableJPanel {
 	 */
 	public Legend(AbstractChart2D chart) {
 		super();
+		setOpaque(false);
 		this.parent = chart;
 		setLayout(new SpringLayout());
 		setPreferredSize(new Dimension(100, 100));

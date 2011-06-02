@@ -37,7 +37,7 @@ public class MainLoadChart extends Chart2DPanel {
 	static Map<String, String> labels = new HashMap<String, String>();
 
 	static {
-		labels.put("UnCachedQueries", "DB Queries");
+		labels.put("UnCachedQueries", "Queries on DB");
 	}
 
 	public MainLoadChart() {

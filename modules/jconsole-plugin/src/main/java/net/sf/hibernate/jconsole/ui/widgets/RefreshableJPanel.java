@@ -35,10 +35,11 @@ public class RefreshableJPanel extends JPanel implements Refreshable {
 
 	public RefreshableJPanel(LayoutManager layout) {
 		super(layout);
+		setOpaque(false);
 	}
 
 	public RefreshableJPanel() {
-		super(new BorderLayout());
+		this(new BorderLayout());
 	}
 
 	/**

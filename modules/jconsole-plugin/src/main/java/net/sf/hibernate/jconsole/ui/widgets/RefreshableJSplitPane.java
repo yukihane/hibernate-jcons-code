@@ -58,6 +58,7 @@ public class RefreshableJSplitPane extends JSplitPane implements Refreshable {
 		leftTopComponent.setMinimumSize(new Dimension(0, 0));
 		rightBottomComponent.setMinimumSize(new Dimension(0, 0));
 
+		setOpaque(false);
 		setDividerSize(8);
 		setBorder(new EmptyBorder(0, 0, 0, 0));
 

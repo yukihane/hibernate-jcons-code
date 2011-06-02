@@ -140,8 +140,11 @@ public abstract class AbstractJTable<E> extends JTable {
 			public String getToolTipText(MouseEvent event) {
 				Point p = event.getPoint();
 				int index = columnModel.getColumnIndexAtX(p.x);
-				int realIndex = columnModel.getColumn(index).getModelIndex();
-				return getColumns()[realIndex].getTooltip();
+				if (index != -1) {
+					int realIndex = columnModel.getColumn(index).getModelIndex();
+					return getColumns()[realIndex].getTooltip();
+				}
+				return "";
 			}
 		};
 	}
@@ -179,7 +182,7 @@ public abstract class AbstractJTable<E> extends JTable {
 		int i = 0;
 		boolean changed = false;
 		final MyTableModel model = (MyTableModel) dataModel;
-		for (Iterator dataIterator = model.getDataVector().iterator(); dataIterator.hasNext();) {
+		for (Iterator dataIterator = model.getDataVector().iterator(); dataIterator.hasNext(); ) {
 			Vector rowVector = (Vector) dataIterator.next();
 			ListIterator rowIterator = rowVector.listIterator();
 			String key = rowIterator.hasNext() ? String.valueOf(rowIterator.next()) : null;
@@ -192,7 +195,7 @@ public abstract class AbstractJTable<E> extends JTable {
 			}
 
 			Iterator updateIterator = toTableRow(key, statistics).iterator();
-			for (updateIterator.next(); updateIterator.hasNext() && rowIterator.hasNext();) {
+			for (updateIterator.next(); updateIterator.hasNext() && rowIterator.hasNext(); ) {
 				Object value = rowIterator.next();
 				Object newValue = updateIterator.next();
 				if (!value.equals(newValue)) {

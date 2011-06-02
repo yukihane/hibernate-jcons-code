@@ -33,6 +33,17 @@ public class DummyAction {
 	String entityMessage = "Test Message";
 	TestMessageEntity entity = new TestMessageEntity(entityMessage);
 
+	int selects = 1;
+	long msBetweenSelects = 0;
+
+	public DummyAction() {
+	}
+
+	public DummyAction(int selects, long msBetweenSelects) {
+		this.selects = Math.max(1, selects);
+		this.msBetweenSelects = Math.max(0, msBetweenSelects);
+	}
+
 	public void insertAndSelect() throws Exception {
 		try {
 			beginTx();
@@ -57,8 +68,14 @@ public class DummyAction {
 	void doInsertAndSelect() throws Exception {
 		session.persist(entity);
 		entity = null;
-		entity = (TestMessageEntity)
-				session.createQuery("SELECT m FROM TestMessageEntity m WHERE m.text = :text").
-						setParameter("text", entityMessage).uniqueResult();
+
+		for (int i = 0; i < selects; i++) {
+			if (msBetweenSelects > 0)
+				Thread.sleep(msBetweenSelects);
+
+			entity = (TestMessageEntity)
+					session.createQuery("SELECT m FROM TestMessageEntity m WHERE m.text = :text").
+							setParameter("text", entityMessage).uniqueResult();
+		}
 	}
 }

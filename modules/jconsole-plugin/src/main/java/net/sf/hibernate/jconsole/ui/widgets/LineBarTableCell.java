@@ -42,7 +42,7 @@ public class LineBarTableCell extends JComponent implements Comparable<LineBarTa
 		DEFAULT(new GradientPaint(0, 1, Color.decode("0xC1EAFF"), 0, 20, Color.decode("0x56AFD8")),
 				BAR_BACKGROUND, Color.BLACK),
 
-		GREEN(new GradientPaint(0, 1, Color.decode("0xEFFFC6"), 0, 10, Color.decode("0xDAFF7F")),
+		GREEN(new GradientPaint(0, 1, Color.decode("0xEFFFC6"), 0, 10, Color.decode("0xCAF279")),
 				BAR_BACKGROUND, Color.BLACK),
 
 		ORANGE(new GradientPaint(0, 1, Color.decode("0xFFFFC6"), 0, 10, Color.decode("0xFAFF7F")),

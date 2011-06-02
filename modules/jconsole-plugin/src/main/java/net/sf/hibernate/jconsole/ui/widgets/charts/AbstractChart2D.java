@@ -37,7 +37,7 @@ import java.util.WeakHashMap;
 public abstract class AbstractChart2D extends RefreshableJPanel {
 
 	static final String DEFAULT_COLOR_SET =
-			"0x4A85CC;0xD04B47;0xA3C955;0x8564AD;0x44B7D7;0xFFCC66;0x1F518E;0xBA83B2;0x8C8C8C";
+			"0x4A85CC;0xD04B47;0xA3C955;0x8564AD;0x44B7D7;0xFFCC66;0x1F518E;0xBA83B2;0xCC3333;0x8C8C8C";
 
 	static final String TOOLTIP_TEMPLATE = "x: %s - y: %s";
 	static final Color BACKGROUND_GARDIENT_BRIGHT_TOP = Color.decode("0xFFFFFF");
@@ -392,7 +392,12 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		}
 
 		invalidate();
-		repaint(25);
+
+		// Fixes bug in a broken repaint of a single graph.
+		Container topMost = this;
+		for (Container c = this; c.getParent() != null; c = c.getParent())
+			topMost = c;
+		topMost.repaint(25);
 	}
 
 	/**

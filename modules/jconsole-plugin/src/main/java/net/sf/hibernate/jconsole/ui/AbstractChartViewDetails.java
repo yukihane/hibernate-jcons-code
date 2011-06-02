@@ -25,6 +25,7 @@ import net.sf.hibernate.jconsole.ui.widgets.AbstractTableDetails;
 import net.sf.hibernate.jconsole.ui.widgets.RefreshableJSplitPane;
 import net.sf.hibernate.jconsole.ui.widgets.charts.AbstractChart2D;
 import net.sf.hibernate.jconsole.ui.widgets.charts.Chart2DPanel;
+import net.sf.hibernate.jconsole.ui.widgets.charts.FilledLineGraph2D;
 import net.sf.hibernate.jconsole.ui.widgets.charts.LineGraph2D;
 import net.sf.hibernate.jconsole.util.DataTable;
 
@@ -85,6 +86,8 @@ public abstract class AbstractChartViewDetails<E> extends AbstractTableDetails<E
 					protected LineGraph2D createGraph(DataTable.Column column, double[] values, double maxValue) {
 						LineGraph2D lg = super.createGraph(column, values, maxValue);
 						lg.setDotSize(2);
+						if (lg instanceof FilledLineGraph2D)
+							((FilledLineGraph2D) lg).setAlpha(32);
 						return lg;
 					}
 				});

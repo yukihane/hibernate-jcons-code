@@ -143,6 +143,7 @@
     <module2copyright />
   </component>
   <component name="CppTools.Loader" reportImplicitCastToBool="false" version="2" compilerSelect="AUTO" />
+  <component name="DataSourceManagerImpl" compressed="false" />
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
@@ -161,6 +162,7 @@
         <option name="myName" value="Project Default" />
         <option name="myLocal" value="false" />
         <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true">
+          <option name="ignoreAnonymousInnerClasses" value="false" />
           <option name="superClassString" value="java.awt.Component" />
         </inspection_tool>
       </profile>
@@ -600,17 +602,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: net.sf.hibernate-jconsole:jconsole-plugin:1.0.5-SNAPSHOT">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/net/sf/hibernate-jconsole/jconsole-plugin/1.0.5-SNAPSHOT/jconsole-plugin-1.0.5-SNAPSHOT.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/net/sf/hibernate-jconsole/jconsole-plugin/1.0.5-SNAPSHOT/jconsole-plugin-1.0.5-SNAPSHOT-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/net/sf/hibernate-jconsole/jconsole-plugin/1.0.5-SNAPSHOT/jconsole-plugin-1.0.5-SNAPSHOT-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final">

@@ -62,8 +62,11 @@ public class LineGraph2D extends AbstractGraph2D {
 				if (i > 0)
 					g2d.drawLine(previousX, previousY, x, y);
 
-				//if (dotSize > 1)
-				//	g2d.fillOval(x - dotSize, y - dotSize, x + dotSize, y + dotSize);
+				if (dotSize > 1) {
+					paintDot(g2d, x, y);
+					if (previousX != 0 || previousY != 0)
+						paintDot(g2d, previousX, previousY);
+				}
 
 				previousX = x;
 				previousY = y;
@@ -71,6 +74,15 @@ public class LineGraph2D extends AbstractGraph2D {
 		} finally {
 			g2d.setStroke(stroke);
 		}
+	}
+
+	private void paintDot(Graphics2D g2d, int x, int y) {
+		final int size = dotSize * 2;
+		final Paint paint = g2d.getPaint();
+		g2d.setPaint(Color.WHITE);
+		g2d.fillOval(x - dotSize, y - dotSize, size, size);
+		g2d.setPaint(paint);
+		g2d.drawOval(x - dotSize, y - dotSize, size, size);
 	}
 
 	public int getDotSize() {

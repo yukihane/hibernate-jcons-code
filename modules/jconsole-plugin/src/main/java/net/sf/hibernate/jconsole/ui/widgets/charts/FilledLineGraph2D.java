@@ -13,6 +13,7 @@ public class FilledLineGraph2D extends LineGraph2D {
 	private static final long serialVersionUID = -6693655764785437078L;
 
 	private int alpha = 64;
+	private Color brightenerColor = new Color(255, 255, 240, 192);
 
 	/**
 	 * Creates a new filled line graph using the defined graph values and max value.
@@ -36,7 +37,7 @@ public class FilledLineGraph2D extends LineGraph2D {
 		Color topPaint = new Color(brighter.getRed(), brighter.getGreen(), brighter.getBlue(), alpha);
 		Color bottomPaint = new Color(targetColor.getRed(), targetColor.getGreen(), targetColor.getBlue(), alpha);
 		return new GradientPaint(0, height - graphHeight, topPaint,
-				0, height - (int) (graphHeight / 1.5), bottomPaint);
+				0, height - (int) (graphHeight / 1.9), bottomPaint);
 	}
 
 	/**
@@ -62,6 +63,10 @@ public class FilledLineGraph2D extends LineGraph2D {
 		int maxGraphHeight = 0;
 		for (int yCoord : yCoords)
 			maxGraphHeight = Math.max(maxGraphHeight, maxHeight - yCoord);
+
+		// Brighten background.
+		g2d.setPaint(brightenerColor);
+		g2d.fillPolygon(xCoords, yCoords, len);
 
 		g2d.setPaint(getFillPaint(c, maxGraphHeight));
 		g2d.fillPolygon(xCoords, yCoords, len);

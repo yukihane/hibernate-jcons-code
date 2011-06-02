@@ -23,6 +23,8 @@ import net.sf.hibernate.jconsole.hibernate.HibernateContext;
 import net.sf.hibernate.jconsole.hibernate.Methods;
 import net.sf.hibernate.jconsole.stats.QueryStatistics;
 
+import java.util.Random;
+
 /**
  * Tests the Hibernate context.
  *
@@ -93,11 +95,12 @@ public final class HibernateContextTester {
 		testContext();
 
 		// Waiting on user abort
+		final Random random = new Random();
 		final Thread thread = Thread.currentThread();
 		while (!thread.isInterrupted())
 			synchronized (thread) {
 				try {
-					new DummyAction().insertAndSelect();
+					new DummyAction(1 + random.nextInt(10), 100 + random.nextInt(2000)).insertAndSelect();
 					thread.wait(5000);
 				} catch (InterruptedException e) {
 					thread.interrupt();

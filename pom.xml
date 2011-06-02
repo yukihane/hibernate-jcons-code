@@ -29,7 +29,7 @@
 	<name>Hibernate JConsole Plugin (hibernate-jconsole)</name>
 	<url>https://hibernate-jcons.sourceforge.net/</url>
 
-	<version>1.0.6</version>
+	<version>1.0.7-SNAPSHOT</version>
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>
@@ -85,8 +85,8 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags/hibernate-jconsole-1.0.6</connection>
-		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags/hibernate-jconsole-1.0.6</url>
+		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/trunk</connection>
+		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons</url>
 	</scm>
 
 	<repositories>

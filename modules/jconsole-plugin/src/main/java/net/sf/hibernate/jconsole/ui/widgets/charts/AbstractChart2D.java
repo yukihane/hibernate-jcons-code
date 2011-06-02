@@ -25,10 +25,8 @@ import net.sf.hibernate.jconsole.util.DataTable;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.*;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.WeakHashMap;
 
 /**
  * Implements a JPanel that draws a line chart.
@@ -402,11 +400,11 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 					continue;
 
 				// Sort the graph with the smallest average value to be drawn last.
-				Long avgGraphValue = Long.MAX_VALUE - Math.abs(Math.round(graph.getAverageGraphValue()));
-				while (sortedGraphIndexMap.containsKey(avgGraphValue))
-					avgGraphValue -= 1;
+				Long order = Long.MAX_VALUE - (long) Math.ceil(Math.abs(graph.getAverageGraphValue() * 1000D));
+				while (sortedGraphIndexMap.containsKey(order))
+					order -= 1;
 
-				sortedGraphIndexMap.put(avgGraphValue, i);
+				sortedGraphIndexMap.put(order, i);
 			}
 			sortedGraphIndexes = sortedGraphIndexMap.values().toArray(new Integer[sortedGraphIndexMap.size()]);
 		}

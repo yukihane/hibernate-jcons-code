@@ -18,8 +18,7 @@
   ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses />.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<packaging>pom</packaging>
 	<modelVersion>4.0.0</modelVersion>
@@ -30,7 +29,7 @@
 	<name>Hibernate JConsole Plugin (hibernate-jconsole)</name>
 	<url>https://hibernate-jcons.sourceforge.net/</url>
 
-	<version>1.0.5-SNAPSHOT</version>
+	<version>1.0.5</version>
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>
@@ -86,8 +85,8 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/trunk</connection>
-		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons</url>
+		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags/hibernate-jconsole-1.0.5</connection>
+		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/tags/hibernate-jconsole-1.0.5</url>
 	</scm>
 
 	<repositories>
@@ -156,6 +155,11 @@
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
 					<version>2.1.2</version>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.1</version>
 				</plugin>
 
 				<plugin>

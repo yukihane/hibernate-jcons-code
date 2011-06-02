@@ -18,60 +18,61 @@
   ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses />.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <packaging>pom</packaging>
-    <modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>hibernate-jconsole</artifactId>
-        <groupId>net.sf.hibernate-jconsole</groupId>
-        <version>1.0.6-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
-    </parent>
+	<parent>
+		<artifactId>hibernate-jconsole</artifactId>
+		<groupId>net.sf.hibernate-jconsole</groupId>
+		<version>1.0.6-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
 
-    <artifactId>distribution</artifactId>
-    <name>Hibernate JConsole Plugin :: Distribution</name>
+	<artifactId>hibernate-jconsole-distribution</artifactId>
+	<name>Hibernate JConsole Plugin :: Distribution</name>
 
-    <dependencies>
-        <dependency>
-            <groupId>net.sf.hibernate-jconsole</groupId>
-            <artifactId>jconsole-plugin</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.hibernate-jconsole</groupId>
-            <artifactId>hibernate-connector</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>net.sf.hibernate-jconsole</groupId>
+			<artifactId>jconsole-plugin</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.hibernate-jconsole</groupId>
+			<artifactId>hibernate-connector</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <appendAssemblyId>false</appendAssemblyId>
-                    <finalName>${app.name}-${project.version}</finalName>
-                    <outputDirectory>../../target/</outputDirectory>
-                    <descriptors>
-                        <descriptor>src/assemble/app.xml</descriptor>
-                    </descriptors>
-                    <archive>
-                        <Manifest>
-                            <Main-Class>net.sf.hibernate.jconsole.JConsoleStarter</Main-Class>
-                        </Manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<finalName>${app.name}-${project.version}</finalName>
+					<outputDirectory>../../target/</outputDirectory>
+					<descriptors>
+						<descriptor>src/assemble/app.xml</descriptor>
+					</descriptors>
+					<archive>
+						<Manifest>
+							<Main-Class>net.sf.hibernate.jconsole.JConsoleStarter</Main-Class>
+						</Manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

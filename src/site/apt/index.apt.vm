@@ -16,7 +16,7 @@ ${project.name} - ${project.version}
     <<{{{http://www.hibernate.org/}Hibernate}}>> via its JMX exports.\
     The plugin displays grahps and details on queries, entities, collections and cache efficiency.
 
-    {{{http://sourceforge.net/projects/hibernate-jcons/files/alpha/${project.build.finalName}.jar/download}
+    {{{http://sourceforge.net/projects/hibernate-jcons/files/beta/${project.build.finalName}.jar/download}
     <<Download>> "${project.build.finalName}.jar"}}
     ({{{http://sourceforge.net/projects/hibernate-jcons/files/}all versions}})
 

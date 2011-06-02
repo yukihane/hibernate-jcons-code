@@ -28,47 +28,12 @@
 
 		<faq id="hibernate-jmx-01">
 			<question>
-				Enable JMX support inside Hibernate - Solution 1
+				Enable JMX support inside Hibernate - Using the Spring Framework
 			</question>
 			<answer>
 				<p>
-					In case of your monitored application is not yet publishing any hibernate MBeans,
-					use the following helper class (contained inside "${project.build.finalName}.jar") to adjust
-					your application and enable the JMX support in hibernate:
-					<br/>
-					<br/>
-					<b>Plain example</b> (Hibernate only):
-					<source>
-MBeanServer myServer = ...;
-SessionFactory sf = ...;
-HibernateJmxBinding jmxBinding = new HibernateJmxBinding(myServer, sf);
-jmxBinding.registerJmxBinding();
-					</source>
-					<b>Plain example</b> (Hibernate in JPA environment):
-					<source>
-MBeanServer myServer = ...;
-EntityManagerFactory emf = ...;
-JpaHibernateJmxBinding jmxBinding = new JpaHibernateJmxBinding(myServer, emf);
-jmxBinding.registerJmxBinding();
-					</source>
-					<b>Spring example</b> (annotation config enabled):
-					<source><![CDATA[
-<context:annotation-config/>
-<context:mbean-server id="jmxServer"/>
-
-<bean class="net.sf.hibernate.jconsole.util.JpaHibernateJmxBinding"/>
-					]]></source>
-				</p>
-			</answer>
-		</faq>
-
-		<faq id="hibernate-jmx-02">
-			<question>
-				Enable JMX support inside Hibernate - Solution 2
-			</question>
-			<answer>
-				<p>
-					Using the generic Spring support for JMX publishing
+					Hibernate does not publish MBeans by default.
+					The following snippet can be used when running inside a Spring environment.
 				</p>
 				<source><![CDATA[
 <bean id="jmxExporter" class="org.springframework.jmx.export.MBeanExporter">
@@ -85,13 +50,38 @@ jmxBinding.registerJmxBinding();
     	<!-- Uncomment the following when using Hibernate directly -->
         <!-- ref local="sessionFactory"/ -->
 
-        <!-- Uncomment the following when using via JPA
+        <!-- Uncomment the following when using Hibernate via JPA
              (Assuming the managed EMF is named 'entityManagerFactory'.
               Namespace is: xmlns:util="http://www.springframework.org/schema/util")
         -->
         <!-- util:property-path path="entityManagerFactory.sessionFactory" /-->
     </property>
 </bean>]]></source>
+			</answer>
+		</faq>
+
+		<faq id="hibernate-jmx-02">
+			<question>
+				Enable JMX support inside Hibernate - Using the API
+			</question>
+			<answer>
+				<p>
+					Alternatively the following Java code can be used to publish the MBeans.
+				</p>
+				<source><![CDATA[
+SessionFactory sf = ...;
+StatisticsService statsMBean = new StatisticsService();
+statsMBean.setSessionFactory(sf);
+statsMBean.setStatisticsEnabled(true);
+
+MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
+mBeanServer.registerMBean(statsMBean, new ObjectName("Hibernate:application=Statistics"));]]></source>
+
+				<b>Hibernate in JPA environment:</b>
+				<source>
+EntityManagerFactory emf = ...;
+SessionFactory sf = ((HibernateEntityManagerFactory)emf).getSessionFactory();
+				</source>
 			</answer>
 		</faq>
 

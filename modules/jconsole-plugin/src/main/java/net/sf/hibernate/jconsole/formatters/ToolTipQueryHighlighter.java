@@ -19,7 +19,7 @@
 
 package net.sf.hibernate.jconsole.formatters;
 
-import java.util.EnumSet;
+import java.util.*;
 
 /**
  * Is a specialized version for tooltips that adds a newline in from of some HQL commands.
@@ -29,13 +29,32 @@ import java.util.EnumSet;
  */
 public class ToolTipQueryHighlighter extends QueryHighlighter implements AbstractHighlighter.TokenHighlighter {
 
-	static final EnumSet<Markup> INDENT_BEFORE = EnumSet.of(Markup.IN);
+	static final EnumSet<Markup> INDENT_BEFORE = EnumSet.of(
+			Markup.IN, Markup.INNER, Markup.OUTER, Markup.LEFT, Markup.JOIN, Markup.AND, Markup.OR);
 
-	static final EnumSet<Markup> LINE_BREAK_BEFORE = EnumSet.of(
-			Markup.IN, Markup.WHERE, Markup.ORDER, Markup.HAVING, Markup.FROM);
+	static final Map<Markup, Set<Markup>> LINE_BREAK_BEFORE = new HashMap<Markup, Set<Markup>>();
+
+	static {
+		for (Markup markup : EnumSet.of(
+				Markup.IN, Markup.WHERE, Markup.ORDER, Markup.HAVING,
+				Markup.FROM, Markup.INNER, Markup.OUTER, Markup.LEFT, Markup.JOIN,
+				Markup.AND, Markup.OR)) {
+			LINE_BREAK_BEFORE.put(markup, Collections.<Markup>emptySet());
+		}
+		// Define exceptions (when not to apply a line break)
+		LINE_BREAK_BEFORE.put(Markup.AND, EnumSet.of(Markup.BETWEEN));
+		LINE_BREAK_BEFORE.put(Markup.JOIN, EnumSet.of(Markup.INNER, Markup.OUTER, Markup.LEFT));
+	}
 
 	boolean indent;
 	TokenHighlighter tokenHighlighter;
+	Markup lastKeyWord;
+
+	@Override
+	protected void reset() {
+		super.reset();
+		lastKeyWord = null;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -45,7 +64,13 @@ public class ToolTipQueryHighlighter extends QueryHighlighter implements Abstrac
 		tokenHighlighter = super.getHighlighterForToken(token, nextToken);
 		Markup markup = Markup.find(token);
 		indent = INDENT_BEFORE.contains(markup);
-		return LINE_BREAK_BEFORE.contains(markup) ? this : tokenHighlighter;
+		Set<Markup> exceptions = LINE_BREAK_BEFORE.get(markup);
+		try {
+			return exceptions != null && !exceptions.contains(lastKeyWord) ? this : tokenHighlighter;
+		} finally {
+			if (markup != null && markup.style == Style.KEYWORD)
+				lastKeyWord = markup;
+		}
 	}
 
 	/**

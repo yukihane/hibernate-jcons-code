@@ -25,8 +25,9 @@ import net.sf.hibernate.jconsole.util.DataTable;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.util.Iterator;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.WeakHashMap;
 
 /**
@@ -59,6 +60,7 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	private ChartAxis horizontalAxis;
 
 	private AbstractGraph2D[] graphs;
+	private Integer[] sortedGraphIndexes;
 	private Color[] graphColors = DEFAULT_GRAPH_COLORS;
 	private int firstColorIndex = 0;
 
@@ -260,28 +262,24 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 
 			Rectangle bounds = getGraphBounds();
 
-			if (graphs != null) {
+			if (graphs != null && sortedGraphIndexes != null) {
 				// Drawing the background gradient for the graphs.
 				g2d.setPaint(getGraphBackground());
 				g2d.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
 
-				// Drawing the graphs.
-				List<DataTable.Column> columnList = dataTable.getColumns();
-				Iterator<DataTable.Column> columns = columnList.iterator();
-				for (AbstractGraph2D graph : graphs) {
-					g2d.setPaint(getColorForColumn(columns.next()));
-					if (!graph.isVisible())
-						continue;
+				// Drapwing the graph
+				final List<DataTable.Column> columnList = dataTable.getColumns();
+				for (Integer graphIndex : sortedGraphIndexes) {
+					AbstractGraph2D graph = graphs[graphIndex];
+					g2d.setPaint(getColorForColumn(columnList.get(graphIndex)));
 					graph.setBounds(bounds);
 					graph.paint(g2d);
 				}
 
 				// Drawing the overlays.
-				columns = columnList.iterator();
-				for (AbstractGraph2D graph : graphs) {
-					g2d.setPaint(getColorForColumn(columns.next()));
-					if (!graph.isVisible())
-						continue;
+				for (Integer graphIndex : sortedGraphIndexes) {
+					AbstractGraph2D graph = graphs[graphIndex];
+					g2d.setPaint(getColorForColumn(columnList.get(graphIndex)));
 					graph.paintOverlay(g2d);
 				}
 
@@ -382,14 +380,8 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 	 * Updates the visibility settings after a change in the graphs or graph visibility.
 	 */
 	public synchronized void updateVisibility() {
-		if (graphs != null) {
-			double maxValue = 0;
-			for (AbstractGraph2D graph : graphs)
-				if (graph.isVisible())
-					maxValue = Math.max(maxValue, graph.getMaxGraphValue());
-			for (AbstractGraph2D graph : graphs)
-				graph.setMaxValue(maxValue);
-		}
+		normalizeGraphs();
+		sortGraphs();
 
 		invalidate();
 
@@ -398,6 +390,37 @@ public abstract class AbstractChart2D extends RefreshableJPanel {
 		for (Container c = this; c.getParent() != null; c = c.getParent())
 			topMost = c;
 		topMost.repaint(25);
+	}
+
+	private void sortGraphs() {
+		if (graphs != null) {
+			SortedMap<Long, Integer> sortedGraphIndexMap = new TreeMap<Long, Integer>();
+			for (int i = 0; i < graphs.length; i++) {
+				AbstractGraph2D graph = graphs[i];
+
+				if (!graph.isVisible())
+					continue;
+
+				// Sort the graph with the smallest average value to be drawn last.
+				Long avgGraphValue = Long.MAX_VALUE - Math.abs(Math.round(graph.getAverageGraphValue()));
+				while (sortedGraphIndexMap.containsKey(avgGraphValue))
+					avgGraphValue -= 1;
+
+				sortedGraphIndexMap.put(avgGraphValue, i);
+			}
+			sortedGraphIndexes = sortedGraphIndexMap.values().toArray(new Integer[sortedGraphIndexMap.size()]);
+		}
+	}
+
+	private void normalizeGraphs() {
+		if (graphs != null) {
+			double maxValue = 0;
+			for (AbstractGraph2D graph : graphs)
+				if (graph.isVisible())
+					maxValue = Math.max(maxValue, graph.getMaxGraphValue());
+			for (AbstractGraph2D graph : graphs)
+				graph.setMaxValue(maxValue);
+		}
 	}
 
 	/**

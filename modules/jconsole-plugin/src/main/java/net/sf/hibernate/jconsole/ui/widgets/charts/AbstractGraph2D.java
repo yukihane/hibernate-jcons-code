@@ -123,6 +123,21 @@ public abstract class AbstractGraph2D extends AbstractChartElement {
 	}
 
 	/**
+	 * Returns the average value of the graphs source values.
+	 *
+	 * @return the average value of the graphs source values.
+	 */
+	public double getAverageGraphValue() {
+		double v = 0;
+		if (values != null) {
+			for (double value : values)
+				v += value;
+			v /= values.length;
+		}
+		return v;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override

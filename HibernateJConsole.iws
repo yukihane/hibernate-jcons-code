@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="2a6aefec-39a4-43ab-98c6-ebbbcaa6df42" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HibernateJConsole.iws" afterPath="$PROJECT_DIR$/HibernateJConsole.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/MainLoadChart.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/MainLoadChart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractJTable.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/AbstractJTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/LineBarTableCell.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/LineBarTableCell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/RefreshableJPanel.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/RefreshableJPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/RefreshableJSplitPane.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/RefreshableJSplitPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/AbstractChart2D.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/AbstractChart2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/Legend.java" afterPath="$PROJECT_DIR$/modules/jconsole-plugin/src/main/java/net/sf/hibernate/jconsole/ui/widgets/charts/Legend.java" />
-    </list>
+    <list default="true" readonly="true" id="2a6aefec-39a4-43ab-98c6-ebbbcaa6df42" name="Default" comment="" />
     <list id="3a6fe69f-552a-4287-8a65-07aa73304de8" name="IDE project files" comment="" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="HibernateJConsole.iws" />

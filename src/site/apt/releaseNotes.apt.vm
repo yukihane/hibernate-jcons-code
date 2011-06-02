@@ -8,6 +8,14 @@
 
 Release Notes
 
+* ${project.artifactId}-1.0.5.jar - 2011-06
+
+	* Reached <BETA> quality.
+
+	* Improved visuals and fixed minor display bugs.
+
+	* Added missing JPQL keywords to query highlighter.
+
 * ${project.artifactId}-1.0.4.jar - 2011-03
 
     * Supporting Hibernate 3.1 - 3.6

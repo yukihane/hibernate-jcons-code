@@ -85,8 +85,9 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:svn:https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons/trunk</connection>
-		<url>https://hibernate-jcons.svn.sourceforge.net/svnroot/hibernate-jcons</url>
+		<connection>scm:hg:http://hibernate-jcons.hg.sourceforge.net:8000/hgroot/hibernate-jcons/hibernate-jcons</connection>
+		<developerConnection>scm:hg:ssh://hibernate-jcons.hg.sourceforge.net/hgroot/hibernate-jcons/hibernate-jcons</developerConnection>
+		<url>http://hibernate-jcons.hg.sourceforge.net/hgweb/hibernate-jcons/</url>
 	</scm>
 
 	<repositories>

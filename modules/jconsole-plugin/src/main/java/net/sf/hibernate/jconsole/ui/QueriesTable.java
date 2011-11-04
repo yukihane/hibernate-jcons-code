@@ -41,7 +41,7 @@ public class QueriesTable extends AbstractRefreshableJTable<QueryStatistics> {
 
 	static final Column[] COLUMNS = {
 			new Column("Query", "The HQL query.", Comparable.class),
-			new Column("Cached", "<html>The percentage of results that were retrieved <i>from the cache</i><br/>" +
+			new Column("Cached", "<html>The percentage of result sets that were retrieved <i>from the cache</i><br/>" +
 					"rather than fetching them from the DB.</html>", Comparable.class),
 			new Column("Performance", "<html>The relative performance in comparison to other queries.<br/>" +
 					"<i>(The single query performance is estimated, using avg-time * total-invocations)</i></html>", Comparable.class),

@@ -44,9 +44,9 @@ public class QueriesTable extends AbstractRefreshableJTable<QueryStatistics> {
 			new Column("Cached", "<html>The percentage of result sets that were retrieved <i>from the cache</i><br/>" +
 					"rather than fetching them from the DB.</html>", Comparable.class),
 			new Column("Performance", "<html>The relative performance in comparison to other queries.<br/>" +
-					"<i>(The single query performance is estimated, using avg-time * total-invocations)</i></html>", Comparable.class),
+					"<i>(The single query performance is estimated using avg-time * total-invocations)</i></html>", Comparable.class),
 			new Column("Time in DB", "<html>The total amount of time spent inside the DB.<br/>" +
-					"<i>(The time is estimated, using avg-time * direct-invocations)</i></html>", Comparable.class),
+					"<i>(The time is estimated using avg-time * direct-invocations)</i></html>", Comparable.class),
 			new Column("Invocations", "The total amount of invocations (cached & direct).", Comparable.class),
 			new Column("Rows Fetched", "The number of rows directly fetched from the DB.", Long.class),
 	};

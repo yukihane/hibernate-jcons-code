@@ -35,6 +35,7 @@ public class EntityStatisticsTable extends AbstractStatisticsTable<Long> {
 
 	public static final String COLUMN_LOADS = "Loads";
 	public static final String COLUMN_FETCHES = "Fetches";
+	public static final String COLUMN_LOCK_FAULTS = "Faults";
 	public static final String COLUMN_MODIFICATIONS = "Modifications";
 
 	private String id, entityName;
@@ -44,7 +45,7 @@ public class EntityStatisticsTable extends AbstractStatisticsTable<Long> {
 	}
 
 	public EntityStatisticsTable(String entityName) {
-		super(HISTORY_LENGTH, COLUMN_LOADS, COLUMN_FETCHES, COLUMN_MODIFICATIONS);
+		super(HISTORY_LENGTH, COLUMN_LOADS, COLUMN_FETCHES, COLUMN_LOCK_FAULTS, COLUMN_MODIFICATIONS);
 		this.entityName = entityName;
 		this.id = "Entity Statistics :: " + entityName;
 	}
@@ -70,6 +71,8 @@ public class EntityStatisticsTable extends AbstractStatisticsTable<Long> {
 				return stats.getLoadCount();
 			else if (COLUMN_FETCHES.equals(name))
 				return stats.getFetchCount();
+			else if (COLUMN_LOCK_FAULTS.equals(name))
+				return stats.getOptimisticFailureCount();
 			else if (COLUMN_MODIFICATIONS.equals(name))
 				return stats.getInsertCount() + stats.getUpdateCount() + stats.getDeleteCount();
 		}

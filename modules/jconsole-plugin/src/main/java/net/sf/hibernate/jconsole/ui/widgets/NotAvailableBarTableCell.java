@@ -28,14 +28,15 @@ import java.awt.*;
  * @version 1.0
  */
 public class NotAvailableBarTableCell extends LineBarTableCell {
-	public NotAvailableBarTableCell() {
+	public NotAvailableBarTableCell(String description) {
 		super();
 		setValue(-1);
 		setFont(DEFAULT.deriveFont(Font.ITALIC));
+		setToolTipText(description);
 	}
 
 	@Override
 	protected String getLabelText() {
-		return "N/A";
+		return "n/a";
 	}
 }

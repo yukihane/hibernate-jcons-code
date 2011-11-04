@@ -33,13 +33,15 @@ public final class StatisticsUtil {
 	}
 
 	public static double toTotalAverageTime(QueryStatistics statistics) {
-		double avg = statistics.getExecutionAvgTime() == 0 ? 0.1D : statistics.getExecutionAvgTime();
-		return ((double) statistics.getExecutionCount() * avg);
+		return (double) statistics.getExecutionCount() * toAverageExecutionTime(statistics);
+	}
+
+	public static double toAverageExecutionTime(QueryStatistics statistics) {
+		return statistics.getExecutionAvgTime() == 0 ? 0.001D : statistics.getExecutionAvgTime();
 	}
 
 	public static double toQueryPerformance(QueryStatistics statistics) {
-		return toQueryPerformance(toTotalAverageTime(statistics),
-				statistics.getCacheHitCount() + statistics.getExecutionCount());
+		return toQueryPerformance(toTotalAverageTime(statistics), statistics.getCacheHitCount() + statistics.getExecutionCount());
 	}
 
 	public static double toQueryPerformance(double totalTimeOnDb, double invocations) {

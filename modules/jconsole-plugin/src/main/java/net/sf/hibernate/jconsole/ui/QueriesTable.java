@@ -41,23 +41,24 @@ public class QueriesTable extends AbstractRefreshableJTable<QueryStatistics> {
 
 	static final Column[] COLUMNS = {
 			new Column("Query", "The HQL query.", Comparable.class),
-			new Column("Cached", "The percentage of queries that were retrieved from cache rather than the DB.",
-					Comparable.class),
-			new Column("Performance",
-					"The relative performance, calculated out of average execution time and execution count.",
-					Comparable.class),
-			new Column("DB Time", "The total average time spent inside the DB.", Comparable.class),
+			new Column("Cached", "<html>The percentage of results that were retrieved <i>from the cache</i><br/>" +
+					"rather than fetching them from the DB.</html>", Comparable.class),
+			new Column("Performance", "<html>The relative performance in comparison to other queries.<br/>" +
+					"<i>(The single query performance is estimated, using avg-time * total-invocations)</i></html>", Comparable.class),
+			new Column("Time in DB", "<html>The total amount of time spent inside the DB.<br/>" +
+					"<i>(The time is estimated, using avg-time * direct-invocations)</i></html>", Comparable.class),
 			new Column("Invocations", "The total amount of invocations (cached & direct).", Comparable.class),
-			new Column("Rows fetched", "Is the total of rows returned from the DB.", Long.class),
+			new Column("Rows Fetched", "The number of rows directly fetched from the DB.", Long.class),
 	};
 
 	long maxExecutionCount;
 	double maxQueryPerformance;
 	double maxTotalAverageTime;
 
-	QueryHighlighter highlighter = new QueryHighlighter();
-	ToolTipQueryHighlighter toolTipHighlighter = new ToolTipQueryHighlighter();
-	NotAvailableBarTableCell notAvailable = new NotAvailableBarTableCell();
+	final QueryHighlighter highlighter = new QueryHighlighter();
+	final ToolTipQueryHighlighter toolTipHighlighter = new ToolTipQueryHighlighter();
+	final NotAvailableBarTableCell cacheNotAvailable = new NotAvailableBarTableCell("<html>This query is uncached<br/>" +
+			"(no cache puts, nor hits).</html>");
 
 	/**
 	 * {@inheritDoc}
@@ -69,7 +70,7 @@ public class QueriesTable extends AbstractRefreshableJTable<QueryStatistics> {
 		v.add(new TableCellJLabel(key, toolTipHighlighter.highlight(key), highlighter));
 
 		if (s.getCachePutCount() == 0 && s.getCacheHitCount() == 0)
-			v.add(notAvailable);
+			v.add(cacheNotAvailable);
 		else
 			v.add(new HitrateTableCell(s.getCacheHitCount(), s.getCacheMissCount(), s.getCachePutCount()));
 
@@ -81,8 +82,7 @@ public class QueriesTable extends AbstractRefreshableJTable<QueryStatistics> {
 		v.add(new TimingTableCell(maxTotalAverageTime, databaseTime,
 				s.getExecutionAvgTime(), s.getExecutionMaxTime(), s.getExecutionMinTime()));
 
-		v.add(new ExecutionCountTableCell(maxExecutionCount,
-				s.getExecutionCount() + s.getCacheHitCount(), s.getExecutionCount()));
+		v.add(new ExecutionCountTableCell(maxExecutionCount, s.getExecutionCount() + s.getCacheHitCount(), s.getExecutionCount()));
 		v.add(s.getExecutionRowCount());
 
 		return v;

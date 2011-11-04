@@ -30,7 +30,7 @@ public class QueryPerformanceTableCell extends PerformanceTableCell {
 
 	public QueryPerformanceTableCell(double maxQueryPerformance, double queryPerformance) {
 		super(maxQueryPerformance, Math.max(0D, maxQueryPerformance - queryPerformance));
-		setToolTipText(String.format("Average time per invocation: %.3f s",
-				msToSeconds((long) Math.ceil(queryPerformance))));
+		setToolTipText(String.format("<html>" +
+				"Average time per invocation: <b>%.3f</b>s</html>", msToSeconds((long) Math.ceil(queryPerformance))));
 	}
 }

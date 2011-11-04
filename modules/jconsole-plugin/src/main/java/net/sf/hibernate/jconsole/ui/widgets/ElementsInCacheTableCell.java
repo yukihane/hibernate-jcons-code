@@ -42,10 +42,10 @@ public class ElementsInCacheTableCell extends LineBarTableCell {
 		setLabelValue(round(ratio * 100D));
 		setLabelFormat("%2.2f%%");
 
-		setToolTipText(String.format("cached elements %d (memory: %d, disk: %d, ratio %2.2f%%)\n" +
-				"memory usage: %.3fkb",
-				totalElementsInCache, elementsInMemory, elementsOnDisk, ratio,
-				sizeInMemory / 1024D));
+		setToolTipText(String.format("<html>" +
+				"Cached elements <b>%d</b> (memory: %d, disk: %d, ratio %2.2f%%)<br/>" +
+				"Memory usage: %.3fkb</html>",
+				totalElementsInCache, elementsInMemory, elementsOnDisk, ratio, sizeInMemory / 1024D));
 	}
 
 	@Override

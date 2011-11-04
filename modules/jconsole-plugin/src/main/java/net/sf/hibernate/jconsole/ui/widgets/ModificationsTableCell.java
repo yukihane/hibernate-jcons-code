@@ -26,7 +26,7 @@ package net.sf.hibernate.jconsole.ui.widgets;
  */
 public class ModificationsTableCell extends LineBarTableCell {
 	public ModificationsTableCell(long maxModificationCount,
-								  long inserts, long updates, long deletes) {
+	                              long inserts, long updates, long deletes) {
 		super();
 		setStyle(Style.GREEN);
 
@@ -35,6 +35,7 @@ public class ModificationsTableCell extends LineBarTableCell {
 		setLabelValue(modificationCount);
 		setLabelFormat("%.0f");
 
-		setToolTipText(String.format("(inserts: %d - updates: %d - deletes: %d)", inserts, updates, deletes));
+		setToolTipText(String.format("<html>" +
+				"Inserts: <b>%d</b> / Updates: <b>%d</b> / Deletes: <b>%d</b></html>", inserts, updates, deletes));
 	}
 }

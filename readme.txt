@@ -1,6 +1,10 @@
 
 Make with:
-  - mvn clean install assembly:assembly
+  > mvn 
+  or
+  > mvn clean install
+  or including local site
+  > mvn clean install site
   
-Deploy (including Site):
-  - mvn clean deploy assembly:assembly site-deploy
+Deploy (including site to SF.net):
+  - mvn clean install deploy site-deploy

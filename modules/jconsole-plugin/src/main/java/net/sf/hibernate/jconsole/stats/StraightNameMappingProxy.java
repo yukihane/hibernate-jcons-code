@@ -19,7 +19,12 @@
 
 package net.sf.hibernate.jconsole.stats;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Creates a reflective proxy that uses straight simple name mappings to attach to the interfaces.
@@ -31,20 +36,32 @@ public final class StraightNameMappingProxy extends AbstractMethodMappingProxy {
 
 	private static final long serialVersionUID = 3119660935285415944L;
 
+	private static final Map<Class<?>, Constructor<?>> proxies = new HashMap<Class<?>, Constructor<?>>();
+
 	/**
 	 * Constructs a new name mapping proxy class.
 	 *
 	 * @param interfaceClass the interface defining the methods.
-	 * @param delegate	   the delegate used to query the methods.
+	 * @param delegate       the delegate used to query the methods.
 	 * @param defaultValue   the default value to return if the delegate does not define a matching method.
 	 * @return a new proxy class that dynamically maps method calls on the delegate.
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T newInstance(Class<T> interfaceClass, Object delegate, Object defaultValue) {
-		return (T) java.lang.reflect.Proxy.newProxyInstance(
-				interfaceClass.getClassLoader(),
-				new Class[]{interfaceClass},
-				new StraightNameMappingProxy(interfaceClass, delegate, defaultValue));
+		try {
+			Constructor<?> proxyConstructor;
+			synchronized (proxies) {
+				proxyConstructor = proxies.get(interfaceClass);
+				if (proxyConstructor == null) {
+					proxyConstructor = Proxy.getProxyClass(interfaceClass.getClassLoader(), interfaceClass).
+							getConstructor(InvocationHandler.class);
+					proxies.put(interfaceClass, proxyConstructor);
+				}
+			}
+			return (T) proxyConstructor.newInstance(new StraightNameMappingProxy(interfaceClass, delegate, defaultValue));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	private StraightNameMappingProxy(Class<?> interfaceClass, Object delegate, Object defaultValue) {

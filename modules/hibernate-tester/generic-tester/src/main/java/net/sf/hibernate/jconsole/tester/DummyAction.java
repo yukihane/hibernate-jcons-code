@@ -59,7 +59,7 @@ public class DummyAction {
 	}
 
 	void rollbackTx() {
-		if (session.isOpen()) {
+		if (session != null && session.isOpen()) {
 			session.getTransaction().rollback();
 			session.close();
 		}

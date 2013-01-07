@@ -26,6 +26,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.management.MBeanServer;
 import java.lang.management.ManagementFactory;
+import java.lang.reflect.Method;
 
 /**
  * Simple Hibernate initializer.
@@ -49,7 +50,12 @@ public final class HibernateSessions {
 	 */
 	public static Session getSession() {
 		initSessionFactory();
-		return sessionFactory.openSession();
+		try {
+			final Method openSessionMethod = sessionFactory.getClass().getMethod("openSession");
+			return (Session) openSessionMethod.invoke(sessionFactory);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	/**

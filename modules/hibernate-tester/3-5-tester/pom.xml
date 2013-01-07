@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010
+  ~ Copyright (c) 2011
   ~
   ~ This file is part of HibernateJConsole.
   ~
@@ -26,7 +26,7 @@
 	<parent>
 		<artifactId>hibernate-tester</artifactId>
 		<groupId>net.sf.hibernate-jconsole.testsuite</groupId>
-		<version>1.0.7-SNAPSHOT</version>
+		<version>1.0.8-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 

@@ -38,6 +38,7 @@ public class HitrateTableCell extends LineBarTableCell {
 		setLabelValue(round(hitRate * 100D));
 		setLabelFormat("%2.2f%%");
 
-		setToolTipText(String.format("hits: %d, misses: %d, puts: %d", hitCount, missCount, putCount));
+		setToolTipText(String.format("<html>" +
+				"Hits: <b>%d</b> / Misses: <b>%d</b> / Puts: <b>%d</b></html>", hitCount, missCount, putCount));
 	}
 }

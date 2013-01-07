@@ -23,32 +23,34 @@ import java.io.Serializable;
 
 /**
  * Collection related statistics.
+ * <p/>
+ * See {@link org.hibernate.stat.StatisticsImplementor} for more information.
  *
  * @author Gavin King
  * @author Alex Snaps
- * @author Juergen_Kellerer, 2010-09-16
- * @version 1.0
  */
 public interface CollectionStatistics extends Serializable {
 
 	/**
-	 * Returns the number of DB loads for the given collection.
+	 * Returns the number of times that the collection was loaded without requiring a separate DB operation.
+	 * <p/>
+	 * This can indicate that the collection was fetched from a second level cache or could be loaded when fetching an entity.
 	 *
-	 * @return the number of DB loads for the given collection.
+	 * @return the number of times that the collection was loaded without requiring a separate DB operation.
 	 */
 	long getLoadCount();
 
 	/**
-	 * Returns the number of hits on a collection.
+	 * Returns the number of times that a separate DB operation had to be issued to fetch the collection.
 	 *
-	 * @return the number of hits on a collection.
+	 * @return the number of times that a separate DB operation had to be issued to fetch the collection.
 	 */
 	long getFetchCount();
 
 	/**
-	 * Returns the number of re-creations on the collection.
+	 * Returns the number of re-creations (delete & re-insert) on the collection.
 	 *
-	 * @return the number of re-creations on the collection.
+	 * @return the number of re-creations (delete & re-insert) on the collection.
 	 */
 	long getRecreateCount();
 

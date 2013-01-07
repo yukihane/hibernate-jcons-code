@@ -58,8 +58,7 @@ public class SecondLevelCacheTable extends AbstractRefreshableJTable<SecondLevel
 
 		v.add(new TableCellJLabel(entity, null, highlighter));
 
-		v.add(new ElementsInCacheTableCell(s.getElementCountInMemory(), s.getElementCountOnDisk(),
-				s.getSizeInMemory()));
+		v.add(new ElementsInCacheTableCell(s.getElementCountInMemory(), s.getElementCountOnDisk(), s.getSizeInMemory()));
 		v.add(new HitrateTableCell(s.getHitCount(), s.getMissCount(), s.getPutCount()));
 
 		v.add(s.getHitCount());

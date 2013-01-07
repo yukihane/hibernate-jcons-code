@@ -36,7 +36,9 @@ public class TimingTableCell extends LineBarTableCell {
 		setLabelValue(msToSeconds((long) totalAvg));
 		setLabelFormat("%2.3f s");
 
-		setToolTipText(String.format("max: %2.3f s - min: %2.3f s - avg: %2.3f",
-				msToSeconds(max), msToSeconds(min), msToSeconds(avg)));
+		setToolTipText(String.format("<html>" +
+				"Single execution time: <b>%2.3f</b>s<br/>" +
+				"(min: <b>%2.3f</b>s / max: <b>%2.3f</b>s)</html>",
+				msToSeconds(avg), msToSeconds(min), msToSeconds(max)));
 	}
 }

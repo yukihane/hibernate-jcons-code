@@ -28,24 +28,66 @@ import java.io.Serializable;
  *
  * @author Gavin King
  * @author Alex Snaps
- * @author Juergen_Kellerer, 2010-09-16
- * @version 1.0
  */
 public interface QueryStatistics extends Serializable {
-
+	/**
+	 * Returns the number of times the query was run against the database.
+	 * <p/>
+	 * This number does not increment when a query was fetched from the DB.
+	 * See {@link org.hibernate.loader.Loader#list(org.hibernate.engine.SessionImplementor, org.hibernate.engine.QueryParameters, java.util.Set, org.hibernate.type.Type[])}
+	 *
+	 * @return the number of times the query was run against the database.
+	 */
 	long getExecutionCount();
 
+	/**
+	 * Returns the number of times the query was retrieved from the cache.
+	 *
+	 * @return the number of times the query was retrieved from the cache.
+	 */
 	long getCacheHitCount();
 
+	/**
+	 * Returns the number of times the query results were put into the cache.
+	 *
+	 * @return the number of times the query results were put into the cache.
+	 */
 	long getCachePutCount();
 
+	/**
+	 * Returns the number of times the cache was queried but the results were either not yet cached or outdated.
+	 *
+	 * @return the number of times the cache was queried but the results were either not yet cached or outdated.
+	 */
 	long getCacheMissCount();
 
+	/**
+	 * Returns the number of rows that were fetched from the DB.
+	 * <p/>
+	 * Note: Queries that are serviced from the query cache do not increment this value.
+	 *
+	 * @return the number of rows that were fetched from the DB.
+	 */
 	long getExecutionRowCount();
 
+	/**
+	 * Returns the average execution time for a single query when executed on the DB.
+	 *
+	 * @return the average execution time for a single query when executed on the DB.
+	 */
 	long getExecutionAvgTime();
 
+	/**
+	 * Returns the max execution time for a single query when executed on the DB.
+	 *
+	 * @return the max execution time for a single query when executed on the DB.
+	 */
 	long getExecutionMaxTime();
 
+	/**
+	 * Returns the min execution time for a single query when executed on the DB.
+	 *
+	 * @return the min execution time for a single query when executed on the DB.
+	 */
 	long getExecutionMinTime();
 }

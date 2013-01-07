@@ -22,8 +22,7 @@ package net.sf.hibernate.jconsole.ui.widgets;
 import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.round;
 
 /**
- * Is a table cell that shows the timinig (avg, max and min time) when
- * considering the cache rate.
+ * Is a table cell that shows the timing (avg, max and min time) when considering the cache rate.
  *
  * @author Juergen_Kellerer, 21.11.2009
  */
@@ -33,7 +32,7 @@ public class PerformanceTableCell extends LineBarTableCell {
 		super();
 		setStyle(Style.ORANGE);
 
-		double p = performance / maxPerformance;
+		double p = maxPerformance == 0 ? 0 : performance / maxPerformance;
 
 		setValue(p);
 		setLabelValue(round(p * 100D));

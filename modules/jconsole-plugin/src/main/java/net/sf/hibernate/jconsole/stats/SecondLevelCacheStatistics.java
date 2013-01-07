@@ -26,8 +26,6 @@ import java.io.Serializable;
  *
  * @author Gavin King
  * @author Alex Snaps
- * @author Juergen_Kellerer, 2010-09-16
- * @version 1.0
  */
 public interface SecondLevelCacheStatistics extends Serializable {
 

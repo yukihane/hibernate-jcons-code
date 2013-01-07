@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010
+  ~ Copyright (c) 2011
   ~
   ~ This file is part of HibernateJConsole.
   ~
@@ -30,7 +30,7 @@
 	<name>Hibernate JConsole Plugin (hibernate-jconsole)</name>
 	<url>https://hibernate-jcons.sourceforge.net/</url>
 
-	<version>1.0.7-SNAPSHOT</version>
+	<version>1.0.8-SNAPSHOT</version>
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>

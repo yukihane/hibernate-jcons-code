@@ -22,8 +22,10 @@ package net.sf.hibernate.jconsole.ui;
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.formatters.EntityHighlighter;
 import net.sf.hibernate.jconsole.stats.EntityStatistics;
+import net.sf.hibernate.jconsole.stats.SecondLevelCacheStatistics;
 import net.sf.hibernate.jconsole.ui.widgets.*;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Vector;
 
@@ -36,19 +38,29 @@ import java.util.Vector;
 public class EntitiesTable extends AbstractRefreshableJTable<EntityStatistics> {
 
 	private static final Column[] COLUMNS = {
-			new Column("Entity", "The entity class.", Comparable.class),
-			new Column("Performance", "The performance of the entity. Less DB loads lead to higher performance.",
-					Comparable.class),
-			new Column("Loads", "The number of entity loads (from cache, query or DB)", Long.class),
-			new Column("Optimistic Faults", "The amount of optimistic lookup failures.", Long.class),
+			new Column("Entity", "The entity java class.", Comparable.class),
+			new Column("Performance", "<html>Displays the ratio between <i>lightweight</i> load <i>(without an additional DB query)</i>" +
+					"<br/>and any operation that issues an additional read or write on the database.</html>", Comparable.class),
+
+			new Column("Access Count", "The number of times the entity was accessed.", Long.class),
+			new Column("Loads", "<html>The number of times the entity was loaded <i>without</i><br/>" +
+					"requiring an additional DB query.</html>", Long.class),
+			new Column("Fetches", "<html>The number of times that a <i>separate DB query</i><br/>" +
+					"was required to retrieve the entity.</html>", Long.class),
+
+			new Column("Optimistic Faults", "<html>The number of times a concurrent modification<br/>" +
+					"caused an optimistic lock failure inside the DB.</html>", Long.class),
 			new Column("Modifications", null, Comparable.class),
 	};
 
 	long maxLoaded;
 	long maxModificationCount;
+	Map<String, SecondLevelCacheStatistics> cacheStatistics = Collections.emptyMap();
 
-	EntityHighlighter highlighter = new EntityHighlighter();
-	NotAvailableBarTableCell notAvailable = new NotAvailableBarTableCell();
+
+	final EntityHighlighter highlighter = new EntityHighlighter();
+	final NotAvailableBarTableCell loadNotAvailable = new NotAvailableBarTableCell(
+			"This entity is always fetched using a separate DB query.");
 
 	/**
 	 * {@inheritDoc}
@@ -57,14 +69,18 @@ public class EntitiesTable extends AbstractRefreshableJTable<EntityStatistics> {
 	protected Vector toTableRow(String entity, EntityStatistics s) {
 		Vector<Object> v = new Vector<Object>(COLUMNS.length);
 
+		final SecondLevelCacheStatistics cs = cacheStatistics.get(entity);
+		long cacheHits = cs == null ? 0 : cs.getHitCount();
+
 		v.add(new TableCellJLabel(entity, null, highlighter));
 
-		v.add(s.getLoadCount() == 0 ? notAvailable : new EntityPerformanceTableCell(s));
+		v.add(s.getLoadCount() + cacheHits == 0 ? loadNotAvailable : new EntityPerformanceTableCell(s, cacheHits));
+		v.add(s.getLoadCount() + s.getFetchCount() + cacheHits);
 		v.add(s.getLoadCount());
+		v.add(s.getFetchCount());
 		v.add(s.getOptimisticFailureCount());
 
-		v.add(new ModificationsTableCell(maxModificationCount,
-				s.getInsertCount(), s.getUpdateCount(), s.getDeleteCount()));
+		v.add(new ModificationsTableCell(maxModificationCount, s.getInsertCount(), s.getUpdateCount(), s.getDeleteCount()));
 
 		return v;
 	}
@@ -74,13 +90,13 @@ public class EntitiesTable extends AbstractRefreshableJTable<EntityStatistics> {
 	 */
 	@Override
 	protected Map<String, EntityStatistics> toTableData(AbstractStatisticsContext context) {
-		Map<String, EntityStatistics> source = context.getEntityStatistics();
+		final Map<String, EntityStatistics> source = context.getEntityStatistics();
 
+		cacheStatistics = context.getCacheStatistics();
 		maxLoaded = maxModificationCount = 0;
 		for (EntityStatistics s : source.values()) {
 			maxLoaded = Math.max(maxLoaded, s.getLoadCount());
-			maxModificationCount = Math.max(maxModificationCount,
-					(s.getInsertCount() + s.getUpdateCount() + s.getDeleteCount()));
+			maxModificationCount = Math.max(maxModificationCount, (s.getInsertCount() + s.getUpdateCount() + s.getDeleteCount()));
 		}
 
 		return source;

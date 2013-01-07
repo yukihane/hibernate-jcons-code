@@ -59,25 +59,17 @@ public abstract class AbstractStatisticsContext implements Serializable {
 
 	private Map<Names, Object> attributes = new HashMap<Names, Object>();
 
-	private Map<String, EntityStatistics> entityStatistics =
-			new LinkedHashMap<String, EntityStatistics>();
-	private Map<String, EntityStatisticsTable> entityStatisticsTables =
-			new LinkedHashMap<String, EntityStatisticsTable>();
+	private Map<String, EntityStatistics> entityStatistics = new LinkedHashMap<String, EntityStatistics>();
+	private Map<String, EntityStatisticsTable> entityStatisticsTables = new LinkedHashMap<String, EntityStatisticsTable>();
 
-	private Map<String, CollectionStatistics> collectionStatistics =
-			new LinkedHashMap<String, CollectionStatistics>();
-	private Map<String, CollectionStatisticsTable> collectionStatisticTables =
-			new LinkedHashMap<String, CollectionStatisticsTable>();
+	private Map<String, CollectionStatistics> collectionStatistics = new LinkedHashMap<String, CollectionStatistics>();
+	private Map<String, CollectionStatisticsTable> collectionStatisticTables = new LinkedHashMap<String, CollectionStatisticsTable>();
 
-	private Map<String, QueryStatistics> queryStatistics =
-			new LinkedHashMap<String, QueryStatistics>();
-	private Map<String, QueryStatisticsTable> queryStatisticsTables =
-			new LinkedHashMap<String, QueryStatisticsTable>();
+	private Map<String, QueryStatistics> queryStatistics = new LinkedHashMap<String, QueryStatistics>();
+	private Map<String, QueryStatisticsTable> queryStatisticsTables = new LinkedHashMap<String, QueryStatisticsTable>();
 
-	private Map<String, SecondLevelCacheStatistics> cacheStatistics =
-			new LinkedHashMap<String, SecondLevelCacheStatistics>();
-	private Map<String, SecondLevelCacheStatisticsTable> cacheStatisticsTables =
-			new LinkedHashMap<String, SecondLevelCacheStatisticsTable>();
+	private Map<String, SecondLevelCacheStatistics> cacheStatistics = new LinkedHashMap<String, SecondLevelCacheStatistics>();
+	private Map<String, SecondLevelCacheStatisticsTable> cacheStatisticsTables = new LinkedHashMap<String, SecondLevelCacheStatisticsTable>();
 
 	private List<AbstractStatisticsTable> statisticsTables = new ArrayList<AbstractStatisticsTable>();
 	private PrimaryStatisticsTable statisticsTable;
@@ -156,7 +148,7 @@ public abstract class AbstractStatisticsContext implements Serializable {
 	 * Creates a proxy around the given delegate, implementing the interface {@code T}.
 	 *
 	 * @param interfaceClass the interface to be implemented by the proxy class.
-	 * @param delegate	   the delegate to direct the calls to.
+	 * @param delegate       the delegate to direct the calls to.
 	 * @param <T>            the interface type.
 	 * @return a proxy around the given delegate, implementing the interface {@code T}.
 	 */

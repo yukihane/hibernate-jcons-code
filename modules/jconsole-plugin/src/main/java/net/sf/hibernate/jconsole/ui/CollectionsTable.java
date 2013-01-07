@@ -22,8 +22,10 @@ package net.sf.hibernate.jconsole.ui;
 import net.sf.hibernate.jconsole.AbstractStatisticsContext;
 import net.sf.hibernate.jconsole.formatters.CollectionHighlighter;
 import net.sf.hibernate.jconsole.stats.CollectionStatistics;
+import net.sf.hibernate.jconsole.stats.SecondLevelCacheStatistics;
 import net.sf.hibernate.jconsole.ui.widgets.*;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Vector;
 
@@ -36,18 +38,28 @@ import java.util.Vector;
 public class CollectionsTable extends AbstractRefreshableJTable<CollectionStatistics> {
 
 	private static final Column[] COLUMNS = {
-			new Column("Collection Rolename", null, Comparable.class),
-			new Column("Performance", "The performance of the collection. " +
-					"Less DB loads lead to higher performance.", Comparable.class),
-			new Column("Loads", "The number of loads (from cache, query or DB)", Long.class),
-			new Column("Recreations", null, Long.class),
+			new Column("Collection Role Name", null, Comparable.class),
+
+			new Column("Performance", "<html>Displays the ratio between <i>lightweight</i> load <i>(without an additional DB query)</i>" +
+					"<br/>and any operation that issues an additional read or write on the database.</html>", Comparable.class),
+
+			new Column("Access Count", "The number of times the collection was accessed.", Long.class),
+			new Column("Loads", "<html>The number of times the collection was loaded<br/>" +
+					"<i>without</i> requiring an additional DB query.</html>", Long.class),
+			new Column("Fetches", "<html>The number of times that a <i>separate DB query</i><br/>" +
+					"was required to retrieve the collection.</html>", Long.class),
+
+			new Column("Recreations", "<html>The number of times a full deletion &amp; full (re-)insertion was performed.<br/>" +
+					"(<i>heavyweight operation</i>)</html>", Long.class),
 			new Column("Modifications", null, Comparable.class),
 	};
 
 	long maxModificationCount;
+	Map<String, SecondLevelCacheStatistics> cacheStatistics = Collections.emptyMap();
 
-	CollectionHighlighter highlighter = new CollectionHighlighter();
-	NotAvailableBarTableCell notAvailable = new NotAvailableBarTableCell();
+	final CollectionHighlighter highlighter = new CollectionHighlighter();
+	final NotAvailableBarTableCell loadNotAvailable = new NotAvailableBarTableCell(
+			"This collection is always fetched using a separate DB query.");
 
 	/**
 	 * {@inheritDoc}
@@ -56,10 +68,15 @@ public class CollectionsTable extends AbstractRefreshableJTable<CollectionStatis
 	protected Vector toTableRow(String key, CollectionStatistics s) {
 		Vector<Object> v = new Vector<Object>(COLUMNS.length);
 
+		final SecondLevelCacheStatistics cs = cacheStatistics.get(key);
+		long cacheHits = cs == null ? 0 : cs.getHitCount();
+
 		v.add(new TableCellJLabel(key, null, highlighter));
 
-		v.add(s.getLoadCount() == 0 ? notAvailable : new EntityPerformanceTableCell(s));
+		v.add(s.getLoadCount() + cacheHits == 0 ? loadNotAvailable : new EntityPerformanceTableCell(s, cacheHits));
+		v.add(s.getLoadCount() + s.getFetchCount() + cacheHits);
 		v.add(s.getLoadCount());
+		v.add(s.getFetchCount());
 		v.add(s.getRecreateCount());
 
 		v.add(new ModificationsTableCell(maxModificationCount, 0, s.getUpdateCount(), s.getRemoveCount()));
@@ -72,9 +89,10 @@ public class CollectionsTable extends AbstractRefreshableJTable<CollectionStatis
 	 */
 	@Override
 	protected Map<String, CollectionStatistics> toTableData(AbstractStatisticsContext context) {
-		maxModificationCount = 0;
+		final Map<String, CollectionStatistics> source = context.getCollectionStatistics();
 
-		Map<String, CollectionStatistics> source = context.getCollectionStatistics();
+		cacheStatistics = context.getCacheStatistics();
+		maxModificationCount = 0;
 		for (CollectionStatistics s : source.values()) {
 			maxModificationCount = Math.max(maxModificationCount, (s.getRemoveCount() + s.getUpdateCount()));
 		}

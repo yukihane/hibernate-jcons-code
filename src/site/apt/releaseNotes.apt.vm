@@ -8,6 +8,14 @@
 
 Release Notes
 
+* ${project.artifactId}-1.0.7.jar - 2011-11
+
+	* Improved the overall consistency of text labels and descriptions.
+
+	* Fixed incorrectly interpreted values for load and fetch (it is now also described what these values stand for).
+
+	* Added support for including 2nd level cache hit counts into collection and entity statistics (performance & access counts).
+
 * ${project.artifactId}-1.0.6.jar - 2011-06
 
 	* Reached <BETA> quality.

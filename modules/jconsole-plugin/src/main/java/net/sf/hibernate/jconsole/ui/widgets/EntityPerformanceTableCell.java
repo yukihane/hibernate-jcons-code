@@ -25,24 +25,25 @@ import net.sf.hibernate.jconsole.stats.EntityStatistics;
 /**
  * Displays the relative entity building performance.
  * <p/>
- * Entites have more performance when they are just loaded not fetched.
+ * Entities have more performance when they are just loaded not fetched.
  *
  * @author Juergen_Kellerer, 21.11.2009
  */
 public class EntityPerformanceTableCell extends PerformanceTableCell {
 
-	public EntityPerformanceTableCell(CollectionStatistics s) {
-		this(s.getLoadCount(), Math.max(0, s.getLoadCount() - s.getFetchCount()));
+	public EntityPerformanceTableCell(CollectionStatistics s, long cacheHits) {
+		this(s.getLoadCount() + s.getFetchCount() + cacheHits,
+				Math.max(0, (s.getLoadCount() + cacheHits) - (s.getRemoveCount() + s.getRecreateCount() + s.getUpdateCount())));
 	}
 
-	public EntityPerformanceTableCell(EntityStatistics s) {
-		this(s.getLoadCount(), Math.max(0, s.getLoadCount() - s.getFetchCount()));
+	public EntityPerformanceTableCell(EntityStatistics s, long cacheHits) {
+		this(s.getLoadCount() + s.getFetchCount() + cacheHits,
+				Math.max(0, (s.getLoadCount() + cacheHits) - (s.getDeleteCount() + s.getInsertCount() + s.getUpdateCount())));
 	}
 
 	public EntityPerformanceTableCell(double totalLoaded, double fastLoads) {
 		super(totalLoaded, fastLoads);
-
-		setToolTipText(String.format("loaded: %.0f - fetched from db: %.0f",
-				totalLoaded, totalLoaded - fastLoads));
+		setToolTipText(String.format("<html>" +
+				"Accessed: <b>%.0f</b> / additional DB queries: <b>%.0f</b></html>", totalLoaded, totalLoaded - fastLoads));
 	}
 }

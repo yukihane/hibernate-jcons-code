@@ -38,6 +38,7 @@ public class ExecutionCountTableCell extends LineBarTableCell {
 		setLabelValue(executionCount);
 		setLabelFormat("%.0f");
 
-		setToolTipText(String.format("direct executions: %d", directExecutionCount));
+		setToolTipText(String.format("<html>" +
+				"Cached: <b>%d</b> / Direct: <b>%d</b></html>", executionCount - directExecutionCount, directExecutionCount));
 	}
 }

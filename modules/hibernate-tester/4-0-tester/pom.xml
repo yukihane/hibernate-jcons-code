@@ -15,10 +15,11 @@
   ~     GNU General Public License for more details.
   ~
   ~     You should have received a copy of the GNU General Public License
-  ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses />.
+  ~     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
@@ -30,26 +31,49 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>hibernate-3-3-tester</artifactId>
-	<name>Hibernate Connector Tester :: 3.3 Tester</name>
+	<artifactId>hibernate-4-0-tester</artifactId>
+	<name>Hibernate Connector Tester :: 4.0 Tester</name>
 
 	<dependencies>
 		<dependency>
 			<artifactId>hibernate-generic-tester</artifactId>
 			<groupId>net.sf.hibernate-jconsole.testsuite</groupId>
 			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<artifactId>hibernate-core</artifactId>
 			<groupId>org.hibernate</groupId>
-			<version>3.3.2.GA</version>
+			<version>4.0.0.CR5</version>
 		</dependency>
 
 		<dependency>
-			<artifactId>hibernate-jmx</artifactId>
-			<groupId>org.hibernate</groupId>
-			<version>3.3.2.GA</version>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>0.9.28</version>
 		</dependency>
 	</dependencies>
+
+	<!-- Triggers the building of a CLI tester -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

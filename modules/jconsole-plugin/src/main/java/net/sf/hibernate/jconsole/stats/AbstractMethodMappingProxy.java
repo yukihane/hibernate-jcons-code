@@ -34,6 +34,8 @@ import java.util.Map;
  */
 public abstract class AbstractMethodMappingProxy implements InvocationHandler, Serializable {
 
+	private static final long serialVersionUID = -5158861813591604950L;
+
 	private static final Map<Class<?>, Map<Class<?>, Map<Method, Method>>> classMapping =
 			new HashMap<Class<?>, Map<Class<?>, Map<Method, Method>>>();
 
@@ -53,7 +55,7 @@ public abstract class AbstractMethodMappingProxy implements InvocationHandler, S
 	 * Is called in order to resolve the method to call on the delegate when the interface method is called.
 	 *
 	 * @param interfaceMethod the interface method.
-	 * @param targetClass	 the target (delegate) class.
+	 * @param targetClass     the target (delegate) class.
 	 * @return the target method to call on the delegate.
 	 * @throws NoSuchMethodException in case of no method exists that matches.
 	 */

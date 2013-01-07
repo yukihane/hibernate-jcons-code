@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009
+ * Copyright (c) 2011
  *
  * This file is part of HibernateJConsole.
  *
@@ -17,20 +17,19 @@
  *     along with HibernateJConsole.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.sf.hibernate.jconsole.ui.widgets;
+package net.sf.hibernate.jconsole.tester;
 
-import static net.sf.hibernate.jconsole.ui.widgets.AbstractJTable.msToSeconds;
+import org.junit.Test;
 
 /**
- * Displays the relative query performance.
+ * Tests whether HibernateContextTester runs inside this Hibernate version.
  *
- * @author Juergen_Kellerer, 21.11.2009
+ * @author Juergen_Kellerer, 2010-09-18
+ * @version 1.0
  */
-public class QueryPerformanceTableCell extends PerformanceTableCell {
-
-	public QueryPerformanceTableCell(double maxQueryPerformance, double queryPerformance) {
-		super(maxQueryPerformance, Math.max(0D, maxQueryPerformance - queryPerformance));
-		setToolTipText(String.format("<html>" +
-				"Average time per invocation: <b>%.3f</b>s</html>", msToSeconds((long) Math.ceil(queryPerformance))));
+public class HibernateContextTesterTest {
+	@Test
+	public void testTestContext() throws Exception {
+		HibernateContextTester.testContext();
 	}
 }
